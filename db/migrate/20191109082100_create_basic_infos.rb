@@ -14,8 +14,11 @@ class CreateBasicInfos < ActiveRecord::Migration[6.0]
       t.string :country
       t.string :postal_code
       t.references :resume, index: true
+      t.integer :common_entity_id
+      t.string :common_entity_type
       t.timestamps
     end
+    add_index :basic_infos, [:common_entity_id, :common_entity_type]
     add_attachment :basic_infos, :photo
   end
 end

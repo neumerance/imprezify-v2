@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_09_082100) do
+ActiveRecord::Schema.define(version: 2019_11_09_091635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,26 @@ ActiveRecord::Schema.define(version: 2019_11_09_082100) do
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
     t.index ["resume_id"], name: "index_basic_infos_on_resume_id"
+  end
+
+  create_table "entities", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "title", null: false
+    t.date "since", null: false
+    t.date "until"
+    t.boolean "current", default: false
+    t.text "description", default: [], array: true
+    t.string "address"
+    t.string "city"
+    t.string "country"
+    t.string "postal_code"
+    t.text "contacts", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "resumes", force: :cascade do |t|
