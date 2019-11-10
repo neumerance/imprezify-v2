@@ -1,0 +1,2 @@
+class CommonNameValue < ApplicationRecord
+end

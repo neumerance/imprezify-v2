@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_10_100657) do
+ActiveRecord::Schema.define(version: 2019_11_10_102501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 2019_11_10_100657) do
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
     t.index ["resume_id"], name: "index_basic_infos_on_resume_id"
+  end
+
+  create_table "common_name_values", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "value", null: false
+    t.text "description", default: [], array: true
+    t.string "type", null: false
+    t.bigint "resume_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resume_id"], name: "index_common_name_values_on_resume_id"
+    t.index ["type"], name: "index_common_name_values_on_type"
   end
 
   create_table "contacts", force: :cascade do |t|

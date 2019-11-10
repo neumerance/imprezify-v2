@@ -6,4 +6,5 @@ describe Resume do
   it { should have_many :work_experiences }
   it { should have_many :educations }
   it { should have_many :contacts }
+  it { should have_many :skills }
 end
