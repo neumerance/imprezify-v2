@@ -12,6 +12,8 @@ class CreateEntities < ActiveRecord::Migration[6.0]
       t.string :country
       t.string :postal_code
       t.text :contacts, array: true, default: []
+      t.string :type, null: false, index: true
+      t.references :resume, index: true
       t.timestamps
     end
     add_attachment :entities, :logo

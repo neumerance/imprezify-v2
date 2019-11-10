@@ -57,12 +57,16 @@ ActiveRecord::Schema.define(version: 2019_11_09_100323) do
     t.string "country"
     t.string "postal_code"
     t.text "contacts", default: [], array: true
+    t.string "type", null: false
+    t.bigint "resume_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "logo_file_name"
     t.string "logo_content_type"
     t.integer "logo_file_size"
     t.datetime "logo_updated_at"
+    t.index ["resume_id"], name: "index_entities_on_resume_id"
+    t.index ["type"], name: "index_entities_on_type"
   end
 
   create_table "resumes", force: :cascade do |t|

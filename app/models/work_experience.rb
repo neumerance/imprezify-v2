@@ -1,4 +1,8 @@
-class WorkExperience < ApplicationRecord
-  belongs_to :resume
-  has_one :entity, as: :common_entity
+class WorkExperience < Entity
+  MODEL_NAME = 'WorkExperience'.freeze
+  default_scope { where(type: MODEL_NAME) }
+
+  before_save do
+    self.type = MODEL_NAME
+  end
 end
