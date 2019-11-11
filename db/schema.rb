@@ -59,13 +59,6 @@ ActiveRecord::Schema.define(version: 2019_11_10_102501) do
     t.index ["resume_id"], name: "index_contacts_on_resume_id"
   end
 
-  create_table "educations", force: :cascade do |t|
-    t.bigint "resume_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["resume_id"], name: "index_educations_on_resume_id"
-  end
-
   create_table "entities", force: :cascade do |t|
     t.string "name", null: false
     t.string "title", null: false
@@ -92,6 +85,7 @@ ActiveRecord::Schema.define(version: 2019_11_10_102501) do
 
   create_table "resumes", force: :cascade do |t|
     t.string "name"
+    t.string "template_name"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -108,13 +102,6 @@ ActiveRecord::Schema.define(version: 2019_11_10_102501) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "work_experiences", force: :cascade do |t|
-    t.bigint "resume_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["resume_id"], name: "index_work_experiences_on_resume_id"
   end
 
 end

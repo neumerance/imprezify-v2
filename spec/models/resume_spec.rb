@@ -7,4 +7,6 @@ describe Resume do
   it { should have_many :educations }
   it { should have_many :contacts }
   it { should have_many :skills }
+  it { should validate_presence_of :name }
+  it { should validate_presence_of :template_name }
 end
