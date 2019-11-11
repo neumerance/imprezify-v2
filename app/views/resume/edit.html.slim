@@ -1,0 +1,112 @@
+#edit-resume
+  div.mb-5
+    h1.font-weight-lighter.display-3 Profile
+    p.font-weight-light
+      | Make sure to fill up all required fields.
+  .row
+    .col-lg-2
+      ul
+        li Basic Information
+        li Work Experiences
+        li Educations
+        li Skills
+        li Contacts
+    .col-lg-4.col-sm-12
+      .row
+        .col-lg-12.col-sm-12
+          h4.font-weight-lighter Your almost done :)
+          .progress.mb-3
+            .progress-bar.progress-bar-striped.progress-bar-animated aria-valuemax="100" aria-valuemin="0" aria-valuenow="75" role="progressbar" style=("width: 75%")
+      = form_tag({action: :update}, multipart: true, remote: true) do
+        = hidden_field_tag 'resume[basic_info][id]', params.dig(:resume, :basic_info, :id)
+        .row
+          .col-lg-4.col-sm-12.position-relative
+            = file_field_tag 'resume[basic_info][photo]', class: 'd-none'
+            img.d-block.width-100 src="https://i.pravatar.cc/300"
+            = link_to 'javascript:void(0)', class: 'position-absolute text-white',
+                    style: 'bottom: 20px; left: 30px', onclick: 'document.getElementById("resume_basic_info_photo").click()' do
+              i.fa.fa-pen-square.mr-1
+              | Change
+          .col-lg-8.col-sm-12
+            .row
+              .col-lg-12.col-sm-12
+                .form-group
+                  label for="resume_basic_info_name" Full Name
+                  = text_field_tag 'resume[basic_info][name]',
+                          params.dig(:resume, :basic_info, :name),
+                          class: 'form-control', placeholder: 'Juan Dela Cruz'
+            .row
+              .col-lg-12.col-sm-12
+                .form-group
+                  label for="resume_basic_info_title" Current Title / Desired Position
+                  = text_field_tag 'resume[basic_info][title]',
+                          params.dig(:resume, :basic_info, :title),
+                          class: 'form-control', placeholder: 'Senior Software Engineer'
+        .row
+          .col-lg-12.col-sm-12
+            .form-group
+              label for="resume_basic_info_profile_overview" Profile Overview
+              = text_area_tag 'resume[basic_info][profile_overview]',
+                      params.dig(:resume, :basic_info, :profile_overview),
+                      class: 'form-control', placeholder: 'Brief summary of your professional profile'
+        .row
+          .col-lg-6.col-sm-12
+            .form-group
+              label for="resume_basic_info_birthdate" Birthdate
+              = text_field_tag 'resume[basic_info][birthdate]',
+                      params.dig(:resume, :basic_info, :birthdate),
+                      class: 'form-control', placeholder: 'April 15, 1987',
+                      data: {behaviour: 'flatpickr'}
+          .col-lg-6.col-sm-12
+            label for="gender" Gender
+            div#gender
+              .form-check.form-check-inline
+                = radio_button_tag 'resume[basic_info][gender]', 'male',
+                        params.dig(:resume, :basic_info, :gender),
+                        class: 'mr-1'
+                label.mb-0 for="resume_basic_info_gender_male" Male
+              .form-check.form-check-inline
+                = radio_button_tag 'resume[basic_info][gender]', 'femail',
+                        params.dig(:resume, :basic_info, :gender),
+                        class: 'mr-1'
+                label.mb-0 for="resume_basic_info_gender_female" Female
+        .row
+          .col-lg-6.col-sm-12
+            .form-group
+              label for="resume_basic_info_nationality" Nationality
+              = text_field_tag 'resume[basic_info][nationality]',
+                      params.dig(:resume, :basic_info, :nationality),
+                      class: 'form-control', placeholder: 'Filipino'
+          .col-lg-6.col-sm-12
+            .form-group
+              label for="resume_basic_info_religion" Religion
+              = text_field_tag 'resume[basic_info][religion]',
+                      params.dig(:resume, :basic_info, :religion),
+                      class: 'form-control', placeholder: 'Christian'
+        .row
+          .col-lg-12.col-sm-12
+            .form-group
+              label for="resume_basic_info_address" Address
+              = text_field_tag 'resume[basic_info][address]',
+                      params.dig(:resume, :basic_info, :address),
+                      class: 'form-control', placeholder: '63 Outram Park #07-01'
+        .row
+          .col-lg-4.col-sm-12
+            .form-group
+              label for="resume_basic_info_city" City
+              = text_field_tag 'resume[basic_info][city]',
+                      params.dig(:resume, :basic_info, :city),
+                      class: 'form-control', placeholder: 'Singapore'
+          .col-lg-4.col-sm-12
+            .form-group
+              label for="resume_basic_info_country" Country
+              = text_field_tag 'resume[basic_info][country]',
+                      params.dig(:resume, :basic_info, :country),
+                      class: 'form-control', placeholder: 'Singapore'
+          .col-lg-4.col-sm-12
+            .form-group
+              label for="resume_basic_info_postal_code" Postal Code
+              = text_field_tag 'resume[basic_info][postal_code]',
+                      params.dig(:resume, :basic_info, :postal_code),
+                      class: 'form-control', placeholder: '232323'
+    .col-lg-6 3
