@@ -9,15 +9,20 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("packs/utilities")
 
-import flatpickr from "flatpickr";
+import flatpickr from 'flatpickr';
+import { inputAsImageUrl } from './utilities'
 
 document.addEventListener('turbolinks:load', () => {
   flatpickr('[data-behaviour="flatpickr"]', {
     altInput: true,
     altFormat: 'F j, Y',
     dateFormat: 'Y-m-d'
+  });
+
+  $('[data-behaviour="image-input"]').on('change', (elem) => {
+    const imageTag = $(this).attr('data-image-tag');
+    inputAsImageUrl(elem);
   });
 });
 
