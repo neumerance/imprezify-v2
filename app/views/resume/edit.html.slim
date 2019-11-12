@@ -18,7 +18,11 @@
           .progress.mb-3
             .progress-bar.progress-bar-striped.progress-bar-animated aria-valuemax="100" aria-valuemin="0" aria-valuenow="75" role="progressbar" style=("width: 75%")
       = form_for(@resume, multipart: true, remote: true) do |f|
-        = render partial: 'basic_info', locals: { resume: f }
+        div#basic-info.mb-3
+          = render partial: 'basic_info', locals: { resume: f }
+        hr
+        div#work-experiences.mb-3
+          = render partial: 'work_experiences', locals: { resume: f }
         = submit_tag 'Submit'
     .col-lg-6 3
 

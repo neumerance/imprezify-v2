@@ -1,4 +1,5 @@
-= resume.fields_for :basic_info do |basic_info|
+h2.font-weight-lighter.display-5.text-primary Basic Info
+= resume.fields_for :basic_info, @resume.basic_info || BasicInfo.new  do |basic_info|
   = basic_info.hidden_field :id
   .row
     .col-lg-4.col-sm-12.position-relative
@@ -40,10 +41,10 @@
       label for="gender" Gender
       div#gender
         .form-check.form-check-inline
-          = basic_info.radio_button :gender, 'male', class: 'mr-1'
+          = basic_info.radio_button :gender, :male, class: 'mr-1'
           = basic_info.label :gender, 'Male', class: 'mb-0'
         .form-check.form-check-inline
-          = basic_info.radio_button :gender, 'female', class: 'mr-1'
+          = basic_info.radio_button :gender, :female, class: 'mr-1'
           = basic_info.label :gender, 'Female', class: 'mb-0'
   .row
     .col-lg-6.col-sm-12

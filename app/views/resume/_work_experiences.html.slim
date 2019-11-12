@@ -1,0 +1,63 @@
+h2.font-weight-lighter.display-5.text-primary
+  | Work Experiences
+  = link_to url_for(action: :add_more_entity, entity_name: :work_experiences, anchor: "experience_#{@resume.work_experiences.count + 1}"), class: 'ml-2' do
+    span.fa.fa-plus-circle
+p.font-weight-lighter Start with your latest work experience.
+- exp_count = 1
+= resume.fields_for :work_experiences, @resume.work_experiences do |work_experience|
+  a name="experience_#{exp_count}"
+  h4.font-weight-lighter.display-6.text-secondary="Experience ##{exp_count}"
+  - exp_count = exp_count + 1
+  .row
+    .col-lg-12.col-sm-12
+      .form-group
+        = work_experience.label :name, 'Company Name'
+        = work_experience.text_field :name,
+            class: 'form-control', placeholder: 'Moneysmart PTE. LTD.'
+  .row
+    .col-lg-12.col-sm-12
+      .form-group
+        = work_experience.label :title, 'Job Title'
+        = work_experience.text_field :title,
+            class: 'form-control', placeholder: 'Senior Software Engineer'
+  .row
+    .col-lg-6.col-sm-12
+      .form-group
+        = work_experience.label :since
+        = work_experience.text_field :since,
+            class: 'form-control', placeholder: 'April 01, 2016',
+            data: {behaviour: 'flatpickr'}
+    .col-lg-6.col-sm-12
+      .form-group
+        = work_experience.label :until
+        = work_experience.text_field :until,
+            class: 'form-control', placeholder: 'May 15, 2018',
+            data: {behaviour: 'flatpickr'}
+  .row
+    .col-lg-12.col-sm-12
+      .custom-control.custom-switch
+        = work_experience.check_box :current, class: 'custom-control-input'
+        = work_experience.label :current, 'Currently working here', class: 'custom-control-label'
+  .row
+    .col-lg-12.col-sm-12
+      .form-group
+        = work_experience.label :address
+        = work_experience.text_field :address,
+                class: 'form-control', placeholder: '63 Outram Park #07-01'
+  .row
+    .col-lg-4.col-sm-12
+      .form-group
+        = work_experience.label :city
+        = work_experience.text_field :city,
+            class: 'form-control', placeholder: 'Singapore'
+    .col-lg-4.col-sm-12
+      .form-group
+        = work_experience.label :country
+        = work_experience.text_field :country,
+            class: 'form-control', placeholder: 'Singapore'
+    .col-lg-4.col-sm-12
+      .form-group
+        = work_experience.label :postal_code
+        = work_experience.text_field :postal_code,
+            class: 'form-control', placeholder: '232323'
+  hr

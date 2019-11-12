@@ -1,5 +1,5 @@
 class ResumeController < ApplicationController
-  before_action :set_resume, only: [:edit, :update, :destroy]
+  before_action :set_resume, only: [:edit, :update, :destroy, :add_more_entity]
 
   def index
     @resumes = current_user.resumes
@@ -9,6 +9,11 @@ class ResumeController < ApplicationController
 
   def update
     @resume.update_attributes(allowed_params)
+  end
+
+  def add_more_entity
+    @resume.try(params[:entity_name].to_sym)&.build
+    render :edit
   end
 
   private
