@@ -1,0 +1,58 @@
+- exp_count = 1
+= resume.fields_for :educations, @resume.educations do |education|
+  a name="education_#{exp_count}"
+  h4.font-weight-lighter.display-6.text-secondary="Education ##{exp_count}"
+  - exp_count = exp_count + 1
+  .row
+    .col-lg-12.col-sm-12
+      .form-group
+        = education.label :name, 'School Name'
+        = education.text_field :name,
+            class: 'form-control', placeholder: 'Massachusetts Institute of Technology'
+  .row
+    .col-lg-12.col-sm-12
+      .form-group
+        = education.label :title, 'Degree / Course'
+        = education.text_field :title,
+            class: 'form-control', placeholder: 'Bachelor of Science in Information Technology'
+  .row
+    .col-lg-6.col-sm-12
+      .form-group
+        = education.label :since, 'Studied Since'
+        = education.text_field :since,
+            class: 'form-control', placeholder: 'April 01, 2016',
+            data: {behaviour: 'flatpickr'}
+    .col-lg-6.col-sm-12
+      .form-group
+        = education.label :until
+        = education.text_field :until,
+            class: 'form-control', placeholder: 'May 15, 2018',
+            data: {behaviour: 'flatpickr'}
+  .row
+    .col-lg-12.col-sm-12
+      .custom-control.custom-switch
+        = education.check_box :current, class: 'custom-control-input'
+        = education.label :current, 'Currently studying here', class: 'custom-control-label'
+  .row
+    .col-lg-12.col-sm-12
+      .form-group
+        = education.label :address
+        = education.text_field :address,
+                class: 'form-control', placeholder: '63 Outram Park #07-01'
+  .row
+    .col-lg-4.col-sm-12
+      .form-group
+        = education.label :city
+        = education.text_field :city,
+            class: 'form-control', placeholder: 'Singapore'
+    .col-lg-4.col-sm-12
+      .form-group
+        = education.label :country
+        = education.text_field :country,
+            class: 'form-control', placeholder: 'Singapore'
+    .col-lg-4.col-sm-12
+      .form-group
+        = education.label :postal_code
+        = education.text_field :postal_code,
+            class: 'form-control', placeholder: '232323'
+  hr

@@ -1,8 +1,3 @@
-h2.font-weight-lighter.display-5.text-primary
-  | Work Experiences
-  = link_to url_for(action: :add_more_entity, entity_name: :work_experiences, anchor: "experience_#{@resume.work_experiences.count + 1}"), class: 'ml-2' do
-    span.fa.fa-plus-circle
-p.font-weight-lighter Start with your latest work experience.
 - exp_count = 1
 = resume.fields_for :work_experiences, @resume.work_experiences do |work_experience|
   a name="experience_#{exp_count}"

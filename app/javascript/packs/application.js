@@ -12,6 +12,7 @@ require("channels")
 
 import flatpickr from 'flatpickr';
 import { inputAsImageUrl } from './utilities'
+import stickybits from 'stickybits';
 
 document.addEventListener('turbolinks:load', () => {
   flatpickr('[data-behaviour="flatpickr"]', {
@@ -19,6 +20,8 @@ document.addEventListener('turbolinks:load', () => {
     altFormat: 'F j, Y',
     dateFormat: 'Y-m-d'
   });
+
+  stickybits('[data-behaviour="sticky"]');
 
   $('[data-behaviour="image-input"]').on('change', (elem) => {
     const imageTag = $(this).attr('data-image-tag');
