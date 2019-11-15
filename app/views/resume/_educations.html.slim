@@ -1,8 +1,7 @@
-- exp_count = 1
+- exp_count = 0
 = resume.fields_for :educations, @resume.educations do |education|
   a name="education_#{exp_count}"
-  h4.font-weight-lighter.display-6.text-secondary="Education ##{exp_count}"
-  - exp_count = exp_count + 1
+  h4.font-weight-lighter.display-6.text-secondary="Education ##{exp_count + 1}"
   .row
     .col-lg-12.col-sm-12
       .form-group
@@ -30,29 +29,42 @@
             data: {behaviour: 'flatpickr'}
   .row
     .col-lg-12.col-sm-12
-      .custom-control.custom-switch
+      .custom-control.custom-switch.mb-3
         = education.check_box :current, class: 'custom-control-input'
         = education.label :current, 'Currently studying here', class: 'custom-control-label'
   .row
-    .col-lg-12.col-sm-12
-      .form-group
-        = education.label :address
-        = education.text_field :address,
+    .col-lg-4.col-sm-12
+      = education.file_field :logo, class: 'd-none',
+          data: {behaviour: 'image-input', 'image-tag' => "resume_educations_image_tag_#{exp_count}_logo"}
+      = image_tag education.object.logo.url,
+          id: "resume_educations_image_tag_#{exp_count}_logo",
+          class: 'rounded d-block width-100'
+      = link_to 'javascript:void(0)', class: 'position-absolute text-white rounded py-1 px-2 change-photo',
+          onclick: 'document.getElementById("resume_educations_attributes_'+exp_count.to_s+'_logo").click()' do
+        i.fa.fa-pen-square.mr-1
+        | Change
+    .col-lg-8.col-sm-12
+      .row
+        .col-lg-7.col-sm-12
+          .form-group
+            = education.label :address
+            = education.text_field :address,
                 class: 'form-control', placeholder: '63 Outram Park #07-01'
-  .row
-    .col-lg-4.col-sm-12
-      .form-group
-        = education.label :city
-        = education.text_field :city,
-            class: 'form-control', placeholder: 'Singapore'
-    .col-lg-4.col-sm-12
-      .form-group
-        = education.label :country
-        = education.text_field :country,
-            class: 'form-control', placeholder: 'Singapore'
-    .col-lg-4.col-sm-12
-      .form-group
-        = education.label :postal_code
-        = education.text_field :postal_code,
-            class: 'form-control', placeholder: '232323'
+        .col-lg-5.col-sm-12
+          .form-group
+            = education.label :city
+            = education.text_field :city,
+                class: 'form-control', placeholder: 'Singapore'
+      .row
+        .col-lg-6.col-sm-12
+          .form-group
+            = education.label :country
+            = education.text_field :country,
+                class: 'form-control', placeholder: 'Singapore'
+        .col-lg-6.col-sm-12
+          .form-group
+            = education.label :postal_code
+            = education.text_field :postal_code,
+                class: 'form-control', placeholder: '232323'
+      - exp_count = exp_count + 1
   hr

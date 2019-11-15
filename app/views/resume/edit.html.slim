@@ -24,14 +24,14 @@
         hr
         h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
           | Work Experiences
-          = link_to url_for(action: :add_more_entity, entity_name: :work_experiences, anchor: "experience_#{@resume.work_experiences.count + 1}"), class: 'ml-2' do
+          = link_to url_for(action: :add_more_entity, entity_name: :work_experiences, anchor: "experience_#{@resume.work_experiences.count}"), class: 'ml-2' do
             span.fa.fa-plus-circle
         p.font-weight-lighter Start with your latest work experience.
         div#work-experiences.mb-3
           = render partial: 'work_experiences', locals: { resume: f }
         h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
           | Educations
-          = link_to url_for(action: :add_more_entity, entity_name: :educations, anchor: "education_#{@resume.educations.count + 1}"), class: 'ml-2' do
+          = link_to url_for(action: :add_more_entity, entity_name: :educations, anchor: "education_#{@resume.educations.count}"), class: 'ml-2' do
             span.fa.fa-plus-circle
         div#educations.mb-3
           = render partial: 'educations', locals: { resume: f }
