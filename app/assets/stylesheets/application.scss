@@ -19,3 +19,15 @@
 .z-index-1090 {
   z-index: 1090;
 }
+
+[data-toggle="collapse"]:hover {
+  text-decoration: none;
+}
+[data-toggle="collapse"] .fa:before {
+  content: "\f078";
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+  content: "\f077";
+}
+
