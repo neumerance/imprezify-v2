@@ -2,13 +2,7 @@
   = basic_info.hidden_field :id
   .row
     .col-lg-4.col-sm-12.position-relative
-      = basic_info.file_field :photo, class: 'd-none',
-          data: {behaviour: 'image-input', 'image-tag' => 'photo'}
-      = image_tag basic_info.object.photo.url, id: 'photo', class: 'rounded d-block width-100'
-      = link_to 'javascript:void(0)', class: 'position-absolute text-white rounded py-1 px-2 change-photo',
-              onclick: 'document.getElementById("resume_basic_info_attributes_photo").click()' do
-        i.fa.fa-pen-square.mr-1
-        | Change
+      = image_field(basic_info, :photo)
     .col-lg-8.col-sm-12
       .row
         .col-lg-12.col-sm-12

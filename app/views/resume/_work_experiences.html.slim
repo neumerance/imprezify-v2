@@ -49,15 +49,7 @@
         | Show advanced fields
   .row.collapse id="#{collapsible}"
     .col-lg-4.col-sm-12
-      = work_experience.file_field :logo, class: 'd-none',
-          data: {behaviour: 'image-input', 'image-tag' => "resume_work_experiences_image_tag_#{exp_count}_logo"}
-      = image_tag work_experience.object.logo.url,
-          id: "resume_work_experiences_image_tag_#{exp_count}_logo",
-          class: 'rounded d-block width-100'
-      = link_to 'javascript:void(0)', class: 'position-absolute text-white rounded py-1 px-2 change-photo',
-          onclick: 'document.getElementById("resume_work_experiences_attributes_' +exp_count.to_s + '_logo").click()' do
-        i.fa.fa-pen-square.mr-1
-        | Change
+      = image_field(work_experience, :logo)
     .col-lg-8.col-sm-12
       .row
         .col-lg-7.col-sm-12
