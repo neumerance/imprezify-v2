@@ -5,15 +5,12 @@ class ResumeController < ApplicationController
     @resumes = current_user.resumes
   end
 
-  def edit; end
+  def edit
+    @resume.try(params[:entity_name].to_sym)&.build if params[:entity_name].present?
+  end
 
   def update
     @resume.update_attributes(allowed_params)
-  end
-
-  def add_more_entity
-    @resume.try(params[:entity_name].to_sym)&.build
-    render :edit
   end
 
   private

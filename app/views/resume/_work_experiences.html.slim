@@ -32,6 +32,14 @@
       .custom-control.custom-switch.mb-3
         = work_experience.check_box :current, class: 'custom-control-input'
         = work_experience.label :current, 'Currently working here', class: 'custom-control-label'
+  .row
+    .col-lg-12.col-sm-12
+      .form-group
+        = work_experience.label :description, 'Job Description', class: 'd-block'
+        - work_experience.object.description.each do |d|
+          = text_field_tag "#{work_experience.object_name}[description][]", d, class: 'form-control'
+        = add_more_field_button(work_experience, :description)
+      small.form-text.text-muted Add new line for each descriptions
   - collapsible = "work_experience_collapsible_#{exp_count}"
   .row.mb-3
     .col-lg-12.col-sm-12
@@ -75,3 +83,4 @@
                 class: 'form-control', placeholder: '232323'
   - exp_count = exp_count + 1
   hr
+

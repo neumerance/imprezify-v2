@@ -2,17 +2,36 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-import 'bootstrap'
 import './src/application.scss'
 
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery/dist/jquery")
+require("bootstrap/dist/js/bootstrap")
 
 import flatpickr from 'flatpickr';
 import { inputAsImageUrl } from './utilities'
 import stickybits from 'stickybits';
+
+window.moveToHash = () => {
+  if (window.location.hash) {
+    const anchor = jQuery(`a[name="${window.location.hash.substring(1)}"]`);
+    $('html, body').animate({
+      scrollTop: anchor.offset().top
+    }, 500);
+  }
+}
+
+window.addMoreField = (elem) => {
+  const el = $(elem);
+  el.before(`<input name="${el.attr('data-object-name')}" class="form-control mb-2" placeholder="Put description here" />`);
+}
+
+window.removeField = (elem) => {
+  $(elem).remove();
+}
 
 document.addEventListener('turbolinks:load', () => {
   flatpickr('[data-behaviour="flatpickr"]', {

@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   resources :resume do
     member do
-      get :add_more_entity
     end
   end
 end
