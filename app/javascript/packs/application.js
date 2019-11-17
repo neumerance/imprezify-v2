@@ -14,6 +14,9 @@ require("bootstrap/dist/js/bootstrap")
 import flatpickr from 'flatpickr';
 import { inputAsImageUrl } from './utilities'
 import stickybits from 'stickybits';
+import alertify from 'alertifyjs'
+
+alertify.defaults.glossary.title = 'Imprezify';
 
 window.moveToHash = () => {
   if (window.location.hash) {
@@ -26,11 +29,22 @@ window.moveToHash = () => {
 
 window.addMoreField = (elem) => {
   const el = $(elem);
-  el.before(`<input name="${el.attr('data-object-name')}" class="form-control mb-2" placeholder="Put description here" />`);
+  const input_button = $('<div class="input-group-append mb-2">').html($('<button class="btn btn-sm btn-outline-danger" onclick="removeField(this)">').text('Remove'));
+  const input_group = $('<div class="input-group">');
+  input_group.append(`<input name="${el.attr('data-object-name')}" class="form-control mb-2" placeholder="Put description here" />`);
+  input_group.append(input_button);
+  el.before(input_group);
 }
 
 window.removeField = (elem) => {
-  $(elem).remove();
+  $(elem).parents('.input-group').remove();
+}
+
+window.destroySection = (elem, model_id, model_name) => {
+  const el = $(elem);
+  alertify.confirm('Are you sure you want to delete this?', () => {
+    el.parents('.section').replaceWith(`<input type="hidden" name="${model_name}[_destroy]" value="${model_id}" />`);
+  });
 }
 
 document.addEventListener('turbolinks:load', () => {

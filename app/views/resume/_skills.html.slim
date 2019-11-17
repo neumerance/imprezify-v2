@@ -1,0 +1,24 @@
+- exp_count = 0
+= resume.fields_for :skills, @resume.skills do |skill|
+  a name="skill_#{exp_count}"
+  .section
+    .section-title.d-flex.justify-content-between
+      h4.font-weight-lighter.display-6.text-secondary
+        = "Skill ##{exp_count + 1}"
+      = link_to 'javascript:void(0)',
+          onclick: "destroySection(this, '#{skill.object.id}', '#{skill.object_name}')",
+          class: 'font-weight-lighter text-danger' do
+        span.fa.fa-times
+    .row
+      .col-lg-6.col-sm-12
+        .form-group
+          = skill.text_field :name,
+              class: 'form-control', placeholder: 'Ruby on Rails'
+      .col-lg-6.col-sm-12
+        .form-group
+          = skill.select :value,
+              skill_levels,
+              { include_blank: '--- Select skill level ---' },
+              { class: 'form-control' }
+
+

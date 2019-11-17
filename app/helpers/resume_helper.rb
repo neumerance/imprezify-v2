@@ -19,4 +19,8 @@ module ResumeHelper
                      onclick: "document.getElementById('#{name}').click()")
     end
   end
+
+  def skill_levels
+    ['newbie', 'beginner', 'skilled', 'experienced', 'expert'].map { |s| [s.titleize, s] }
+  end
 end

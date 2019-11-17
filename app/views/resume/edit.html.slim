@@ -35,6 +35,12 @@
             span.fa.fa-plus-circle
         div#educations.mb-3
           = render partial: 'educations', locals: { resume: f }
+        h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
+          | Skills
+          = link_to url_for(action: :edit, entity_name: :skills, anchor: "skill_#{@resume.skills.count}"), class: 'ml-2' do
+            span.fa.fa-plus-circle
+        div#skills.mb-3
+          = render partial: 'skills', locals: {resume: f}
         = submit_tag 'Submit'
     .col-lg-6 3
 

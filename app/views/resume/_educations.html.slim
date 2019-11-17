@@ -1,77 +1,87 @@
 - exp_count = 0
 = resume.fields_for :educations, @resume.educations do |education|
-  a name="education_#{exp_count}"
-  h4.font-weight-lighter.display-6.text-secondary="Education ##{exp_count + 1}"
-  .row
-    .col-lg-12.col-sm-12
-      .form-group
-        = education.label :name, 'School Name'
-        = education.text_field :name,
-            class: 'form-control', placeholder: 'Massachusetts Institute of Technology'
-  .row
-    .col-lg-12.col-sm-12
-      .form-group
-        = education.label :title, 'Degree / Course'
-        = education.text_field :title,
-            class: 'form-control', placeholder: 'Bachelor of Science in Information Technology'
-  .row
-    .col-lg-6.col-sm-12
-      .form-group
-        = education.label :since, 'Studied Since'
-        = education.text_field :since,
-            class: 'form-control', placeholder: 'April 01, 2016',
-            data: {behaviour: 'flatpickr'}
-    .col-lg-6.col-sm-12
-      .form-group
-        = education.label :until
-        = education.text_field :until,
-            class: 'form-control', placeholder: 'May 15, 2018',
-            data: {behaviour: 'flatpickr'}
-  .row
-    .col-lg-12.col-sm-12
-      .custom-control.custom-switch.mb-3
-        = education.check_box :current, class: 'custom-control-input'
-        = education.label :current, 'Currently studying here', class: 'custom-control-label'
-  .row
-    .col-lg-12.col-sm-12
-      .form-group
-        = education.label :description, 'Job Description', class: 'd-block'
-        - education.object.description.each do |d|
-          = text_field_tag "#{education.object_name}[description][]", d, class: 'form-control'
-        = add_more_field_button(education, :description)
-      small.form-text.text-muted Add new line for each descriptions
-  - collapsible = "resume_educations_collapsible_#{exp_count}"
-  .row.mb-3
-    .col-lg-12.col-sm-12
-      = link_to "##{collapsible}", class: 'collapsed', data: { toggle: 'collapse' },
-          'aria-expanded' => 'false', 'aria-controls' => collapsible do
-        .fa.mr-2
-        | Show advanced fields
-  .row.collapse id="#{collapsible}"
-    .col-lg-4.col-sm-12
-      = image_field(education, :logo)
-    .col-lg-8.col-sm-12
-      .row
-        .col-lg-7.col-sm-12
-          .form-group
-            = education.label :address
-            = education.text_field :address,
-                class: 'form-control', placeholder: '63 Outram Park #07-01'
-        .col-lg-5.col-sm-12
-          .form-group
-            = education.label :city
-            = education.text_field :city,
-                class: 'form-control', placeholder: 'Singapore'
-      .row
-        .col-lg-6.col-sm-12
-          .form-group
-            = education.label :country
-            = education.text_field :country,
-                class: 'form-control', placeholder: 'Singapore'
-        .col-lg-6.col-sm-12
-          .form-group
-            = education.label :postal_code
-            = education.text_field :postal_code,
-                class: 'form-control', placeholder: '232323'
-      - exp_count = exp_count + 1
-  hr
+  .section
+    a name="education_#{exp_count}"
+    .section-title.d-flex.justify-content-between
+      h4.font-weight-lighter.display-6.text-secondary
+        = "Education ##{exp_count + 1}"
+      = link_to 'javascript:void(0)',
+          onclick: "destroySection(this, '#{education.object.id}', '#{education.object_name}')",
+          class: 'font-weight-lighter text-danger' do
+        span.fa.fa-times
+    .row
+      .col-lg-12.col-sm-12
+        .form-group
+          = education.label :name, 'School Name'
+          = education.text_field :name,
+              class: 'form-control', placeholder: 'Massachusetts Institute of Technology'
+    .row
+      .col-lg-12.col-sm-12
+        .form-group
+          = education.label :title, 'Degree / Course'
+          = education.text_field :title,
+              class: 'form-control', placeholder: 'Bachelor of Science in Information Technology'
+    .row
+      .col-lg-6.col-sm-12
+        .form-group
+          = education.label :since, 'Studied Since'
+          = education.text_field :since,
+              class: 'form-control', placeholder: 'April 01, 2016',
+              data: {behaviour: 'flatpickr'}
+      .col-lg-6.col-sm-12
+        .form-group
+          = education.label :until
+          = education.text_field :until,
+              class: 'form-control', placeholder: 'May 15, 2018',
+              data: {behaviour: 'flatpickr'}
+    .row
+      .col-lg-12.col-sm-12
+        .custom-control.custom-switch.mb-3
+          = education.check_box :current, class: 'custom-control-input'
+          = education.label :current, 'Currently studying here', class: 'custom-control-label'
+    .row
+      .col-lg-12.col-sm-12
+        .form-group
+          = education.label :description, 'Job Description', class: 'd-block'
+          - education.object.description.each do |d|
+            .input-group.mb-2
+              = text_field_tag "#{education.object_name}[description][]", d, class: 'form-control'
+              .input-group-append
+                = button_tag 'Remove', class: 'btn btn-outline-danger'
+          = add_more_field_button(education, :description)
+        small.form-text.text-muted Add new line for each descriptions
+    - collapsible = "resume_educations_collapsible_#{exp_count}"
+    .row.mb-3
+      .col-lg-12.col-sm-12
+        = link_to "##{collapsible}", class: 'collapsed', data: { toggle: 'collapse' },
+            'aria-expanded' => 'false', 'aria-controls' => collapsible do
+          .fa.mr-2
+          | Show advanced fields
+    .row.collapse id="#{collapsible}"
+      .col-lg-4.col-sm-12
+        = image_field(education, :logo)
+      .col-lg-8.col-sm-12
+        .row
+          .col-lg-7.col-sm-12
+            .form-group
+              = education.label :address
+              = education.text_field :address,
+                  class: 'form-control', placeholder: '63 Outram Park #07-01'
+          .col-lg-5.col-sm-12
+            .form-group
+              = education.label :city
+              = education.text_field :city,
+                  class: 'form-control', placeholder: 'Singapore'
+        .row
+          .col-lg-6.col-sm-12
+            .form-group
+              = education.label :country
+              = education.text_field :country,
+                  class: 'form-control', placeholder: 'Singapore'
+          .col-lg-6.col-sm-12
+            .form-group
+              = education.label :postal_code
+              = education.text_field :postal_code,
+                  class: 'form-control', placeholder: '232323'
+        - exp_count = exp_count + 1
+    hr
