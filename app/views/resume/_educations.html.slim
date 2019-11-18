@@ -1,6 +1,6 @@
 - exp_count = 0
 = resume.fields_for :educations, @resume.educations do |education|
-  .section
+  .section.mt-5.mb-5
     a name="education_#{exp_count}"
     .section-title.d-flex.justify-content-between
       h4.font-weight-lighter.display-6.text-secondary
@@ -84,4 +84,3 @@
               = education.text_field :postal_code,
                   class: 'form-control', placeholder: '232323'
         - exp_count = exp_count + 1
-    hr
