@@ -9,5 +9,10 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = yield :head
   body
+    div#preloader.position-fixed
+      .preloader
+        div
+        div
+        div
     = yield
 

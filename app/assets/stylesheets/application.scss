@@ -33,4 +33,46 @@
 .slider.slider-horizontal {
   width: 100% !important;
 }
+#preloader {
+  bottom: 80px;
+  right: 100px;
+  display: none;
+}
+.preloader {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+.preloader div {
+  display: inline-block;
+  position: absolute;
+  left: 4px;
+  width: 8px;
+  background: #000000;
+  animation: preloader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.preloader div:nth-child(1) {
+  left: 4px;
+  animation-delay: -0.24s;
+}
+.preloader div:nth-child(2) {
+  left: 16px;
+  animation-delay: -0.12s;
+}
+.preloader div:nth-child(3) {
+  left: 28px;
+  animation-delay: 0;
+}
+@keyframes preloader {
+  0% {
+    top: 4px;
+    height: 32px;
+  }
+  50%, 100% {
+    top: 12px;
+    height: 16px;
+  }
+}
+
 

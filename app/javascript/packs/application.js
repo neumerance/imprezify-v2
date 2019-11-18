@@ -47,6 +47,11 @@ window.destroySection = (elem, model_id, model_name) => {
   });
 }
 
+window.saveOnChange = (elem) => {
+  const form = $(el).parents('form')
+  form.submit();
+}
+
 document.addEventListener('turbolinks:load', () => {
   flatpickr('[data-behaviour="flatpickr"]', {
     altInput: true,
@@ -60,6 +65,17 @@ document.addEventListener('turbolinks:load', () => {
     const imageTag = $(this).attr('data-image-tag');
     inputAsImageUrl(elem);
   });
+
+  $(document)
+    .on('ajax:beforeSend', 'form', () => {
+      $('#preloader').show();
+    })
+    .on('ajax:success', 'form', (data, status, xhr) => {
+      $('#preloader').hide();
+    })
+    .on('ajax:error', 'form', (data, status, xhr) => {
+      $('#preloader').hide();
+    })
 });
 
 // Uncomment to copy all static images under ../images to the output folder and reference
