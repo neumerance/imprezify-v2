@@ -1,5 +1,5 @@
 class BasicInfo < ApplicationRecord
-  has_attached_file :photo, styles: { passport: '413x531>' }, default_url: 'https://i.pravatar.cc/300'
+  has_attached_file :photo, styles: { passport: '413x531>' }, default_url: '100x100.png'
   belongs_to :resume
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/

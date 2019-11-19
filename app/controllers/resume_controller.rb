@@ -10,7 +10,7 @@ class ResumeController < ApplicationController
   end
 
   def update
-    @resume.update_attributes(allowed_params)
+    @resume.update(allowed_params)
   end
 
   private
