@@ -42,14 +42,15 @@ window.removeField = (elem) => {
 
 window.destroySection = (elem, model_id, model_name) => {
   const el = $(elem);
+  const form = el.parents('form');
   alertify.confirm('Are you sure you want to delete this?', () => {
     el.parents('.section').replaceWith(`<input type="hidden" name="${model_name}[_destroy]" value="${model_id}" />`);
+    form.find('[name="commit"]').click();
   });
 }
 
-window.saveOnChange = (elem) => {
-  const form = $(el).parents('form')
-  form.submit();
+window.submitForm = (el) => {
+  $(el).parents('form').find('[name="commit"]').click();
 }
 
 document.addEventListener('turbolinks:load', () => {

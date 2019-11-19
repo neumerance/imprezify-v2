@@ -12,13 +12,13 @@
     .row
       .col-lg-6.col-sm-12
         .form-group
-          = skill.text_field :name,
-              class: 'form-control', placeholder: 'Ruby on Rails'
+          = skill.text_field :name, class: 'form-control',
+              placeholder: 'Ruby on Rails', onchange: 'submitForm(this)'
       .col-lg-6.col-sm-12
         .form-group
           = skill.select :value,
               skill_levels,
               { include_blank: '--- Select skill level ---' },
-              { class: 'form-control' }
+              { class: 'form-control', onchange: 'submitForm(this)' }
 
 

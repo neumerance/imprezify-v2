@@ -13,38 +13,37 @@
       .col-lg-12.col-sm-12
         .form-group
           = work_experience.label :name, 'Company Name'
-          = work_experience.text_field :name,
-              class: 'form-control', placeholder: 'Moneysmart PTE. LTD.'
+          = work_experience.text_field :name, class: 'form-control',
+              placeholder: 'Moneysmart PTE. LTD.', onchange: 'submitForm(this)'
     .row
       .col-lg-12.col-sm-12
         .form-group
           = work_experience.label :title, 'Job Title'
-          = work_experience.text_field :title,
-              class: 'form-control', placeholder: 'Senior Software Engineer'
+          = work_experience.text_field :title, class: 'form-control',
+              placeholder: 'Senior Software Engineer', onchange: 'submitForm(this)'
     .row
       .col-lg-6.col-sm-12
         .form-group
           = work_experience.label :since
-          = work_experience.text_field :since,
-              class: 'form-control', placeholder: 'April 01, 2016',
-              data: {behaviour: 'flatpickr'}
+          = work_experience.text_field :since, class: 'form-control', placeholder: 'April 01, 2016',
+              data: {behaviour: 'flatpickr'}, onchange: 'submitForm(this)'
       .col-lg-6.col-sm-12
         .form-group
           = work_experience.label :until
-          = work_experience.text_field :until,
-              class: 'form-control', placeholder: 'May 15, 2018',
-              data: {behaviour: 'flatpickr'}
+          = work_experience.text_field :until, class: 'form-control', placeholder: 'May 15, 2018',
+              data: {behaviour: 'flatpickr'}, onchange: 'submitForm(this)'
     .row
       .col-lg-12.col-sm-12
         .custom-control.custom-switch.mb-3
-          = work_experience.check_box :current, class: 'custom-control-input'
+          = work_experience.check_box :current, class: 'custom-control-input', onchange: 'submitForm(this)'
           = work_experience.label :current, 'Currently working here', class: 'custom-control-label'
     .row
       .col-lg-12.col-sm-12
         .form-group
           = work_experience.label :description, 'Job Description', class: 'd-block'
           - work_experience.object.description.each do |d|
-            = text_field_tag "#{work_experience.object_name}[description][]", d, class: 'form-control'
+            = text_field_tag "#{work_experience.object_name}[description][]", d,
+                class: 'form-control', onchange: 'submitForm(this)'
           = add_more_field_button(work_experience, :description)
         small.form-text.text-muted Add new line for each descriptions
     - collapsible = "work_experience_collapsible_#{exp_count}"
@@ -62,23 +61,23 @@
           .col-lg-7.col-sm-12
             .form-group
               = work_experience.label :address
-              = work_experience.text_field :address,
-                  class: 'form-control', placeholder: '63 Outram Park #07-01'
+              = work_experience.text_field :address, class: 'form-control',
+                  placeholder: '63 Outram Park #07-01', onchange: 'submitForm(this)'
           .col-lg-5.col-sm-12
             .form-group
               = work_experience.label :city
-              = work_experience.text_field :city,
-                  class: 'form-control', placeholder: 'Singapore'
+              = work_experience.text_field :city, class: 'form-control',
+                  placeholder: 'Singapore', onchange: 'submitForm(this)'
         .row
           .col-lg-6.col-sm-12
             .form-group
               = work_experience.label :country
-              = work_experience.text_field :country,
-                  class: 'form-control', placeholder: 'Singapore'
+              = work_experience.text_field :country, class: 'form-control',
+                  placeholder: 'Singapore', onchange: 'submitForm(this)'
           .col-lg-6.col-sm-12
             .form-group
               = work_experience.label :postal_code
-              = work_experience.text_field :postal_code,
-                  class: 'form-control', placeholder: '232323'
+              = work_experience.text_field :postal_code, class: 'form-control',
+                  placeholder: '232323', onchange: 'submitForm(this)'
     - exp_count = exp_count + 1
 

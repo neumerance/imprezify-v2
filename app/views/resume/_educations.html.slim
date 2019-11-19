@@ -13,31 +13,29 @@
       .col-lg-12.col-sm-12
         .form-group
           = education.label :name, 'School Name'
-          = education.text_field :name,
-              class: 'form-control', placeholder: 'Massachusetts Institute of Technology'
+          = education.text_field :name, class: 'form-control',
+              placeholder: 'Massachusetts Institute of Technology', onchange: 'submitForm(this)'
     .row
       .col-lg-12.col-sm-12
         .form-group
           = education.label :title, 'Degree / Course'
-          = education.text_field :title,
-              class: 'form-control', placeholder: 'Bachelor of Science in Information Technology'
+          = education.text_field :title, class: 'form-control',
+              placeholder: 'Bachelor of Science in Information Technology', onchange: 'submitForm(this)'
     .row
       .col-lg-6.col-sm-12
         .form-group
           = education.label :since, 'Studied Since'
-          = education.text_field :since,
-              class: 'form-control', placeholder: 'April 01, 2016',
-              data: {behaviour: 'flatpickr'}
+          = education.text_field :since, class: 'form-control',
+              placeholder: 'April 01, 2016', data: {behaviour: 'flatpickr'}, onchange: 'submitForm(this)'
       .col-lg-6.col-sm-12
         .form-group
           = education.label :until
-          = education.text_field :until,
-              class: 'form-control', placeholder: 'May 15, 2018',
-              data: {behaviour: 'flatpickr'}
+          = education.text_field :until, class: 'form-control', placeholder: 'May 15, 2018',
+              data: {behaviour: 'flatpickr'}, onchange: 'submitForm(this)'
     .row
       .col-lg-12.col-sm-12
         .custom-control.custom-switch.mb-3
-          = education.check_box :current, class: 'custom-control-input'
+          = education.check_box :current, class: 'custom-control-input', onchange: 'submitForm(this)'
           = education.label :current, 'Currently studying here', class: 'custom-control-label'
     .row
       .col-lg-12.col-sm-12
@@ -45,7 +43,7 @@
           = education.label :description, 'Job Description', class: 'd-block'
           - education.object.description.each do |d|
             .input-group.mb-2
-              = text_field_tag "#{education.object_name}[description][]", d, class: 'form-control'
+              = text_field_tag "#{education.object_name}[description][]", d, class: 'form-control', onchange: 'submitForm(this)'
               .input-group-append
                 = button_tag 'Remove', class: 'btn btn-outline-danger'
           = add_more_field_button(education, :description)
@@ -65,22 +63,22 @@
           .col-lg-7.col-sm-12
             .form-group
               = education.label :address
-              = education.text_field :address,
-                  class: 'form-control', placeholder: '63 Outram Park #07-01'
+              = education.text_field :address, class: 'form-control',
+                  placeholder: '63 Outram Park #07-01', onchange: 'submitForm(this)'
           .col-lg-5.col-sm-12
             .form-group
               = education.label :city
-              = education.text_field :city,
-                  class: 'form-control', placeholder: 'Singapore'
+              = education.text_field :city, class: 'form-control',
+                  placeholder: 'Singapore', onchange: 'submitForm(this)'
         .row
           .col-lg-6.col-sm-12
             .form-group
               = education.label :country
-              = education.text_field :country,
-                  class: 'form-control', placeholder: 'Singapore'
+              = education.text_field :country, class: 'form-control',
+                  placeholder: 'Singapore', onchange: 'submitForm(this)'
           .col-lg-6.col-sm-12
             .form-group
               = education.label :postal_code
-              = education.text_field :postal_code,
-                  class: 'form-control', placeholder: '232323'
+              = education.text_field :postal_code, class: 'form-control',
+                  placeholder: '232323', onchange: 'submitForm(this)'
         - exp_count = exp_count + 1
