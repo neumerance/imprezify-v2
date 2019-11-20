@@ -1,10 +1,10 @@
 class Resume < ApplicationRecord
   belongs_to :user
-  has_one :basic_info
-  has_many :work_experiences
-  has_many :educations
-  has_many :contacts
-  has_many :skills
+  has_one :basic_info, dependent: :destroy
+  has_many :work_experiences, dependent: :destroy
+  has_many :educations, dependent: :destroy
+  has_many :contacts, dependent: :destroy
+  has_many :skills, dependent: :destroy
 
   validates :name, :template_name, presence: true
 

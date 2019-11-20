@@ -37,10 +37,10 @@
       label for="gender" Gender
       div#gender
         .form-check.form-check-inline
-          = basic_info.radio_button :gender, :male, class: 'mr-1', onchange: 'submitForm(this)'
+          = basic_info.radio_button :gender, :male, class: 'mr-1', onclick: 'submitForm(this)'
           = basic_info.label :gender, 'Male', class: 'mb-0'
         .form-check.form-check-inline
-          = basic_info.radio_button :gender, :female, class: 'mr-1', onchange: 'submitForm(this)'
+          = basic_info.radio_button :gender, :female, class: 'mr-1', onclick: 'submitForm(this)'
           = basic_info.label :gender, 'Female', class: 'mb-0'
   - collapsible = "basic_info_collapsible"
   .row.mb-3

@@ -53,6 +53,10 @@ window.submitForm = (el) => {
   $(el).parents('form').find('[name="commit"]').click();
 }
 
+window.hasActiveAjax = () => {
+  return $.active;
+}
+
 document.addEventListener('turbolinks:load', () => {
   flatpickr('[data-behaviour="flatpickr"]', {
     altInput: true,
