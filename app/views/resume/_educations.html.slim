@@ -1,7 +1,11 @@
+- unless @resume.educations.any?
+  .card.nothing-on-it
+    .card-body
+      | Click plus button above to add education.
 - exp_count = 0
 = resume.fields_for :educations, @resume.educations do |education|
-  = education.hidden_field :id
-  .section.mt-5.mb-5
+  .section.mt-5.mb-5 id="education_#{exp_count}"
+    = education.hidden_field :id
     a name="education_#{exp_count}"
     .section-title.d-flex.justify-content-between
       h4.font-weight-lighter.display-6.text-secondary
@@ -49,7 +53,7 @@
                 = button_tag 'Remove', class: 'btn btn-outline-danger'
           = add_more_field_button(education, :description)
         small.form-text.text-muted Add new line for each descriptions
-    - collapsible = "resume_educations_collapsible_#{exp_count}"
+    - collapsible = "education_collapsible_#{exp_count}"
     .row.mb-3
       .col-lg-12.col-sm-12
         = link_to "##{collapsible}", class: 'collapsed', data: { toggle: 'collapse' },
