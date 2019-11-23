@@ -1,8 +1,12 @@
+- unless @resume.skills.any?
+  .card.nothing-on-it
+    .card-body
+      | Click plus button above to add skill.
 - exp_count = 0
 = resume.fields_for :skills, @resume.skills do |skill|
-  = skill.hidden_field :id
-  a name="skill_#{exp_count}"
-  .section.mt-5.mb-5
+  .section.mt-5.mb-5 id="skill_#{exp_count}"
+    = skill.hidden_field :id
+    a name="skill_#{exp_count}"
     .section-title.d-flex.justify-content-between
       h4.font-weight-lighter.display-6.text-secondary
         = "Skill ##{exp_count + 1}"

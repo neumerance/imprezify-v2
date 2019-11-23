@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2019_11_10_102501) do
   end
 
   create_table "common_name_values", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "value", null: false
+    t.string "name"
+    t.string "value"
     t.text "description", default: [], array: true
     t.string "type", null: false
     t.bigint "resume_id"
