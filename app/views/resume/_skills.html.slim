@@ -4,26 +4,25 @@
       | Click plus button above to add skill.
 - exp_count = 0
 = resume.fields_for :skills, @resume.skills do |skill|
-  .section.mt-5.mb-5 id="skill_#{exp_count}"
+  .section id="skill_#{exp_count}"
     = skill.hidden_field :id
     a name="skill_#{exp_count}"
-    .section-title.d-flex.justify-content-between
-      h4.font-weight-lighter.display-6.text-secondary
-        = "Skill ##{exp_count + 1}"
-      = link_to 'javascript:void(0)',
-          onclick: "destroySection(this, '#{skill.object.id}', '#{skill.object_name}')",
-          class: 'font-weight-lighter text-danger' do
-        span.fa.fa-times
     .row
-      .col-lg-6.col-sm-12
+      .col-lg-12.col-sm-12
         .form-group
-          = skill.text_field :name, class: 'form-control',
-              placeholder: 'Ruby on Rails', onchange: 'submitForm(this)'
-      .col-lg-6.col-sm-12
-        .form-group
-          = skill.select :value,
-              skill_levels,
-              { include_blank: '--- Select skill level ---' },
-              { class: 'form-control', onchange: 'submitForm(this)' }
+          .input-group.mb-2
+            = skill.text_field :name, class: 'form-control',
+                placeholder: 'Ruby on Rails', onchange: 'submitForm(this)'
+            = skill.select :value,
+                skill_levels,
+                {include_blank: '--- Select skill level ---'},
+                {class: 'form-control', onchange: 'submitForm(this)'}
+            .input-group-append
+              = link_to 'javascript:void(0)',
+                      onclick: "destroySection(this, '#{skill.object.id}', '#{skill.object_name}')",
+                      class: 'btn btn-outline-danger' do
+                | Remove
+
+
 
 
