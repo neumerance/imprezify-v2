@@ -3,7 +3,6 @@ class BasicInfo < ApplicationRecord
   belongs_to :resume
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
-  validates :name, :title, :profile_overview, presence: true
 
   enum gender: [:male, :female]
 end

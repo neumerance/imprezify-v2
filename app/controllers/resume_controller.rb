@@ -6,7 +6,10 @@ class ResumeController < ApplicationController
   end
 
   def edit
-    @resume.try(params[:entity_name].to_sym)&.build if params[:entity_name].present?
+    if params[:entity_name].present?
+      entity = @resume.try(params[:entity_name].to_sym)&.build
+      entity.save(validate: false)
+    end
   end
 
   def update

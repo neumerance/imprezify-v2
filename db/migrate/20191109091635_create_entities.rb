@@ -1,9 +1,9 @@
 class CreateEntities < ActiveRecord::Migration[6.0]
   def change
     create_table :entities do |t|
-      t.string :name, null: false
-      t.string :title, null: false
-      t.date :since, null: false
+      t.string :name
+      t.string :title
+      t.date :since
       t.date :until
       t.boolean :current, default: false
       t.text :description, array: true, default: []

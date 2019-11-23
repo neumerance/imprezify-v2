@@ -1,12 +1,12 @@
-# require 'capybara/rails'
-# require 'capybara/rspec'
-# require 'selenium/webdriver'
-#
-# # Disable server errors for local image get requests
-# Capybara.raise_server_errors = false
-#
-# # For more driver options please visit:
-# # https://github.com/teamcapybara/capybara/blob/master/lib/capybara/registrations/drivers.rb
+# # require 'capybara/rails'
+# # require 'capybara/rspec'
+# # require 'selenium/webdriver'
+# #
+# # # Disable server errors for local image get requests
+# # Capybara.raise_server_errors = false
+# #
+# # # For more driver options please visit:
+# # # https://github.com/teamcapybara/capybara/blob/master/lib/capybara/registrations/drivers.rb
 #
 # # By default Capybara will use Selenium+Firefox for `js:true` feature specs.
 # # The following lines will tell Capybara to use Chrome instead of Firefox,

@@ -1,6 +1,11 @@
+- unless @resume.work_experiences.any?
+  .card.nothing-on-it
+    .card-body
+      | Click plus button above to add work experience.
 - exp_count = 0
 = resume.fields_for :work_experiences, @resume.work_experiences do |work_experience|
-  .section.mt-5.mb-5
+  .section.mt-5.mb-5 id="experience_#{exp_count}"
+    = work_experience.hidden_field :id
     a name="experience_#{exp_count}"
     .section-title.d-flex.justify-content-between
       h4.font-weight-lighter.display-6.text-secondary

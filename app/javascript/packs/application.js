@@ -50,7 +50,7 @@ window.destroySection = (elem, model_id, model_name) => {
 }
 
 window.submitForm = (el) => {
-  $(el).parents('form').find('[name="commit"]').click();
+  $(el).parents('form').find('button[type="submit"]').click();
 }
 
 window.hasActiveAjax = () => {

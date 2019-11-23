@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2019_11_10_102501) do
   enable_extension "plpgsql"
 
   create_table "basic_infos", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "title", null: false
-    t.text "profile_overview", null: false
+    t.string "name"
+    t.string "title"
+    t.text "profile_overview"
     t.date "birthdate"
     t.string "nationality"
     t.integer "gender"
@@ -60,9 +60,9 @@ ActiveRecord::Schema.define(version: 2019_11_10_102501) do
   end
 
   create_table "entities", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "title", null: false
-    t.date "since", null: false
+    t.string "name"
+    t.string "title"
+    t.date "since"
     t.date "until"
     t.boolean "current", default: false
     t.text "description", default: [], array: true

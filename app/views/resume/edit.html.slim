@@ -44,7 +44,7 @@
         div.mt-5.mb-5
           div#skills.mb-3
             = render partial: 'skills', locals: {resume: f}
-        = submit_tag 'Submit', class: 'd-none'
+        = button_tag 'Submit', type: 'submit', class: 'd-none'
     .col-lg-6 3
 
 = content_for :head do

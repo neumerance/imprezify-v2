@@ -1,9 +1,9 @@
 class CreateBasicInfos < ActiveRecord::Migration[6.0]
   def change
     create_table :basic_infos do |t|
-      t.string :name, null: false
-      t.string :title, null: false
-      t.text :profile_overview, null: false
+      t.string :name
+      t.string :title
+      t.text :profile_overview
       t.date :birthdate
       t.string :nationality
       t.integer :gender # 0 male 1 female

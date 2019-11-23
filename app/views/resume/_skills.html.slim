@@ -1,5 +1,6 @@
 - exp_count = 0
 = resume.fields_for :skills, @resume.skills do |skill|
+  = skill.hidden_field :id
   a name="skill_#{exp_count}"
   .section.mt-5.mb-5
     .section-title.d-flex.justify-content-between
