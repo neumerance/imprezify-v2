@@ -40,14 +40,15 @@ feature 'Resume Edit Form', :js do
       within('#work_experience_collapsible_0') do
         attach_file('resume[work_experiences_attributes][0][logo]', 'spec/fixtures/photo.jpeg', make_visible: true)
         fill_in 'resume[work_experiences_attributes][0][address]', with: FFaker::Address.street_address
-        fill_in 'resume[work_experiences_attributes][0][city]', with: 'Olongapo'
-        fill_in 'resume[work_experiences_attributes][0][country]', with: 'Philippines'
-        fill_in 'resume[work_experiences_attributes][0][postal_code]', with: '23232'
+        fill_in 'resume[work_experiences_attributes][0][city]', with: FFaker::Address.city
+        fill_in 'resume[work_experiences_attributes][0][country]', with: FFaker::Address.country
+        fill_in 'resume[work_experiences_attributes][0][postal_code]', with: FFaker::Address.zip_code
       end
 
       wait_for_ajax
 
       expect(resume.reload.work_experiences.first.description.any?).to be_truthy
+
       %w(name title since until logo address city country).each do |f|
         expect(resume.reload.work_experiences.first.try(f.to_sym).present?).to be_truthy
       end
