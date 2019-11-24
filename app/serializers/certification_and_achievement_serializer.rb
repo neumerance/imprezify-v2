@@ -1,0 +1,2 @@
+class CertificationAndAchievementSerializer < EntitySerializer
+end

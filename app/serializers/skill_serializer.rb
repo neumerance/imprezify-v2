@@ -1,0 +1,2 @@
+class SkillSerializer < CommonNameAndValueSerializer
+end

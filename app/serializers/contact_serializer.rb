@@ -1,0 +1,2 @@
+class ContactSerializer < CommonNameAndValueSerializer
+end

@@ -1,5 +1,5 @@
 class ResumeController < ApplicationController
-  before_action :set_resume, only: [:edit, :update, :destroy, :add_more_entity]
+  before_action :set_resume, only: [:edit, :update, :destroy, :add_more_entity, :preview]
 
   def index
     @resumes = current_user.resumes
@@ -17,6 +17,10 @@ class ResumeController < ApplicationController
     @resume.update(allowed_params)
   end
 
+  def preview
+    render json: ResumeSerializer.new(@resume).serializable_hash
+  end
+
   private
 
   def allowed_params
@@ -24,6 +28,6 @@ class ResumeController < ApplicationController
   end
 
   def set_resume
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.joins(:basic_info, :work_experiences).find(params[:id])
   end
 end

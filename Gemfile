@@ -64,3 +64,4 @@ gem "paperclip", "~> 6.0.0"
 # gem 'jquery-rails'
 # gem 'bootstrap', '~> 4.3.1'
 gem 'slim'
+gem 'fast_jsonapi'

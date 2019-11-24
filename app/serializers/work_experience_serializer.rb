@@ -1,0 +1,2 @@
+class WorkExperienceSerializer < EntitySerializer
+end

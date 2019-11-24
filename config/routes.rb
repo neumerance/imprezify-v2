@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :resume do
     member do
+      get :preview
     end
   end
 end
