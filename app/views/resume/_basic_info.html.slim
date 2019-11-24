@@ -1,91 +1,93 @@
 = resume.fields_for :basic_info, @resume.basic_info || BasicInfo.new  do |basic_info|
   = basic_info.hidden_field :id
-  .row
-    .col-lg-4.col-sm-12.position-relative
-      = image_field(basic_info, :photo)
-    .col-lg-8.col-sm-12
+  .card.mt-5.mb-5
+    .card-body
+      .row
+        .col-lg-3.col-sm-12.position-relative
+          = image_field(basic_info, :photo)
+        .col-lg-9.col-sm-12
+          .row
+            .col-lg-12.col-sm-12
+              .form-group
+                = basic_info.label :name, 'Full Name'
+                = basic_info.text_field :name,
+                    class: 'form-control', placeholder: 'Juan Dela Cruz',
+                    onchange: 'submitForm(this)'
+          .row
+            .col-lg-12.col-sm-12
+              .form-group
+                = basic_info.label :title, 'Current Title / Desired Position'
+                = basic_info.text_field :title,
+                    class: 'form-control', placeholder: 'Senior Software Engineer',
+                    onchange: 'submitForm(this)'
       .row
         .col-lg-12.col-sm-12
           .form-group
-            = basic_info.label :name, 'Full Name'
-            = basic_info.text_field :name,
-                class: 'form-control', placeholder: 'Juan Dela Cruz',
+            = basic_info.label :profile_overview
+            = basic_info.text_area :profile_overview,
+                class: 'form-control', placeholder: 'Brief summary of your professional profile',
                 onchange: 'submitForm(this)'
-      .row
-        .col-lg-12.col-sm-12
-          .form-group
-            = basic_info.label :title, 'Current Title / Desired Position'
-            = basic_info.text_field :title,
-                class: 'form-control', placeholder: 'Senior Software Engineer',
-                onchange: 'submitForm(this)'
-  .row
-    .col-lg-12.col-sm-12
-      .form-group
-        = basic_info.label :profile_overview
-        = basic_info.text_area :profile_overview,
-            class: 'form-control', placeholder: 'Brief summary of your professional profile',
-            onchange: 'submitForm(this)'
 
-  .row
-    .col-lg-6.col-sm-12
-      .form-group
-        = basic_info.label :birthdate
-        = basic_info.text_field :birthdate,
-            class: 'form-control', placeholder: 'April 15, 1987',
-            data: {behaviour: 'flatpickr'}, onchange: 'submitForm(this)'
-    .col-lg-6.col-sm-12
-      label for="gender" Gender
-      div#gender
-        .form-check.form-check-inline
-          = basic_info.radio_button :gender, :male, class: 'mr-1', onclick: 'submitForm(this)'
-          = basic_info.label :gender, 'Male', class: 'mb-0'
-        .form-check.form-check-inline
-          = basic_info.radio_button :gender, :female, class: 'mr-1', onclick: 'submitForm(this)'
-          = basic_info.label :gender, 'Female', class: 'mb-0'
-  - collapsible = "basic_info_collapsible"
-  .row.mb-3
-    .col-lg-12.col-sm-12
-      = link_to "##{collapsible}", class: 'collapsed', data: {toggle: 'collapse'},
-              'aria-expanded' => 'false', 'aria-controls' => collapsible do
-        .fa.mr-2
-        | Show advanced fields
-  div.collapse id="#{collapsible}"
-    .row
-      .col-lg-6.col-sm-12
-        .form-group
-          = basic_info.label :nationality
-          = basic_info.text_field :nationality,
-              class: 'form-control', placeholder: 'Filipino',
-              onchange: 'submitForm(this)'
-      .col-lg-6.col-sm-12
-        .form-group
-          = basic_info.label :religion
-          = basic_info.text_field :religion,
-              class: 'form-control', placeholder: 'Christian',
-              onchange: 'submitForm(this)'
-    .row
-      .col-lg-12.col-sm-12
-        .form-group
-          = basic_info.label :address
-          = basic_info.text_field :address,
-              class: 'form-control', placeholder: '63 Outram Park #07-01',
-              onchange: 'submitForm(this)'
-    .row
-      .col-lg-4.col-sm-12
-        .form-group
-          = basic_info.label :city
-          = basic_info.text_field :city,
-              class: 'form-control', placeholder: 'Singapore',
-              onchange: 'submitForm(this)'
-      .col-lg-4.col-sm-12
-        .form-group
-          = basic_info.label :country
-          = basic_info.text_field :country,
-              class: 'form-control', placeholder: 'Singapore',
-              onchange: 'submitForm(this)'
-      .col-lg-4.col-sm-12
-        .form-group
-          = basic_info.label :postal_code
-          = basic_info.text_field :postal_code,
-              class: 'form-control', placeholder: '232323',
-              onchange: 'submitForm(this)'
+      .row
+        .col-lg-6.col-sm-12
+          .form-group
+            = basic_info.label :birthdate
+            = basic_info.text_field :birthdate,
+                class: 'form-control', placeholder: 'April 15, 1987',
+                data: {behaviour: 'flatpickr'}, onchange: 'submitForm(this)'
+        .col-lg-6.col-sm-12
+          label for="gender" Gender
+          div#gender
+            .form-check.form-check-inline
+              = basic_info.radio_button :gender, :male, class: 'mr-1', onclick: 'submitForm(this)'
+              = basic_info.label :gender, 'Male', class: 'mb-0'
+            .form-check.form-check-inline
+              = basic_info.radio_button :gender, :female, class: 'mr-1', onclick: 'submitForm(this)'
+              = basic_info.label :gender, 'Female', class: 'mb-0'
+      - collapsible = "basic_info_collapsible"
+      .row.mb-3
+        .col-lg-12.col-sm-12
+          = link_to "##{collapsible}", class: 'collapsed', data: {toggle: 'collapse'},
+                  'aria-expanded' => 'false', 'aria-controls' => collapsible do
+            .fa.mr-2
+            | Show advanced fields
+      div.collapse id="#{collapsible}"
+        .row
+          .col-lg-6.col-sm-12
+            .form-group
+              = basic_info.label :nationality
+              = basic_info.text_field :nationality,
+                  class: 'form-control', placeholder: 'Filipino',
+                  onchange: 'submitForm(this)'
+          .col-lg-6.col-sm-12
+            .form-group
+              = basic_info.label :religion
+              = basic_info.text_field :religion,
+                  class: 'form-control', placeholder: 'Christian',
+                  onchange: 'submitForm(this)'
+        .row
+          .col-lg-12.col-sm-12
+            .form-group
+              = basic_info.label :address
+              = basic_info.text_field :address,
+                  class: 'form-control', placeholder: '63 Outram Park #07-01',
+                  onchange: 'submitForm(this)'
+        .row
+          .col-lg-4.col-sm-12
+            .form-group
+              = basic_info.label :city
+              = basic_info.text_field :city,
+                  class: 'form-control', placeholder: 'Singapore',
+                  onchange: 'submitForm(this)'
+          .col-lg-4.col-sm-12
+            .form-group
+              = basic_info.label :country
+              = basic_info.text_field :country,
+                  class: 'form-control', placeholder: 'Singapore',
+                  onchange: 'submitForm(this)'
+          .col-lg-4.col-sm-12
+            .form-group
+              = basic_info.label :postal_code
+              = basic_info.text_field :postal_code,
+                  class: 'form-control', placeholder: '232323',
+                  onchange: 'submitForm(this)'

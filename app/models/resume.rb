@@ -5,12 +5,14 @@ class Resume < ApplicationRecord
   has_many :educations, dependent: :destroy
   has_many :contacts, dependent: :destroy
   has_many :skills, dependent: :destroy
+  has_many :certification_and_achievements, dependent: :destroy
 
   validates :name, :template_name, presence: true
 
   accepts_nested_attributes_for :basic_info,
                                 :work_experiences,
                                 :educations,
+                                :certification_and_achievements,
                                 :contacts,
                                 :skills,
                                 allow_destroy: true

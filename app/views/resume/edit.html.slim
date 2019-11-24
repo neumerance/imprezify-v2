@@ -51,6 +51,14 @@
               span.fa.fa-plus-circle
           div#contacts.mb-3
             = render partial: 'contacts', locals: {resume: f}
+        div.mt-5.mb-5
+          h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
+            | Certification and Achievements
+            = link_to url_for(action: :edit, entity_name: :certification_and_achievements,
+                anchor: "certification_and_achievement_#{@resume.certification_and_achievements.count}"), class: 'ml-2' do
+              span.fa.fa-plus-circle
+          div#certification-and-achievements.mb-3
+            = render partial: 'certification_and_achievements', locals: {resume: f}
         = button_tag 'Submit', type: 'submit', class: 'd-none'
     .col-lg-6 3
 
