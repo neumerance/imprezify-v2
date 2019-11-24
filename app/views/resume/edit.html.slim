@@ -44,6 +44,13 @@
               span.fa.fa-plus-circle
           div#skills.mb-3
             = render partial: 'skills', locals: {resume: f}
+        div.mt-5.mb-5
+          h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
+            | Contacts
+            = link_to url_for(action: :edit, entity_name: :contacts, anchor: "contact_#{@resume.contacts.count}"), class: 'ml-2' do
+              span.fa.fa-plus-circle
+          div#skills.mb-3
+            = render partial: 'contacts', locals: {resume: f}
         = button_tag 'Submit', type: 'submit', class: 'd-none'
     .col-lg-6 3
 

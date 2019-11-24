@@ -1,0 +1,24 @@
+- unless @resume.contacts.any?
+  .card.nothing-on-it
+    .card-body
+      | Click plus button above to add contact.
+- exp_count = 0
+= resume.fields_for :contacts, @resume.contacts do |contact|
+  .section id="contact_#{exp_count}"
+    = contact.hidden_field :id
+    a name="contact_#{exp_count}"
+    .row
+      .col-lg-12.col-sm-12
+        .form-group
+          .input-group.mb-2
+            = contact.select :name,
+                contact_labels,
+                {include_blank: '--- Select contact ---'},
+                {class: 'form-control', onchange: 'submitForm(this)'}
+            = contact.text_field :value, class: 'form-control',
+                placeholder: 'Contact details here', onchange: 'submitForm(this)'
+            .input-group-append
+              = link_to 'javascript:void(0)',
+                  onclick: "destroySection(this, '#{contact.object.id}', '#{contact.object_name}')",
+                  class: 'btn btn-outline-danger' do
+                | Remove

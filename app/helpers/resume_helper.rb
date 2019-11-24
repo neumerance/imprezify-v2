@@ -21,6 +21,10 @@ module ResumeHelper
   end
 
   def skill_levels
-    ['newbie', 'beginner', 'skilled', 'experienced', 'expert'].map { |s| [s.titleize, s] }
+    Skill::VALUES.map { |s| [s.to_s.titleize, s] }
+  end
+
+  def contact_labels
+    Contact::LABELS.map { |s| [s.to_s.titleize, s] }
   end
 end

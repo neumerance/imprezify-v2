@@ -1,6 +1,12 @@
-class Contact < ApplicationRecord
-  belongs_to :resume
-  enum type: [:email, :skype, :linkedin, :mobile, :telephone]
+class Contact < CommonNameValue
+  MODEL_NAME = 'Contact'.freeze
+  LABELS = [:email, :skype, :linkedin, :mobile, :telephone].freeze
 
-  validates :type, :value, presence: true
+  belongs_to :resume
+
+  validates :type, presence: true
+
+  before_save do
+    self.type = MODEL_NAME
+  end
 end
