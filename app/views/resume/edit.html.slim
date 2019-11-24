@@ -49,7 +49,7 @@
             | Contacts
             = link_to url_for(action: :edit, entity_name: :contacts, anchor: "contact_#{@resume.contacts.count}"), class: 'ml-2' do
               span.fa.fa-plus-circle
-          div#skills.mb-3
+          div#contacts.mb-3
             = render partial: 'contacts', locals: {resume: f}
         = button_tag 'Submit', type: 'submit', class: 'd-none'
     .col-lg-6 3

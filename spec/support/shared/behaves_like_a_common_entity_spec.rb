@@ -20,13 +20,17 @@ shared_examples 'a common name and value' do |entity, index|
       expect(page).to have_css("a[name='#{entity.to_s}_#{index}']", visible: false)
       expect(page).to have_css("#resume_#{entity.to_s.pluralize}_attributes_#{index}_id", visible: false)
 
-      fill_in "resume[#{entity.to_s.pluralize}_attributes][#{index}][name]", with: FFaker::Lorem.sentence
-      select 'Expert', from: "resume[#{entity.to_s.pluralize}_attributes][#{index}][value]"
+      if entity == :skill
+        fill_in "resume[#{entity.to_s.pluralize}_attributes][#{index}][name]", with: FFaker::Lorem.sentence
+        select 'Expert', from: "resume[#{entity.to_s.pluralize}_attributes][#{index}][value]"
+      elsif entity == :contact
+        fill_in "resume[#{entity.to_s.pluralize}_attributes][#{index}][value]", with: FFaker::Internet.email
+        select 'Email', from: "resume[#{entity.to_s.pluralize}_attributes][#{index}][name]"
+      end
 
       wait_for_ajax
-
       %w(name value).each do |f|
-        expect(resume.reload.try(entity.to_s.pluralize)[0]&.try(f.to_sym).present?).to be_truthy
+        expect(resume.reload.try(entity.to_s.pluralize)[0].try(f.to_sym).present?).to be_truthy
       end
     end
   end
