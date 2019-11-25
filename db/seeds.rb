@@ -10,7 +10,7 @@
 user = FactoryBot.create(:user, email: 'user@imprezify.com')
 resume = FactoryBot.create(:resume, user: user)
 FactoryBot.create(:basic_info, resume: resume)
-FactoryBot.create(:work_experience, resume: resume)
+FactoryBot.create_list(:work_experience, 5, resume: resume)
 FactoryBot.create_list(:education, 3, resume: resume)
 FactoryBot.create_list(:skill, 5, resume: resume)
 FactoryBot.create_list(:contact, 5, resume: resume)

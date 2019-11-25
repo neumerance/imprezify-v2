@@ -11,11 +11,11 @@ html lang="en"
     = render partial: "/resume/templates/#{@resume.template_name}/styles"
   body
     #wrapper
-      .row
-        .col-sm-4.left.full-height.bg-dark.text-light.p-4
+      .row.full-height
+        .col-sm-4.left.bg-dark.text-light.p-4
           = image_tag @resume.basic_info.photo.url, class: 'd-block width-100 border border-light'
           div.dropdown-divider.mt-4.mb-4
-        .col-sm-8.right.full-height.text-dark.p-4
+        .col-sm-8.right.text-dark.p-4
           h1= @resume.basic_info.name.titleize
           h2.h4= @resume.basic_info.title.titleize
           p= @resume.basic_info.profile_overview
@@ -26,7 +26,7 @@ html lang="en"
             ul.p-0.no-bullets
               - @resume.work_experiences.each do |experience|
                 li.pl-4.pt-4.pb-4.timeline-border
-                  div data-since="#{experience.since.strftime('%b %Y')}" data-upuntil="#{experience.upuntil.strftime('%b %Y')}"
+                  div data-since="#{experience.since.strftime('%b %Y')}" data-upuntil="#{experience.upuntil ? experience.upuntil.strftime('%b %Y') : 'present'}"
                     h4.h5= experience.name.titleize
                     h5.h6= experience.title.titleize
                     - experience.description.any?

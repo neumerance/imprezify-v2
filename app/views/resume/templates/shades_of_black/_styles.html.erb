@@ -1,11 +1,17 @@
 <style>
+  html, body {
+    height: 100%;
+  }
   #wrapper {
     width: 794px;
     max-width: 794px;
     margin: auto auto;
   }
   .full-height {
-    height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
   }
   .width-100 {
     width: 100%;
@@ -28,7 +34,7 @@
     -webkit-border-radius: 50%;
     background: #343a40 !important;
     position: absolute;
-    top: 40%;
+    top: 25px;
     left: -13px;
     z-index: 9999;
   }
@@ -39,12 +45,12 @@
     content: attr(data-since);
     position: absolute;
     top: 0;
-    left: 0;
+    left: -115px;
   }
   .timeline-border > div:after {
     content: attr(data-upuntil);
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: -115px;
   }
 </style>
