@@ -27,7 +27,7 @@ shared_examples 'an entity' do |entity, index|
       fill_in "resume[#{entity.to_s.pluralize}_attributes][#{index}][title]", with: FFaker::Job.title
 
       set_field_value_by_js("resume_#{entity.to_s.pluralize}_attributes_#{index}_since", 'value', '2014-04-01')
-      set_field_value_by_js("resume_#{entity.to_s.pluralize}_attributes_#{index}_until", 'value', '2016-01-03')
+      set_field_value_by_js("resume_#{entity.to_s.pluralize}_attributes_#{index}_upuntil", 'value', '2016-01-03')
 
       click_on 'Show advanced fields'
       expect(page).to have_css("##{entity.to_s}_collapsible_0")
@@ -47,7 +47,7 @@ shared_examples 'an entity' do |entity, index|
       wait_for_ajax
       expect(resume.reload.try(entity.to_s.pluralize).first.description.any?).to be_truthy
 
-      %w(name title since until logo address city country).each do |f|
+      %w(name title since upuntil logo address city country).each do |f|
         expect(resume.reload.try(entity.to_s.pluralize)[0].try(f.to_sym).present?).to be_truthy
       end
     end

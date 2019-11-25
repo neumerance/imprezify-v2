@@ -4,7 +4,7 @@ class CreateEntities < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :title
       t.date :since
-      t.date :until
+      t.date :upuntil
       t.boolean :current, default: false
       t.text :description, array: true, default: []
       t.string :address

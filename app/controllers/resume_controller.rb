@@ -28,6 +28,6 @@ class ResumeController < ApplicationController
   end
 
   def set_resume
-    @resume = current_user.resumes.joins(:basic_info, :work_experiences).find(params[:id])
+    @resume = Resume.where(id:  params[:id], user: current_user).first
   end
 end

@@ -26,7 +26,7 @@ html lang="en"
             ul.p-0.no-bullets
               - @resume.work_experiences.each do |experience|
                 li.pl-4.pt-4.pb-4.timeline-border
-                  div data-since="#{experience.since.strftime('%b %Y')}" data-until="#{experience.until.strftime('%b %Y')}"
+                  div data-since="#{experience.since.strftime('%b %Y')}" data-upuntil="#{experience.upuntil.strftime('%b %Y')}"
                     h4.h5= experience.name.titleize
                     h5.h6= experience.title.titleize
                     - experience.description.any?

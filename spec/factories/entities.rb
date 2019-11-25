@@ -2,7 +2,8 @@ FactoryBot.define do
   factory :entity do
     name { FFaker::Company.name }
     title { FFaker::Job.title }
-    since { Time.now - 7.months }
+    since { Time.now - 3.months }
+    upuntil { Time.now - 1.months }
     current { true }
     description do
       3.times.map do

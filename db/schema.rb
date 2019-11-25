@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_11_10_102501) do
     t.string "name"
     t.string "title"
     t.date "since"
-    t.date "until"
+    t.date "upuntil"
     t.boolean "current", default: false
     t.text "description", default: [], array: true
     t.string "address"
