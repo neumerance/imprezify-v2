@@ -18,7 +18,7 @@ class ResumeController < ApplicationController
   end
 
   def preview
-    render json: ResumeSerializer.new(@resume).serializable_hash
+    render layout: false
   end
 
   private

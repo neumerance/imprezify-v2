@@ -1,0 +1,36 @@
+| <!doctype html
+html lang="en"
+  head
+    meta charset="utf-8" /
+    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
+    meta content="" name="description" /
+    meta content="" name="author" /
+    title
+      = "Imprezify | #{resume.basic_info&.name.titleize}"
+    link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" /
+    = render partial: "/resume/templates/#{@resume.template_name}/styles"
+  body
+    #wrapper
+      .row
+        .col-sm-4.left.full-height.bg-dark.text-light.p-4
+          = image_tag @resume.basic_info.photo.url, class: 'd-block width-100 border border-light'
+          div.dropdown-divider.mt-4.mb-4
+        .col-sm-8.right.full-height.text-dark.p-4
+          h1= @resume.basic_info.name.titleize
+          h2.h4= @resume.basic_info.title.titleize
+          p= @resume.basic_info.profile_overview
+          div.dropdown-divider.mt-4.mb-4
+          - if @resume.work_experiences.any?
+          div.mb-4
+            h3.h4.mb-3 Experience
+            ul.p-0.no-bullets
+              - @resume.work_experiences.each do |experience|
+                li.pl-4.pt-4.pb-4.timeline-border
+                  div data-since="#{experience.since.strftime('%b %Y')}" data-until="#{experience.until.strftime('%b %Y')}"
+                    h4.h5= experience.name.titleize
+                    h5.h6= experience.title.titleize
+                    - experience.description.any?
+                      ul.m-0.p-0.no-bullets
+                        - experience.description.each do |desc|
+                          li= desc
+
