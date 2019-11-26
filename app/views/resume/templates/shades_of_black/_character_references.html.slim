@@ -1,3 +1,19 @@
 h3.h4.mb-3
   span.fas.fa-address-book.mr-2
   | Character References
+- if resume.character_references.any?
+  ul.p-0.no-bullets
+    - resume.character_references.each do |reference|
+      li.mb-3
+        div
+          - if reference.name.present?
+            h4.h5= reference.name.titleize
+          - if reference.title.present?
+            h5.h6= reference.title.titleize
+        ul.p-0.no-bullets.text-muted
+          - if reference.full_address.present?
+            li= reference.full_address
+          - if reference.email.present?
+            li= reference.email
+          - if reference.phone.present?
+            li= reference.phone

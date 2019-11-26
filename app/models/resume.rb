@@ -6,6 +6,7 @@ class Resume < ApplicationRecord
   has_many :contacts, dependent: :destroy
   has_many :skills, dependent: :destroy
   has_many :certification_and_achievements, dependent: :destroy
+  has_many :character_references, dependent: :destroy
 
   validates :name, :template_name, presence: true
 
@@ -13,6 +14,7 @@ class Resume < ApplicationRecord
                                 :work_experiences,
                                 :educations,
                                 :certification_and_achievements,
+                                :character_references,
                                 :contacts,
                                 :skills,
                                 allow_destroy: true

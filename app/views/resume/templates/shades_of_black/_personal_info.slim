@@ -1,0 +1,20 @@
+h3.h4.mb-3
+  span.far.fa-user.mr-2
+  | Personal Info
+ul.p-0.no-bullets
+  - if resume.basic_info.birthdate.present?
+    li.d-flex.align-items-center.mb-2
+      span.far.fa-calendar-alt.mr-2
+      span= resume.basic_info.birthdate.strftime('%b %d, %Y')
+  - if resume.basic_info.full_address.present?
+    li.d-flex.align-items-center.mb-2
+      span.fas.fa-home.mr-2
+      span= resume.basic_info.full_address
+  - if resume.basic_info.religion.present?
+    li.d-flex.align-items-center.mb-2
+      span.fas.fa-praying-hands.mr-2
+      span= resume.basic_info.religion
+  - if resume.basic_info.gender.present?
+    li.d-flex.align-items-center.mb-2
+      span.fas.fa-venus-mars.mr-2
+      span= resume.basic_info.gender
