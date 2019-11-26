@@ -6,7 +6,7 @@ html lang="en"
     meta content="" name="description"
     meta content="" name="author"
     title
-      = "Imprezify | #{resume.basic_info&.name.titleize}"
+      = "Imprezify | #{resume.basic_info&.name&.titleize}"
     link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
     link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet"
     = render partial: "/resume/templates/#{@resume.template_name}/styles"
@@ -14,7 +14,8 @@ html lang="en"
     #wrapper
       .row.full-height
         .col-sm-4.left.bg-dark.text-light.p-4
-          = image_tag @resume.basic_info.photo.url, class: 'd-block width-100 border border-light'
+          - if @resume.basic_info&.photo&.present?
+            = image_tag @resume.basic_info.photo.url, class: 'd-block width-100 border border-light'
           div.dropdown-divider.mt-4.mb-4
           - @resume.skills.any?
             div.mb-4
@@ -29,13 +30,15 @@ html lang="en"
                   .progress-bar.bg-secondary aria-valuemax="100" aria-valuemin="0" aria-valuenow="#{skill.rating_percentage}" role="progressbar" style=("width: #{skill.rating_percentage}%")
           div.mb-4
             = render partial: "resume/templates/#{@resume.template_name}/contacts", locals: { resume: @resume }
-          div.mb-4
-            = render partial: "resume/templates/#{@resume.template_name}/personal_info", locals: { resume: @resume }
+          - if @resume.basic_info.present?
+            div.mb-4
+              = render partial: "resume/templates/#{@resume.template_name}/personal_info", locals: { resume: @resume }
         .col-sm-8.right.text-dark.p-4
-          h1= @resume.basic_info.name.titleize
-          h2.h4= @resume.basic_info.title.titleize
-          p= @resume.basic_info.profile_overview
-          div.dropdown-divider.mt-4.mb-4
+          - if @resume.basic_info.present?
+            h1= @resume.basic_info.name.titleize
+            h2.h4= @resume.basic_info.title.titleize
+            p= @resume.basic_info.profile_overview
+            div.dropdown-divider.mt-4.mb-4
           - if @resume.work_experiences.any?
           div.mb-4
             h3.h4.mb-3
