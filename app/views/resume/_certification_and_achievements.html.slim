@@ -88,5 +88,16 @@
                   = certification_and_achievement.label :postal_code
                   = certification_and_achievement.text_field :postal_code, class: 'form-control',
                       placeholder: '232323', onchange: 'submitForm(this)'
+            .row
+              .col-lg-6.col-sm-12
+                .form-group
+                  = certification_and_achievement.label :phone
+                  = certification_and_achievement.text_field :phone, class: 'form-control',
+                      placeholder: '+65 9989 8989', onchange: 'submitForm(this)'
+              .col-lg-6.col-sm-12
+                .form-group
+                  = certification_and_achievement.label :email
+                  = certification_and_achievement.text_field :email, class: 'form-control',
+                      placeholder: 'hr@workplace.net', onchange: 'submitForm(this)'
   - exp_count = exp_count + 1
 

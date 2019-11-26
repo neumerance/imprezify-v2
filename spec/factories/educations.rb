@@ -14,9 +14,8 @@ FactoryBot.define do
     city { FFaker::Address.city }
     country { FFaker::Address.country }
     postal_code { FFaker::Address.zip_code }
-    contacts do
-      ['3424324', '42343']
-    end
+    phone { "#{FFaker::PhoneNumberSG.country_code} #{FFaker::PhoneNumberSG.mobile_number}" }
+    email { FFaker::Internet.email }
     association :resume, factory: :resume, strategy: :create
   end
 end

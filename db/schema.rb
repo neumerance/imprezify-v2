@@ -70,7 +70,8 @@ ActiveRecord::Schema.define(version: 2019_11_10_102501) do
     t.string "city"
     t.string "country"
     t.string "postal_code"
-    t.text "contacts", default: [], array: true
+    t.string "phone"
+    t.string "email"
     t.string "type", null: false
     t.bigint "resume_id"
     t.datetime "created_at", precision: 6, null: false
