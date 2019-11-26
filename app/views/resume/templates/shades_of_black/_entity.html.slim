@@ -7,8 +7,10 @@
             - if entity.logo.present?
               = image_tag entity.logo.url, class: 'd-block thumb rounded mr-2'
             div
-              h4.h5= entity.name.titleize
-              h5.h6= entity.title.titleize
+              - if entity.name.present?
+                h4.h5= entity.name.titleize
+              - if entity.title.present?
+                h5.h6= entity.title.titleize
           - if entity.full_address.present?
             p.text-muted
               span.fa.fa-envelope.mr-2
