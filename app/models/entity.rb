@@ -5,4 +5,8 @@ class Entity < ApplicationRecord
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
   validates :type, presence: true
+
+  def full_address
+    "#{address} #{city} #{country} #{postal_code}"
+  end
 end

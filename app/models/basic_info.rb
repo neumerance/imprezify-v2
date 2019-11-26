@@ -5,4 +5,8 @@ class BasicInfo < ApplicationRecord
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
   enum gender: [:male, :female]
+
+  def full_address
+    "#{address} #{city} #{country} #{postal_code}"
+  end
 end

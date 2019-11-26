@@ -1,13 +1,14 @@
 | <!doctype html
 html lang="en"
   head
-    meta charset="utf-8" /
-    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
-    meta content="" name="description" /
-    meta content="" name="author" /
+    meta charset="utf-8"
+    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"
+    meta content="" name="description"
+    meta content="" name="author"
     title
       = "Imprezify | #{resume.basic_info&.name.titleize}"
-    link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" /
+    link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+    link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet"
     = render partial: "/resume/templates/#{@resume.template_name}/styles"
   body
     #wrapper
@@ -15,6 +16,31 @@ html lang="en"
         .col-sm-4.left.bg-dark.text-light.p-4
           = image_tag @resume.basic_info.photo.url, class: 'd-block width-100 border border-light'
           div.dropdown-divider.mt-4.mb-4
+          - @resume.skills.any?
+            div.mb-4
+              h3.h4.mb-3
+                span.far.fa-lightbulb.mr-2
+                | Expertise
+              - @resume.skills.each do |skill|
+                h5.h6.d-flex.justify-content-between
+                  span= skill.name
+                  span= skill.value
+                .progress.mb-3
+                  .progress-bar.bg-secondary aria-valuemax="100" aria-valuemin="0" aria-valuenow="#{skill.rating_percentage}" role="progressbar" style=("width: #{skill.rating_percentage}%")
+          - @resume.contacts.any?
+            div.mb-4
+              h3.h4.mb-3
+                span.far.fa-address-card.mr-2
+                | Contacts
+              ul.p-0.no-bullets
+                - @resume.contacts.each do |contact|
+                  li
+                    span class="#{contact.name_to_icon} mr-2"
+                    span=contact.value
+          div.mb-4
+            = render partial: "resume/templates/#{@resume.template_name}/contacts", locals: { resume: @resume }
+          div.mb-4
+            = render partial: "resume/templates/#{@resume.template_name}/character_references", locals: {resume: @resume}
         .col-sm-8.right.text-dark.p-4
           h1= @resume.basic_info.name.titleize
           h2.h4= @resume.basic_info.title.titleize
@@ -22,15 +48,18 @@ html lang="en"
           div.dropdown-divider.mt-4.mb-4
           - if @resume.work_experiences.any?
           div.mb-4
-            h3.h4.mb-3 Experience
-            ul.p-0.no-bullets
-              - @resume.work_experiences.each do |experience|
-                li.pl-4.pt-4.pb-4.timeline-border
-                  div data-since="#{experience.since.strftime('%b %Y')}" data-upuntil="#{experience.upuntil ? experience.upuntil.strftime('%b %Y') : 'present'}"
-                    h4.h5= experience.name.titleize
-                    h5.h6= experience.title.titleize
-                    - experience.description.any?
-                      ul.m-0.p-0.no-bullets
-                        - experience.description.each do |desc|
-                          li= desc
+            h3.h4.mb-3
+              span.fa.fa-briefcase.mr-2
+              | Experience
+            = render partial: "resume/templates/#{@resume.template_name}/entity", locals: { resume: @resume, entity_name: :work_experiences }
+          div.mb-4
+            h3.h4.mb-3
+              span.fa.fa-graduation-cap.mr-2
+              | Education
+            = render partial: "resume/templates/#{@resume.template_name}/entity", locals: {resume: @resume, entity_name: :educations}
+          div.mb-4
+            h3.h4.mb-3
+              span.fa.fa-certificate.mr-2
+              | Certification and Achievements
+            = render partial: "resume/templates/#{@resume.template_name}/entity", locals: {resume: @resume, entity_name: :certification_and_achievements }
 

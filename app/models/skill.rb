@@ -11,4 +11,14 @@ class Skill < CommonNameValue
   before_save do
     self.type = MODEL_NAME
   end
+
+  def rating
+    return unless value.present?
+    VALUES.index(value.to_sym) + 1
+  end
+
+  def rating_percentage
+    return unless value.present?
+    rating * 20
+  end
 end
