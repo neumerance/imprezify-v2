@@ -18,6 +18,7 @@
           .progress.mb-3
             .progress-bar.progress-bar-striped.progress-bar-animated aria-valuemax="100" aria-valuemin="0" aria-valuenow="75" role="progressbar" style=("width: 75%")
       = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
+        = hidden_field_tag :authenticity_token, form_authenticity_token
         div.mt-5.mb-5
           h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky" Basic Info
           div#basic-info.mb-3
@@ -68,7 +69,8 @@
           div#character-references.mb-3
             = render partial: 'character_references', locals: {resume: f}
         = button_tag 'Submit', type: 'submit', class: 'd-none'
-    .col-lg-6 3
+    .col-lg-6#preview
+      = render partial: 'preview', locals: { resume: @resume }
 
 = content_for :head do
   style

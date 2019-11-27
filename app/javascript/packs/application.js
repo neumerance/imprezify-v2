@@ -15,6 +15,7 @@ import flatpickr from 'flatpickr';
 import { inputAsImageUrl } from './utilities'
 import stickybits from 'stickybits';
 import alertify from 'alertifyjs'
+import Rails from "@rails/ujs";
 
 alertify.defaults.glossary.title = 'Imprezify';
 
@@ -50,11 +51,16 @@ window.destroySection = (elem, model_id, model_name) => {
 }
 
 window.submitForm = (el) => {
-  $(el).parents('form').find('button[type="submit"]').click();
+  Rails.fire($(el).parents('form')[0], 'submit')
 }
 
 window.hasActiveAjax = () => {
   return $.active;
+}
+
+window.updateContent = (sel, content) => {
+  $(sel).html(content);
+  stickybits(`${sel} [data-behaviour="sticky"]`);
 }
 
 document.addEventListener('turbolinks:load', () => {
