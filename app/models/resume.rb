@@ -1,4 +1,6 @@
 class Resume < ApplicationRecord
+  include ResumeCompletionConcern
+
   belongs_to :user
   has_one :basic_info, dependent: :destroy
   has_many :work_experiences, dependent: :destroy
