@@ -23,7 +23,7 @@ window.moveToHash = () => {
   if (window.location.hash) {
     const anchor = jQuery(`a[name="${window.location.hash.substring(1)}"]`);
     $('html, body').animate({
-      scrollTop: anchor.offset().top
+      scrollTop: anchor.offset().top - 200
     }, 500);
   }
 }

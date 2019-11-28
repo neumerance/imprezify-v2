@@ -26,7 +26,7 @@
         div.mt-5.mb-5
           h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
             | Work Experiences
-            = link_to url_for(action: :edit, entity_name: :work_experiences, anchor: "experience_#{@resume.work_experiences.count}"), class: 'ml-2' do
+            = link_to url_for(action: :edit, entity_name: :work_experiences, anchor: "work_experience_#{@resume.work_experiences.count}"), class: 'ml-2' do
               span.fa.fa-plus-circle
           p.font-weight-lighter Start with your latest work experience.
           div#work-experiences.mb-3
