@@ -34,4 +34,24 @@ feature 'Resume Edit Form', :js do
       expect(resume.reload.basic_info.try(f.to_sym).present?).to be_truthy
     end
   end
+
+  describe '#completion_percentage' do
+    context 'incomplete' do
+      let(:basic_info) { create(:basic_info, name: nil, title: nil) }
+
+      it 'is incomplete' do
+        expect(basic_info.completion_percentage).to eq 60
+        expect(basic_info.completed?).to be_falsey
+      end
+    end
+
+    context 'incomplete' do
+      let(:basic_info) { create(:basic_info) }
+
+      it 'is incomplete' do
+        expect(basic_info.completion_percentage).to eq 100
+        expect(basic_info.completed?).to be_truthy
+      end
+    end
+  end
 end
