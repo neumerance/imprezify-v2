@@ -39,14 +39,17 @@ window.addMoreField = (elem) => {
 
 window.removeField = (elem) => {
   $(elem).parents('.input-group').remove();
+  Rails.fire($(el).parents('form')[0], 'submit');
 }
 
 window.destroySection = (elem, model_id, model_name) => {
   const el = $(elem);
-  const form = el.parents('form');
   alertify.confirm('Are you sure you want to delete this?', () => {
-    el.parents('.section').replaceWith(`<input type="hidden" name="${model_name}[_destroy]" value="${model_id}" />`);
-    form.find('[name="commit"]').click();
+    const section = el.parents('.section');
+    const card = section.parents('.card')
+    section.append(`<input type="hidden" name="${model_name}[_destroy]" value="true" />`);
+    Rails.fire($(el).parents('form')[0], 'submit');
+    card.remove();
   });
 }
 

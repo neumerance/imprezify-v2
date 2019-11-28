@@ -78,5 +78,9 @@
   height: 95vh;
   width: 100%;
 }
+div.disabled {
+  pointer-events:none;
+  opacity: 0.3;
+}
 
 
