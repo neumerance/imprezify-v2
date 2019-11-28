@@ -48,7 +48,7 @@ shared_examples 'an entity' do |entity, index|
       expect(resume.reload.try(entity.to_s.pluralize).first.description.any?).to be_truthy
 
       %w(name title since upuntil logo address city country).each do |f|
-        expect(resume.reload.try(entity.to_s.pluralize)[0].try(f.to_sym).present?).to be_truthy
+        expect(resume.reload.try(entity.to_s.pluralize)[index].try(f.to_sym).present?).to be_truthy
       end
     end
   end
