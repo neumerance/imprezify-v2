@@ -14,9 +14,9 @@
     .col-lg-4.col-sm-12
       .row
         .col-lg-12.col-sm-12
-          h4.font-weight-lighter Your almost done :)
-          .progress.mb-3
-            .progress-bar.progress-bar-striped.progress-bar-animated aria-valuemax="100" aria-valuemin="0" aria-valuenow="75" role="progressbar" style=("width: 75%")
+          #completion data-behaviour="sticky"
+            .progress.mb-3
+              .progress-bar.progress-bar-striped.progress-bar-animated aria-valuemax="100" aria-valuemin="#{@resume.completion_percentage}" aria-valuenow="0" role="progressbar" style=("width: #{@resume.completion_percentage}%")
       = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
         = hidden_field_tag :authenticity_token, form_authenticity_token
         div.mt-5.mb-5

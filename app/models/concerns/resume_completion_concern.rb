@@ -16,11 +16,11 @@ module ResumeCompletionConcern
   end
 
   def contact_completion
-    return 100 if contacts.any?
+    return 100 if contacts.all? { |x| x.value.present? || x.name.present? }
   end
 
   def skill_completion
-    return 100 if skills.any?
+    return 100 if skills.all? { |x| x.value.present? || x.name.present? }
   end
 
   def completion_percentage

@@ -66,6 +66,10 @@ window.updateContent = (sel, content) => {
   stickybits(`${sel} [data-behaviour="sticky"]`);
 }
 
+window.updateProgress = (sel, value) => {
+  $(sel).attr('aria-valuenow', value).css('width', `${value}%`);
+}
+
 document.addEventListener('turbolinks:load', () => {
   flatpickr('[data-behaviour="flatpickr"]', {
     altInput: true,
