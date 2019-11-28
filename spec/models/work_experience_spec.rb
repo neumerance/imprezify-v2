@@ -13,4 +13,24 @@ describe WorkExperience, type: :model do
       expect(WorkExperience.all.all { |e| e.type == 'WorkExperience' }).to be_truthy
     end
   end
+
+  describe '#completion_percentage' do
+    context 'incomplete' do
+      let(:experience) { create(:work_experience, title: nil, since: nil) }
+
+      it 'is incomplete' do
+        expect(experience.completion_percentage).to eq 60
+        expect(experience.completed?).to be_falsey
+      end
+    end
+
+    context 'incomplete' do
+      let(:experience) { create(:work_experience) }
+
+      it 'is incomplete' do
+        expect(experience.completion_percentage).to eq 100
+        expect(experience.completed?).to be_truthy
+      end
+    end
+  end
 end
