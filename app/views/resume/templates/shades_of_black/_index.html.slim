@@ -40,21 +40,24 @@ html lang="en"
             p= @resume.basic_info.profile_overview
             div.dropdown-divider.mt-4.mb-4
           - if @resume.work_experiences.any?
-          div.mb-4
-            h3.h4.mb-3
-              span.fa.fa-briefcase.mr-2
-              | Experience
-            = render partial: "resume/templates/#{@resume.template_name}/entity", locals: { resume: @resume, entity_name: :work_experiences }
-          div.mb-4
-            h3.h4.mb-3
-              span.fa.fa-graduation-cap.mr-2
-              | Education
-            = render partial: "resume/templates/#{@resume.template_name}/entity", locals: {resume: @resume, entity_name: :educations}
-          div.mb-4
-            h3.h4.mb-3
-              span.fa.fa-certificate.mr-2
-              | Certification and Achievements
-            = render partial: "resume/templates/#{@resume.template_name}/entity", locals: {resume: @resume, entity_name: :certification_and_achievements }
-          div.mb-4
-            = render partial: "resume/templates/#{@resume.template_name}/character_references", locals: {resume: @resume}
+            div.mb-4
+              h3.h4.mb-3
+                span.fa.fa-briefcase.mr-2
+                | Experience
+              = render partial: "resume/templates/#{@resume.template_name}/entity", locals: { resume: @resume, entity_name: :work_experiences }
+          - if @resume.educations.any?
+            div.mb-4
+              h3.h4.mb-3
+                span.fa.fa-graduation-cap.mr-2
+                | Education
+              = render partial: "resume/templates/#{@resume.template_name}/entity", locals: {resume: @resume, entity_name: :educations}
+          - if @resume.certification_and_achievements.any?
+            div.mb-4
+              h3.h4.mb-3
+                span.fa.fa-certificate.mr-2
+                | Certification and Achievements
+              = render partial: "resume/templates/#{@resume.template_name}/entity", locals: {resume: @resume, entity_name: :certification_and_achievements }
+          - if @resume.character_references.any?
+            div.mb-4
+              = render partial: "resume/templates/#{@resume.template_name}/character_references", locals: {resume: @resume}
 

@@ -8,7 +8,6 @@ class ResumeController < ApplicationController
   def edit
     if params[:entity_name].present?
       entity = @resume.try(params[:entity_name].to_sym)&.build
-      # byebug
       entity.save(validate: false)
     end
   end
