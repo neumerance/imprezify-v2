@@ -29,7 +29,7 @@ module ResumeHelper
   end
 
   def section_label(args, &block)
-    content_tag(args[:el].to_sym, class: "#{args[:class]} #{args[:completed] ? 'text-success' : ''}") do
+    content_tag(args[:el].to_sym, class: "#{args[:class]} #{args[:completed] ? 'text-success' : 'text-muted'}") do
       concat content_tag(:span, '', class: 'fa fa-check mr-2') if args[:completed]
       concat content_tag(:span, args[:label])
       block.call if block_given?

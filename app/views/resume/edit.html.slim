@@ -4,17 +4,8 @@
     p.font-weight-light
       | Make sure to fill up all required fields.
   .row
-    .col-lg-2
-      ul.no-bullets data-behaviour="sticky"
-        = section_label(el: :li, completed: @resume.basic_info&.completed?, label: 'Basic Information', class: 'mb-2')
-        = section_label(el: :li, completed: @resume.work_experiences.all?(&:completed?), label: 'Work Experiences', class: 'mb-2') do
-          - if @resume.work_experiences.any?
-            ul.no-bullets.pl-3
-              - @resume.work_experiences.each_with_index do |experience, index|
-                = section_label(el: :li, completed: experience.completed?, label: experience.name.present? ? experience.name : "Experience ##{index}", class: 'mt-2 mb-2')
-        = section_label(el: :li, completed: @resume.work_experiences.all?(&:completed?), label: 'Educations', class: 'mb-2')
-        = section_label(el: :li, completed: @resume.work_experiences.all?(&:completed?), label: 'Skills', class: 'mb-2')
-        = section_label(el: :li, completed: @resume.work_experiences.all?(&:completed?), label: 'Contacts', class: 'mb-2')
+    div#form-navigation.col-lg-2
+      = render partial: 'resume/form_navigation', locals: { resume: @resume }
     .col-lg-4.col-sm-12
       .full-height-scrollable
         = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|

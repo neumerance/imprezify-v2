@@ -1,2 +1,2 @@
 updateContent('#preview', '<%= escape_javascript(render partial: 'preview', locals: { resume: @resume }) %>')
-//updateProgress('#completion .progress .progress-bar', @resume.completion_percentage);
+updateProgress('#form-navigation', '<%= render partial: 'resume/form_navigation', locals: { resume: @resume } %>');
