@@ -1,21 +1,17 @@
 #edit-resume
-  div.mb-5
-    h1.font-weight-lighter.display-3 Profile
-    p.font-weight-light
-      | Make sure to fill up all required fields.
   .row
-    div#form-navigation.col-lg-2
+    div#form-navigation.pt-2.col-lg-2
       = render partial: 'resume/form_navigation', locals: { resume: @resume }
     .col-lg-4.col-sm-12
       .full-height-scrollable
         = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
           = hidden_field_tag :authenticity_token, form_authenticity_token
           div.mt-5.mb-5
-            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090.mt-3 data-behaviour="sticky" Basic Info
+            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky" Basic Info
             div#basic-info.mb-3
               = render partial: 'basic_info', locals: { resume: f }
           div.mt-5.mb-5
-            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090.mt-3 data-behaviour="sticky"
+            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
               | Work Experiences
               = link_to url_for(action: :edit, entity_name: :work_experiences, anchor: "work_experience_#{@resume.work_experiences.count}"), class: 'ml-2' do
                 span.fa.fa-plus-circle
@@ -23,28 +19,28 @@
             div#work-experiences.mb-3
               = render partial: 'work_experiences', locals: { resume: f }
           div.mt-5.mb-5
-            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090.mt-5 data-behaviour="sticky"
+            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
               | Educations
               = link_to url_for(action: :edit, entity_name: :educations, anchor: "education_#{@resume.educations.count}"), class: 'ml-2' do
                 span.fa.fa-plus-circle
             div#educations.mb-3
               = render partial: 'educations', locals: { resume: f }
           div.mt-5.mb-5
-            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090.mt-5 data-behaviour="sticky"
+            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
               | Skills
               = link_to url_for(action: :edit, entity_name: :skills, anchor: "skill_#{@resume.skills.count}"), class: 'ml-2' do
                 span.fa.fa-plus-circle
             div#skills.mb-3
               = render partial: 'skills', locals: {resume: f}
           div.mt-5.mb-5
-            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090.mt-5 data-behaviour="sticky"
+            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
               | Contacts
               = link_to url_for(action: :edit, entity_name: :contacts, anchor: "contact_#{@resume.contacts.count}"), class: 'ml-2' do
                 span.fa.fa-plus-circle
             div#contacts.mb-3
               = render partial: 'contacts', locals: {resume: f}
           div.mt-5.mb-5
-            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090.mt-5 data-behaviour="sticky"
+            h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
               | Certifications
               = link_to url_for(action: :edit, entity_name: :certification_and_achievements,
                   anchor: "certification_and_achievement_#{@resume.certification_and_achievements.count}"), class: 'ml-2' do
@@ -66,6 +62,7 @@
 = content_for :head do
   style
     |  .change-photo { bottom: 30px; left: 10px; background: rgba(0, 0, 0, 0.6); }
+    |  body,html { overflow: hidden; }
 
 javascript:
   window.moveToHash();

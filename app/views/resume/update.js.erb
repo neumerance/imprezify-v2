@@ -1,2 +1,3 @@
 updateContent('#preview', '<%= escape_javascript(render partial: 'preview', locals: { resume: @resume }) %>')
-updateProgress('#form-navigation', '<%= render partial: 'resume/form_navigation', locals: { resume: @resume } %>');
+updateContent('#form-navigation', '<%= render partial: 'resume/form_navigation', locals: { resume: @resume } %>');
+window.initStickyBits();

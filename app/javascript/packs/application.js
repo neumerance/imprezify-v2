@@ -8,7 +8,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("jquery/dist/jquery")
+require("jquery")
 require("bootstrap/dist/js/bootstrap")
 
 import flatpickr from 'flatpickr';
@@ -32,7 +32,7 @@ window.addMoreField = (elem) => {
   const el = $(elem);
   const input_button = $('<div class="input-group-append mb-2">').html($('<button class="btn btn-sm btn-outline-danger" onclick="removeField(this)">').text('Remove'));
   const input_group = $('<div class="input-group">');
-  input_group.append(`<input name="${el.attr('data-object-name')}" class="form-control mb-2" placeholder="Put description here" />`);
+  input_group.append(`<input name="${el.attr('data-object-name')}" class="form-control mb-2" placeholder="Put description here" onchange="submitForm(this)" />`);
   input_group.append(input_button);
   el.before(input_group);
 }
@@ -63,11 +63,14 @@ window.hasActiveAjax = () => {
 
 window.updateContent = (sel, content) => {
   $(sel).html(content);
-  stickybits(`${sel} [data-behaviour="sticky"]`);
 }
 
 window.updateProgress = (sel, value) => {
   $(sel).attr('aria-valuenow', value).css('width', `${value}%`);
+}
+
+window.initStickyBits = () => {
+  stickybits('[data-behaviour="sticky"]');
 }
 
 document.addEventListener('turbolinks:load', () => {
@@ -76,8 +79,6 @@ document.addEventListener('turbolinks:load', () => {
     altFormat: 'F j, Y',
     dateFormat: 'Y-m-d'
   });
-
-  stickybits('[data-behaviour="sticky"]');
 
   $('[data-behaviour="image-input"]').on('change', (elem) => {
     const imageTag = $(this).attr('data-image-tag');
@@ -94,6 +95,8 @@ document.addEventListener('turbolinks:load', () => {
     .on('ajax:error', 'form', (data, status, xhr) => {
       $('#preloader').hide();
     })
+
+  initStickyBits();
 });
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -102,4 +105,3 @@ document.addEventListener('turbolinks:load', () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
