@@ -27,4 +27,12 @@ module ResumeHelper
   def contact_labels
     Contact::LABELS.map { |s| [s.to_s.titleize, s] }
   end
+
+  def section_label(args, &block)
+    content_tag(args[:el].to_sym, class: "#{args[:class]} #{args[:completed] ? 'text-success' : ''}") do
+      concat content_tag(:span, '', class: 'fa fa-check mr-2') if args[:completed]
+      concat content_tag(:span, args[:label])
+      block.call if block_given?
+    end
+  end
 end
