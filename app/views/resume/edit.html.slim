@@ -1,9 +1,10 @@
 #edit-resume
   .row
     div#form-navigation.pt-2.col-lg-2
-      = render partial: 'resume/form_navigation', locals: { resume: @resume }
+      div.full-height-scrollable.pt-4
+        = render partial: 'resume/form_navigation', locals: { resume: @resume }
     .col-lg-4.col-sm-12
-      .full-height-scrollable
+      .full-height-scrollable.pt-4
         = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
           = hidden_field_tag :authenticity_token, form_authenticity_token
           div.mt-5.mb-5

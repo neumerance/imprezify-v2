@@ -78,7 +78,7 @@
 .full-height-scrollable {
   height: 100vh;
   width: 100%;
-  overflow: scroll;
+  overflow-y: auto;
 }
 div.disabled {
   pointer-events:none;

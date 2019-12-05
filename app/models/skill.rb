@@ -2,7 +2,7 @@ class Skill < CommonNameValue
   MODEL_NAME = 'Skill'.freeze
   VALUES = [:newbie, :beginner, :skilled, :experienced, :expert].freeze
 
-  default_scope { where(type: MODEL_NAME).order(id: 'ASC') }
+  default_scope { where(type: MODEL_NAME).order(created_at: 'ASC') }
 
   belongs_to :resume
 

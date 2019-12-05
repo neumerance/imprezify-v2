@@ -3,7 +3,7 @@ class Contact < CommonNameValue
   LABELS = [:email, :skype, :linkedin, :mobile, :telephone].freeze
   ICONS  = ['fas fa-at', 'fab fa-skype', 'fab fa-linkedin', 'fas fa-mobile', 'fas fa-phone-alt']
 
-  default_scope { where(type: MODEL_NAME).order(id: 'ASC') }
+  default_scope { where(type: MODEL_NAME).order(created_at: 'ASC') }
 
   belongs_to :resume
 
