@@ -4,13 +4,15 @@
       div.full-height-scrollable.pt-4
         = render partial: 'resume/form_navigation', locals: { resume: @resume }
     .col-lg-4.col-sm-12
-      .full-height-scrollable.pt-4
+      div#resume-form.full-height-scrollable.pt-4
         = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
           = hidden_field_tag :authenticity_token, form_authenticity_token
+
           div.mt-5.mb-5
             h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky" Basic Info
             div#basic-info.mb-3
               = render partial: 'basic_info', locals: { resume: f }
+
           div.mt-5.mb-5
             h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
               | Work Experiences
@@ -19,6 +21,7 @@
             p.font-weight-lighter Start with your latest work experience.
             div#work-experiences.mb-3
               = render partial: 'work_experiences', locals: { resume: f }
+
           div.mt-5.mb-5
             h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
               | Educations
@@ -26,6 +29,8 @@
                 span.fa.fa-plus-circle
             div#educations.mb-3
               = render partial: 'educations', locals: { resume: f }
+
+
           div.mt-5.mb-5
             h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
               | Skills
@@ -33,6 +38,7 @@
                 span.fa.fa-plus-circle
             div#skills.mb-3
               = render partial: 'skills', locals: {resume: f}
+
           div.mt-5.mb-5
             h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
               | Contacts
@@ -40,6 +46,7 @@
                 span.fa.fa-plus-circle
             div#contacts.mb-3
               = render partial: 'contacts', locals: {resume: f}
+
           div.mt-5.mb-5
             h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
               | Certifications
@@ -48,15 +55,18 @@
                 span.fa.fa-plus-circle
             div#certification-and-achievements.mb-3
               = render partial: 'certification_and_achievements', locals: {resume: f}
+
           div.mt-5.mb-5
             h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090.mt-5 data-behaviour="sticky"
               | Character Reference
               = link_to url_for(action: :edit, entity_name: :character_references,
-                  anchor: "character_reference_#{@resume.certification_and_achievements.count}"), class: 'ml-2' do
+                  anchor: "character_reference_#{@resume.character_references.count}"), class: 'ml-2' do
                 span.fa.fa-plus-circle
             div#character-references.mb-3
               = render partial: 'character_references', locals: {resume: f}
+
           = button_tag 'Submit', type: 'submit', class: 'd-none'
+
     .col-lg-6#preview
       = render partial: 'preview', locals: { resume: @resume }
 
@@ -66,4 +76,4 @@
     |  body,html { overflow: hidden; }
 
 javascript:
-  window.moveToHash();
+  window.moveToHash('#resume-form');

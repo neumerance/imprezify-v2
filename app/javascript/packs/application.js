@@ -19,13 +19,22 @@ import Rails from "@rails/ujs";
 
 alertify.defaults.glossary.title = 'Imprezify';
 
-window.moveToHash = () => {
-  if (window.location.hash) {
-    const anchor = jQuery(`a[name="${window.location.hash.substring(1)}"]`);
-    $('html, body').animate({
-      scrollTop: anchor.offset().top - 200
-    }, 500);
-  }
+const getOffset = (element, horizontal = false) => {
+  if(!element) return 0;
+  return getOffset(element.offsetParent, horizontal) + (horizontal ? element.offsetLeft : element.offsetTop);
+}
+
+window.moveToHash = (container = 'html, body') => {
+  $(document).ready(() => {
+    if (window.location.hash) {
+      setTimeout(() => {
+        const anchor = jQuery(`a[name="${window.location.hash.substring(1)}"]`);
+          $(container).animate({
+            scrollTop: getOffset(anchor.get(0)) - 100
+          }, 1000);
+      }, 200);
+    }
+  });
 }
 
 window.addMoreField = (elem) => {
@@ -46,8 +55,10 @@ window.destroySection = (elem, model_id, model_name) => {
   const el = $(elem);
   alertify.confirm('Are you sure you want to delete this?', () => {
     const section = el.parents('.section');
-    const card = section.parents('.card')
-    section.append(`<input type="hidden" name="${model_name}[_destroy]" value="true" />`);
+    const card = section.parents('.card');
+    if (model_id) {
+      section.append(`<input type="hidden" name="${model_name}[_destroy]" value="true" />`);
+    }
     Rails.fire($(el).parents('form')[0], 'submit');
     card.remove();
   });
