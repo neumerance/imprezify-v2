@@ -1,8 +1,14 @@
-ul.no-bullets data-behaviour="sticky"
+ul#basic-info-nav.no-bullets data-behaviour="sticky"
   = section_label(el: :li, completed: resume.basic_info&.completed?, label: 'Basic Information', class: 'mb-2')
+ul.no-bullets data-behaviour="sticky"
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :work_experiences }
+ul.no-bullets data-behaviour="sticky"
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :educations }
+ul.no-bullets data-behaviour="sticky"
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :skills }
+ul.no-bullets data-behaviour="sticky"
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :certification_and_achievements }
+ul.no-bullets data-behaviour="sticky"
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :contacts }
+ul.no-bullets data-behaviour="sticky"
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :character_references }

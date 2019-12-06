@@ -5,14 +5,14 @@
         = render partial: 'resume/form_navigation', locals: { resume: @resume }
     .col-lg-4.col-sm-12
       div#resume-form.full-height-scrollable.pt-4
-        = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
+        = form_for(@resume.basic_info, url: resume_basic_info_path(id: @resume.basic_info.id, resume_id: @resume.id), multipart: true, remote: true) do |f|
           = hidden_field_tag :authenticity_token, form_authenticity_token
-
           div.mt-5.mb-5
             h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky" Basic Info
             div#basic-info.mb-3
-              = render partial: 'basic_info', locals: { resume: f }
-
+              = render partial: 'basic_info', locals: { basic_info: f }
+        = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
+          = hidden_field_tag :authenticity_token, form_authenticity_token
           div.mt-5.mb-5
             h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
               | Work Experiences

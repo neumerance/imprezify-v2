@@ -1,0 +1,2 @@
+updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')
+updateContent('#basic-info-nav', '<%= section_label(el: :li, completed: @resume.basic_info&.completed?, label: 'Basic Information', class: 'mb-2') %>')
