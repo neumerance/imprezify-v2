@@ -1,0 +1,11 @@
+h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
+  | Work Experiences
+  = link_to new_resume_work_experience_path(resume_id: resume.id), remote: true, class: 'ml-2' do
+    span.fa.fa-plus-circle
+- unless resume.work_experiences.any?
+  .card.nothing-on-it
+    .card-body
+      | Click plus button above to add work experience.
+- resume.work_experiences.each_with_index do |work_experience, index|
+  = render partial: 'work_experiences/work_experience_item',\
+    locals: { resume: resume, work_experience: work_experience, index: index }

@@ -7,4 +7,4 @@
     - if resume.try(entity_name).any?
       ul.no-bullets.pl-3
         - resume.try(entity_name).each_with_index do |enity, index|
-          = section_label(el: :li, completed: enity.completed?, label: enity.name.present? ? enity.name : "#{entity_name.to_s.singularize.titleize} ##{index+1}", class: 'mt-2 mb-2')
+          = section_label(el: :li, completed: enity.completed?, label: enity.name.present? ? enity.name : "#{resume.try(entity_name).klass::SHORT_NAME} ##{index+1}", class: 'mt-2 mb-2')

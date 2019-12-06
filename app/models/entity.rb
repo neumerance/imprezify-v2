@@ -1,4 +1,6 @@
 class Entity < ApplicationRecord
+  SHORT_NAME = 'Entity'.freeze
+
   belongs_to :resume
 
   has_attached_file :logo, styles: { passport: '400x400>' }, default_url: '100x100.png'

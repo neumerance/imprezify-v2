@@ -1,5 +1,7 @@
 class Contact < CommonNameValue
   MODEL_NAME = 'Contact'.freeze
+  SHORT_NAME = 'Contact'.freeze
+
   LABELS = [:email, :skype, :linkedin, :mobile, :telephone].freeze
   ICONS  = ['fas fa-at', 'fab fa-skype', 'fab fa-linkedin', 'fas fa-mobile', 'fas fa-phone-alt']
 

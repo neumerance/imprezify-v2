@@ -76,6 +76,10 @@ window.updateContent = (sel, content) => {
   $(sel).html(content);
 }
 
+window.appendTo = (sel, content) => {
+  $(sel).append(content);
+}
+
 window.updateProgress = (sel, value) => {
   $(sel).attr('aria-valuenow', value).css('width', `${value}%`);
 }

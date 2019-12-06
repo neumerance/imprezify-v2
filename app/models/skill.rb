@@ -1,5 +1,7 @@
 class Skill < CommonNameValue
   MODEL_NAME = 'Skill'.freeze
+  SHORT_NAME = 'Skill'.freeze
+
   VALUES = [:newbie, :beginner, :skilled, :experienced, :expert].freeze
 
   default_scope { where(type: MODEL_NAME).order(created_at: 'ASC') }

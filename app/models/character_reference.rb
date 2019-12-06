@@ -1,5 +1,7 @@
 class CharacterReference < Entity
   MODEL_NAME = 'CharacterReference'.freeze
+  SHORT_NAME = 'Reference'.freeze
+
   default_scope { where(type: MODEL_NAME).order(id: 'ASC') }
 
   before_save do

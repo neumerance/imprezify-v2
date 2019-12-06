@@ -1,0 +1,18 @@
+.card.mt-5.mb-5
+  .card-body
+    .section id="work_experience_#{index}"
+      = hidden_field_tag :id, work_experience.id
+      a name="work_experience_#{index}"
+      .section-title.d-flex.justify-content-between
+        h4.font-weight-lighter.display-6.text-secondary
+          = "Work Experience ##{index + 1}"
+        = link_to resume_work_experience_path(resume_id: resume.id, id: work_experience.id),\
+          remote: true, data: { confirm: 'Are you sure?' }, method: :delete,\
+          class: 'font-weight-lighter text-danger' do
+            span.fa.fa-times
+      .row
+        .col-lg-12.col-sm-12
+          .form-group
+            = label_tag 'entities[][name]', 'Company Name'
+            = text_field_tag 'entities[][name]', work_experience.name, class: 'form-control',
+              placeholder: 'Moneysmart PTE. LTD.', onchange: 'submitForm(this)'

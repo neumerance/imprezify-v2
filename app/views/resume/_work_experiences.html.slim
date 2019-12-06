@@ -1,9 +1,9 @@
-- unless @resume.work_experiences.any?
+- unless work_experiences.any?
   .card.nothing-on-it
     .card-body
       | Click plus button above to add work experience.
 - exp_count = 0
-= resume.fields_for :work_experiences, @resume.work_experiences do |work_experience|
+- work_experiences do |work_experience|
   .card.mt-5.mb-5
     .card-body
       .section id="work_experience_#{exp_count}"
