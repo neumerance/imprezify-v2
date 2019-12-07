@@ -1,0 +1,8 @@
+updateContent(
+  '#educations',
+  '<%= escape_javascript(render partial: 'educations/educations', locals: { resume: @resume }) %>'
+)
+updateContent('#education-nav', '<%= render partial: 'resume/form_navigation_menu', locals: { resume: @resume, entity_name: :educations } %>')
+updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')
+initStickyBits();
+initFlatpickr();

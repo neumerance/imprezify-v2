@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :resume do
     resources :basic_info, only: :update
     resources :work_experiences, only: [:new, :create, :destroy]
+    resources :educations, only: [:new, :create, :destroy]
     member do
       get :preview
     end

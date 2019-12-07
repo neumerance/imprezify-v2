@@ -1,0 +1,11 @@
+h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
+  | Educations
+  = link_to new_resume_education_path(resume_id: resume.id), remote: true, class: 'ml-2' do
+    span.fa.fa-plus-circle
+- unless resume.educations.any?
+  .card.nothing-on-it
+    .card-body
+      | Click plus button above to add education.
+- resume.educations.each_with_index do |education, index|
+  = render partial: 'educations/education_item',\
+    locals: { resume: resume, education: education, index: index+1 }

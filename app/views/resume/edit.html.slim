@@ -4,21 +4,29 @@
       div.full-height-scrollable.pt-4
         = render partial: 'resume/form_navigation', locals: { resume: @resume }
     .col-lg-4.col-sm-12
-      div#resume-form.full-height-scrollable.pt-4
+      div#resume-form.full-height-scrollable
         div.mt-5.mb-5
           = form_for(@resume.basic_info, url: resume_basic_info_path(id: @resume.basic_info.id, resume_id: @resume.id), remote: true, html: { multipart: true }) do |f|
             = hidden_field_tag :authenticity_token, form_authenticity_token
             div.mt-5.mb-5
               h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky" Basic Info
+              a name="basic-info"
               div#basic-info.mb-3
-                a name="basic-info"
                 = render partial: 'basic_info/fields', locals: { basic_info: f }
+
         div.mt-5.mb-5
           = form_tag(resume_work_experiences_path(resume_id: @resume.id), multipart: true, remote: true) do
             = hidden_field_tag :authenticity_token, form_authenticity_token
+            a name="work-experiences"
             div#work-experiences
-              a name="work-experiences"
               = render partial: 'work_experiences/work_experiences', locals: { resume: @resume }
+
+        div.mt-5.mb-5
+          = form_tag(resume_educations_path(resume_id: @resume.id), multipart: true, remote: true) do
+            = hidden_field_tag :authenticity_token, form_authenticity_token
+            a name="educations"
+            div#educations
+              = render partial: 'educations/educations', locals: { resume: @resume }
 
         / = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
           = hidden_field_tag :authenticity_token, form_authenticity_token

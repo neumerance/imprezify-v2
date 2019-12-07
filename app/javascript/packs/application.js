@@ -98,12 +98,16 @@ window.initStickyBits = () => {
   stickybits('[data-behaviour="sticky"]');
 }
 
-document.addEventListener('turbolinks:load', () => {
+window.initFlatpickr = () => {
   flatpickr('[data-behaviour="flatpickr"]', {
     altInput: true,
     altFormat: 'F j, Y',
     dateFormat: 'Y-m-d'
   });
+}
+
+document.addEventListener('turbolinks:load', () => {
+  initFlatpickr();
 
   $('[data-behaviour="image-input"]').on('change', (elem) => {
     const imageTag = $(this).attr('data-image-tag');
