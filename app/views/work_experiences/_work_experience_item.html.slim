@@ -1,7 +1,7 @@
 .card.mt-5.mb-5
   .card-body
     .section id="work_experience_#{index}"
-      = hidden_field_tag :id, work_experience.id
+      = hidden_field_tag 'entities[][id]', work_experience.id
       a name="work_experience_#{index}"
       .section-title.d-flex.justify-content-between
         h4.font-weight-lighter.display-6.text-secondary

@@ -8,7 +8,7 @@ class EntitiesController < ApplicationController
 
   def create
     allowed_params.each do |entity_params|
-      self.class.model.update(entity_params)
+      self.class.model.find(entity_params[:id]).update(entity_params.except(:id))
     end
   end
 
