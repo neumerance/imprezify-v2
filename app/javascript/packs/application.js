@@ -24,6 +24,16 @@ const getOffset = (element, horizontal = false) => {
   return getOffset(element.offsetParent, horizontal) + (horizontal ? element.offsetLeft : element.offsetTop);
 }
 
+window.moveToAnchor = (container, anchor_name) => {
+  $(document).ready(() => {
+    const anchor = jQuery(`a[name="${anchor_name}"]`);
+    $(container).animate({
+      scrollTop: getOffset(anchor.get(0)) - 100
+    }, 1000);
+  });
+}
+
+
 window.moveToHash = (container = 'html, body') => {
   $(document).ready(() => {
     if (window.location.hash) {

@@ -2,9 +2,16 @@
     el: :li,\
     completed: resume.try(entity_name).all?(&:completed?) && resume.try(entity_name).any?,\
     label: entity_name.to_s.titleize.pluralize,\
-    class: 'mb-2'\
+    class: 'mb-2',\
+    anchor: entity_name.to_s.dasherize\
   ) do
     - if resume.try(entity_name).any?
       ul.no-bullets.pl-3
         - resume.try(entity_name).each_with_index do |enity, index|
-          = section_label(el: :li, completed: enity.completed?, label: enity.name.present? ? enity.name : "#{resume.try(entity_name).klass::SHORT_NAME} ##{index+1}", class: 'mt-2 mb-2')
+          = section_label(\
+            el: :li,\
+            completed: enity.completed?,\
+            label: enity.name.present? ? enity.name : "#{resume.try(entity_name).klass::SHORT_NAME} ##{index+1}",\
+            class: 'mt-2 mb-2',\
+            anchor: "#{entity_name.to_s.singularize}_#{index+1}"\
+          )

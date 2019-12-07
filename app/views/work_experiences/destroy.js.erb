@@ -4,3 +4,4 @@ updateContent(
 )
 updateContent('#work-experience-nav', '<%= render partial: 'resume/form_navigation_menu', locals: { resume: @resume, entity_name: :work_experiences } %>')
 updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')
+initStickyBits();

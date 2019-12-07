@@ -5,7 +5,7 @@
       a name="work_experience_#{index}"
       .section-title.d-flex.justify-content-between
         h4.font-weight-lighter.display-6.text-secondary
-          = "Work Experience ##{index + 1}"
+          = "Work Experience ##{index}"
         = link_to resume_work_experience_path(resume_id: resume.id, id: work_experience.id),\
           remote: true, data: { confirm: 'Are you sure?' }, method: :delete,\
           class: 'font-weight-lighter text-danger' do

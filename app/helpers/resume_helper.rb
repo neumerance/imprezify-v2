@@ -29,9 +29,12 @@ module ResumeHelper
   end
 
   def section_label(args, &block)
-    content_tag(args[:el].to_sym, class: "#{args[:class]} #{args[:completed] ? 'text-success' : 'text-muted'}") do
+    content_tag(
+      args[:el].to_sym,
+      class: "#{args[:class]} #{args[:completed] ? 'text-success' : 'text-muted'}"
+    ) do
       concat content_tag(:span, '', class: 'fa fa-check mr-2') if args[:completed]
-      concat content_tag(:span, args[:label])
+      concat link_to args[:label], 'javascript:void(0)', onclick: "moveToAnchor('#resume-form', '#{args[:anchor]}')"
       block.call if block_given?
     end
   end
