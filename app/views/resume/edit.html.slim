@@ -28,6 +28,13 @@
             div#educations
               = render partial: 'educations/educations', locals: { resume: @resume }
 
+        div.mt-5.mb-5
+          = form_tag(resume_certification_and_achievements_path(resume_id: @resume.id), multipart: true, remote: true) do
+            = hidden_field_tag :authenticity_token, form_authenticity_token
+            a name="certification-and-achievements"
+            div#certification-and-achievements
+              = render partial: 'certification_and_achievements/certification_and_achievements', locals: { resume: @resume }
+
         / = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
           = hidden_field_tag :authenticity_token, form_authenticity_token
           div.mt-5.mb-5

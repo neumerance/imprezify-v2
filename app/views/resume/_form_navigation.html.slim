@@ -1,4 +1,4 @@
-ul#basic-info-nav.no-bullets data-behaviour="sticky"
+ul#basic-info-nav.no-bullets
   = section_label(el: :li, completed: resume.basic_info&.completed?, label: 'Basic Information', class: 'mb-2')
 ul#work-experience-nav.no-bullets data-behaviour="sticky"
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :work_experiences }
