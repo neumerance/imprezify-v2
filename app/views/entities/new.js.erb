@@ -1,0 +1,9 @@
+updateContent(
+  '#<%= params[:controller].dasherize %>',
+  '<%= escape_javascript(render partial: "#{params[:controller]}/#{params[:controller]}", locals: { resume: @resume }) %>'
+)
+updateContent('#<%= params[:controller].dasherize.singularize %>-nav', '<%= render partial: 'resume/form_navigation_menu', locals: { resume: @resume, entity_name: params[:controller] } %>')
+updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')
+moveToAnchor('#resume-form', "<%= params[:controller].singularize %>_<%= @resume.work_experiences.count %>")
+initStickyBits();
+initFlatpickr();

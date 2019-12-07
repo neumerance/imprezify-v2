@@ -1,0 +1,2 @@
+updateContent('#<%= params[:controller].dasherize.singularize %>-nav', '<%= render partial: 'resume/form_navigation_menu', locals: { resume: @resume, entity_name: params[:controller] } %>')
+updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')

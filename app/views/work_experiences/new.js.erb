@@ -1,9 +1,0 @@
-updateContent(
-  '#work-experiences',
-  '<%= escape_javascript(render partial: 'work_experiences/work_experiences', locals: { resume: @resume }) %>'
-)
-updateContent('#work-experience-nav', '<%= render partial: 'resume/form_navigation_menu', locals: { resume: @resume, entity_name: :work_experiences } %>')
-updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')
-moveToAnchor('#resume-form', "work_experience_<%= @resume.work_experiences.count %>")
-initStickyBits();
-initFlatpickr();
