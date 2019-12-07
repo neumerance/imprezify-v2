@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :work_experiences, only: [:new, :create, :destroy]
     resources :educations, only: [:new, :create, :destroy]
     resources :certification_and_achievements, only: [:new, :create, :destroy]
+    resources :character_references, only: [:new, :create, :destroy]
     member do
       get :preview
     end

@@ -35,6 +35,13 @@
             div#certification-and-achievements
               = render partial: 'certification_and_achievements/certification_and_achievements', locals: { resume: @resume }
 
+        div.mt-5.mb-5
+          = form_tag(resume_character_references_path(resume_id: @resume.id), multipart: true, remote: true) do
+            = hidden_field_tag :authenticity_token, form_authenticity_token
+            a name="character-references"
+            div#character-references
+              = render partial: 'character_references/character_references', locals: { resume: @resume }
+
         / = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
           = hidden_field_tag :authenticity_token, form_authenticity_token
           div.mt-5.mb-5
