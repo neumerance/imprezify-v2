@@ -1,11 +1,11 @@
 h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
-  | Cerfication and Achievements
+  | Certification And Achievements
   = link_to new_resume_certification_and_achievement_path(resume_id: resume.id), remote: true, class: 'ml-2' do
     span.fa.fa-plus-circle
 - unless resume.certification_and_achievements.any?
   .card.nothing-on-it
     .card-body
-      | Click plus button above to add certification or achievement.
+      | Click plus button above to add certification and achievement.
 - resume.certification_and_achievements.each_with_index do |certification_and_achievement, index|
   = render partial: 'certification_and_achievements/certification_and_achievement_item',\
     locals: { resume: resume, certification_and_achievement: certification_and_achievement, index: index+1 }
