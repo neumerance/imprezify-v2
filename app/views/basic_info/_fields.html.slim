@@ -3,7 +3,7 @@
   .card-body
     .row
       .col-lg-3.col-sm-12.position-relative
-        = image_field(basic_info, :photo)
+        = image_field(basic_info.object, 'basic_info[photo]', :photo)
       .col-lg-9.col-sm-12
         .row
           .col-lg-12.col-sm-12
