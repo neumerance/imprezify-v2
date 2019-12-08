@@ -1,7 +1,7 @@
 = section_label(\
     el: :li,\
     completed: resume.try(entity_name).all?(&:completed?) && resume.try(entity_name).any?,\
-    label: entity_name.to_s.titleize.pluralize,\
+    label: content_tag(:span, entity_name.to_s.titleize.pluralize, class: 'font-weight-bold'),\
     class: 'mb-2',\
     anchor: entity_name.to_s.dasherize\
   ) do

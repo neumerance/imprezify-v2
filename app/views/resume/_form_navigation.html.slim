@@ -1,14 +1,14 @@
-ul#basic-info-nav.no-bullets
+ul#basic-info-nav.no-bullets.mb-5
   = section_label(el: :li, completed: resume.basic_info&.completed?, label: 'Basic Information', class: 'mb-2')
-ul#work-experience-nav.no-bullets data-behaviour="sticky"
+ul#work-experience-nav.no-bullets.mb-5
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :work_experiences }
-ul#education-nav.no-bullets data-behaviour="sticky"
+ul#education-nav.no-bullets.mb-5
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :educations }
-ul#skill-nav.no-bullets data-behaviour="sticky"
+ul#skill-nav.no-bullets.mb-5
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :skills }
-ul#certification-nav.no-bullets data-behaviour="sticky"
+ul#certification-and-achievement-nav.no-bullets.mb-5
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :certification_and_achievements }
-ul#contact-nav.no-bullets data-behaviour="sticky"
+ul#contact-nav.no-bullets.mb-5
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :contacts }
-ul#character-reference-nav.no-bullets data-behaviour="sticky"
+ul#character-reference-nav.no-bullets.mb-5
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :character_references }
