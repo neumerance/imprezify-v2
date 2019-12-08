@@ -1,5 +1,5 @@
 ul#basic-info-nav.no-bullets.mb-5
-  = section_label(el: :li, completed: resume.basic_info&.completed?, label: 'Basic Information', class: 'mb-2')
+  = section_label(el: :li, completed: resume.basic_info&.completed?, label: content_tag(:span, 'Basic Information', class: 'font-weight-bold'), class: 'mb-2')
 ul#work-experience-nav.no-bullets.mb-5
   = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :work_experiences }
 ul#education-nav.no-bullets.mb-5
