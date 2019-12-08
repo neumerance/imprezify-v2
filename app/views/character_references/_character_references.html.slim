@@ -1,7 +1,9 @@
 h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
-  | Character References
-  = link_to new_resume_character_reference_path(resume_id: resume.id), remote: true, class: 'ml-2' do
-    span.fa.fa-plus-circle
+  span.d-flex
+    span.d-none.d-md-block.d-sm-none Character References
+    span.d-sm-block.d-md-none References
+    = link_to new_resume_character_reference_path(resume_id: resume.id), remote: true, class: 'ml-2' do
+      span.fa.fa-plus-circle
 - unless resume.character_references.any?
   .card.nothing-on-it
     .card-body

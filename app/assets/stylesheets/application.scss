@@ -34,9 +34,10 @@
   width: 100% !important;
 }
 #preloader {
-  bottom: 80px;
-  right: 100px;
+  bottom: 15%;
+  right: 5%;
   display: none;
+  z-index: 1090;
 }
 .preloader {
   display: inline-block;
