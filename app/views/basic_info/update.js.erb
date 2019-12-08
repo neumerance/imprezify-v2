@@ -1,3 +1,4 @@
 updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')
 updateContent('#basic-info-nav', '<%= section_label(el: :li, completed: @resume.basic_info&.completed?, label: 'Basic Information', class: 'mb-2') %>')
 updateContent('#profile-strength', '<%= escape_javascript(render partial: 'resume/profile_strength', locals: { resume: @resume }) %>')
+hidePreloader();

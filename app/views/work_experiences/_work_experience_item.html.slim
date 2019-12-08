@@ -64,6 +64,7 @@
             | Show advanced fields
       .row.collapse id="#{collapsible}"
         .col-md-3.col-sm-12
+          = label_tag 'work_experiences[][logo]', 'Logo'
           = image_field(work_experience, 'work_experiences[][logo]', :logo)
         .col-md-9.col-sm-12
           .row

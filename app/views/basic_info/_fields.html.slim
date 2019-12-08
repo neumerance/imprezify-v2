@@ -3,6 +3,7 @@
   .card-body
     .row
       .col-md-3.col-sm-4
+        = label_tag 'basic_info[][photo]', 'Photo'
         = image_field(basic_info.object, 'basic_info[photo]', :photo)
       .col-md-9.col-sm-8
         .row

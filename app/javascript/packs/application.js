@@ -106,6 +106,10 @@ window.initFlatpickr = () => {
   });
 }
 
+window.hidePreloader = () => {
+  $('#preloader').hide();
+}
+
 document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
 

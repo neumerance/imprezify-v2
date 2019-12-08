@@ -2,7 +2,6 @@
 html lang="en"
   head
     meta charset="utf-8"
-    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"
     meta content="" name="description"
     meta content="" name="author"
     title
@@ -60,4 +59,3 @@ html lang="en"
           - if @resume.character_references.any?
             div.mb-4
               = render partial: "resume/templates/#{@resume.template_name}/character_references", locals: {resume: @resume}
-

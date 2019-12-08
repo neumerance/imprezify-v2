@@ -8,3 +8,4 @@ updateContent('#profile-strength', '<%= escape_javascript(render partial: 'resum
 moveToAnchor('#resume-form', "<%= params[:controller].singularize %>_<%= @resume.try(params[:controller].to_sym).count %>")
 initStickyBits();
 initFlatpickr();
+hidePreloader();
