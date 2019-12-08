@@ -11,40 +11,40 @@
           class: 'font-weight-lighter text-danger' do
             span.fa.fa-times
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .form-group
             = label_tag 'certification_and_achievements[][name]', 'Issued by'
             = text_field_tag 'certification_and_achievements[][name]', certification_and_achievement.name, class: 'form-control',
               placeholder: 'Moneysmart PTE. LTD.', onchange: 'submitForm(this)'
 
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .form-group
             = label_tag 'certification_and_achievements[][title]', 'Certification Title'
             = text_field_tag 'certification_and_achievements[][title]', certification_and_achievement.title, class: 'form-control',
                 placeholder: 'Senior Software Engineer', onchange: 'submitForm(this)'
 
       .row
-        .col-lg-6.col-sm-12
+        .col-md-6.col-sm-12
           .form-group
             = label_tag 'certification_and_achievements[][since]', 'Taken on'
             = text_field_tag 'certification_and_achievements[][since]', certification_and_achievement.since, class: 'form-control', placeholder: 'April 01, 2016',
                 data: { behaviour: 'flatpickr' }, onchange: 'submitForm(this)'
 
-        .col-lg-6.col-sm-12
+        .col-md-6.col-sm-12
           .form-group
             = label_tag 'certification_and_achievements[][upuntil]', 'Until'
             = text_field_tag 'certification_and_achievements[][upuntil]', certification_and_achievement.upuntil, class: 'form-control', placeholder: 'May 15, 2018',
                 data: { behaviour: 'flatpickr' }, onchange: 'submitForm(this)'
 
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .custom-control.custom-switch.mb-3
             = check_box_tag 'certification_and_achievements[][current]', true, certification_and_achievement.current, class: 'custom-control-input', onchange: 'submitForm(this)'
             = label_tag 'certification_and_achievements[][current]', 'Currently in progress', class: 'custom-control-label'
 
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .form-group
             = label_tag 'certification_and_achievements[][description]', 'Description', class: 'd-block'
             - certification_and_achievement.description.each do |d|
@@ -57,47 +57,47 @@
 
       - collapsible = "certification_and_achievement_collapsible_#{index}"
       .row.mb-3
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           = link_to "##{collapsible}", class: 'collapsed', data: {toggle: 'collapse'},
                   'aria-expanded' => 'false', 'aria-controls' => collapsible do
             .fa.mr-2
             | Show advanced fields
       .row.collapse id="#{collapsible}"
-        .col-lg-3.col-sm-12
+        .col-md-3.col-sm-12
           = image_field(certification_and_achievement, 'certification_and_achievements[][logo]', :logo)
-        .col-lg-9.col-sm-12
+        .col-md-9.col-sm-12
           .row
-            .col-lg-7.col-sm-12
+            .col-md-7.col-sm-12
               .form-group
                 = label_tag 'certification_and_achievements[][address]', 'Address'
                 = text_field_tag 'certification_and_achievements[][address]', certification_and_achievement.address, class: 'form-control',
                     placeholder: '63 Outram Park #07-01', onchange: 'submitForm(this)'
 
-            .col-lg-5.col-sm-12
+            .col-md-5.col-sm-12
               .form-group
                 = label_tag 'certification_and_achievements[][city]', 'City'
                 = text_field_tag 'certification_and_achievements[][city]', certification_and_achievement.city, class: 'form-control',
                     placeholder: 'Singapore', onchange: 'submitForm(this)'
           .row
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'certification_and_achievements[][country]', 'Country'
                 = text_field_tag 'certification_and_achievements[][country]', certification_and_achievement.country, class: 'form-control',
                     placeholder: 'Singapore', onchange: 'submitForm(this)'
 
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'certification_and_achievements[][postal_code]', 'Postal Code'
                 = text_field_tag 'certification_and_achievements[][postal_code]', certification_and_achievement.postal_code, class: 'form-control',
                     placeholder: '232323', onchange: 'submitForm(this)'
           .row
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'certification_and_achievements[][phone]', 'Phone'
                 = text_field_tag 'certification_and_achievements[][phone]', certification_and_achievement.phone, class: 'form-control',
                     placeholder: '+65 9989 8989', onchange: 'submitForm(this)'
 
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'certification_and_achievements[][email]', 'Email'
                 = text_field_tag 'certification_and_achievements[][email]', certification_and_achievement.email, class: 'form-control',

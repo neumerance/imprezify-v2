@@ -1,12 +1,14 @@
 #edit-resume
   .row
-    .col-lg-2.com-sm-12
+    .col-md-2.col-sm-12
       div.full-height-scrollable
-        div#profile-strength.m-2.mb-4
-          = render partial: 'resume/profile_strength', locals: { resume: @resume }
+        div.bg-white.p-4 data-behaviour="sticky"
+          h1.h3.text-primary.mb-4 Imprezify
+          div#profile-strength.m-2.mb-4
+            = render partial: 'resume/profile_strength', locals: { resume: @resume }
         div#form-navigation
           = render partial: 'resume/form_navigation', locals: { resume: @resume }
-    .col-lg-4.col-sm-12
+    .col-md-4.col-sm-12
       div#resume-form.full-height-scrollable
         div.mt-5.mb-5
           = form_for(@resume.basic_info, url: resume_basic_info_path(id: @resume.basic_info.id, resume_id: @resume.id), remote: true, html: { multipart: true }) do |f|
@@ -59,7 +61,7 @@
             div#skills
               = render partial: 'skills/skills', locals: { resume: @resume }
 
-    .col-lg-6#preview
+    .col-md-6#preview
       = render partial: 'preview', locals: { resume: @resume }
 
 = content_for :head do

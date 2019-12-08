@@ -11,28 +11,28 @@
           class: 'font-weight-lighter text-danger' do
             span.fa.fa-times
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .form-group
             = label_tag 'character_references[][name]', 'Name'
             = text_field_tag 'character_references[][name]', character_reference.name, class: 'form-control',
               placeholder: 'John Doe', onchange: 'submitForm(this)'
 
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .form-group
             = label_tag 'character_references[][title]', 'Title'
             = text_field_tag 'character_references[][title]', character_reference.title, class: 'form-control',
                 placeholder: 'Senior Product Manager', onchange: 'submitForm(this)'
 
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .row
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'character_references[][phone]', 'Phone'
                 = text_field_tag 'character_references[][phone]', character_reference.phone, class: 'form-control',
                     placeholder: '+65 9989 8989', onchange: 'submitForm(this)'
 
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'character_references[][email]', 'Email'
                 = text_field_tag 'character_references[][email]', character_reference.email, class: 'form-control',

@@ -3,7 +3,8 @@ html
   head
     title | ImprezifyV2
     = csrf_meta_tags
-    = csp_meta_tag
+    = csrf_meta_tag
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
@@ -15,4 +16,3 @@ html
         div
         div
     = yield
-

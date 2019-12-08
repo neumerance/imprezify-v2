@@ -11,40 +11,40 @@
           class: 'font-weight-lighter text-danger' do
             span.fa.fa-times
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .form-group
             = label_tag 'educations[][name]', 'School Name'
             = text_field_tag 'educations[][name]', education.name, class: 'form-control',
               placeholder: 'University of the St. Thomas', onchange: 'submitForm(this)'
 
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .form-group
             = label_tag 'educations[][title]', 'Course / Degree'
             = text_field_tag 'educations[][title]', education.title, class: 'form-control',
                 placeholder: 'Bachelor of Science in Computer Engineering', onchange: 'submitForm(this)'
 
       .row
-        .col-lg-6.col-sm-12
+        .col-md-6.col-sm-12
           .form-group
             = label_tag 'educations[][since]', 'Studied Since'
             = text_field_tag 'educations[][since]', education.since, class: 'form-control', placeholder: 'April 01, 2016',
                 data: { behaviour: 'flatpickr' }, onchange: 'submitForm(this)'
 
-        .col-lg-6.col-sm-12
+        .col-md-6.col-sm-12
           .form-group
             = label_tag 'educations[][upuntil]', 'Studied Until'
             = text_field_tag 'educations[][upuntil]', education.upuntil, class: 'form-control', placeholder: 'May 15, 2018',
                 data: { behaviour: 'flatpickr' }, onchange: 'submitForm(this)'
 
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .custom-control.custom-switch.mb-3
             = check_box_tag 'educations[][current]', true, education.current, class: 'custom-control-input', onchange: 'submitForm(this)'
             = label_tag 'educations[][current]', 'Currently studying here', class: 'custom-control-label'
 
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .form-group
             = label_tag 'educations[][description]', 'Description of studies', class: 'd-block'
             - education.description.each do |d|
@@ -57,47 +57,47 @@
 
       - collapsible = "education_collapsible_#{index}"
       .row.mb-3
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           = link_to "##{collapsible}", class: 'collapsed', data: {toggle: 'collapse'},
                   'aria-expanded' => 'false', 'aria-controls' => collapsible do
             .fa.mr-2
             | Show advanced fields
       .row.collapse id="#{collapsible}"
-        .col-lg-3.col-sm-12
+        .col-md-3.col-sm-12
           = image_field(education, 'educations[][logo]', :logo)
-        .col-lg-9.col-sm-12
+        .col-md-9.col-sm-12
           .row
-            .col-lg-7.col-sm-12
+            .col-md-7.col-sm-12
               .form-group
                 = label_tag 'educations[][address]', 'School Address'
                 = text_field_tag 'educations[][address]', education.address, class: 'form-control',
                     placeholder: '63 Outram Park #07-01', onchange: 'submitForm(this)'
 
-            .col-lg-5.col-sm-12
+            .col-md-5.col-sm-12
               .form-group
                 = label_tag 'educations[][city]', 'City'
                 = text_field_tag 'educations[][city]', education.city, class: 'form-control',
                     placeholder: 'Singapore', onchange: 'submitForm(this)'
           .row
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'educations[][country]', 'Country'
                 = text_field_tag 'educations[][country]', education.country, class: 'form-control',
                     placeholder: 'Singapore', onchange: 'submitForm(this)'
 
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'educations[][postal_code]', 'Postal Code'
                 = text_field_tag 'educations[][postal_code]', education.postal_code, class: 'form-control',
                     placeholder: '232323', onchange: 'submitForm(this)'
           .row
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'educations[][phone]', 'Phone'
                 = text_field_tag 'educations[][phone]', education.phone, class: 'form-control',
                     placeholder: '+65 9989 8989', onchange: 'submitForm(this)'
 
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'educations[][email]', 'Email'
                 = text_field_tag 'educations[][email]', education.email, class: 'form-control',

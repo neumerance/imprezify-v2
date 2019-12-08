@@ -11,40 +11,40 @@
           class: 'font-weight-lighter text-danger' do
             span.fa.fa-times
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .form-group
             = label_tag 'work_experiences[][name]', 'Company Name'
             = text_field_tag 'work_experiences[][name]', work_experience.name, class: 'form-control',
               placeholder: 'Moneysmart PTE. LTD.', onchange: 'submitForm(this)'
 
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .form-group
             = label_tag 'work_experiences[][title]', 'Job Title'
             = text_field_tag 'work_experiences[][title]', work_experience.title, class: 'form-control',
                 placeholder: 'Senior Software Engineer', onchange: 'submitForm(this)'
 
       .row
-        .col-lg-6.col-sm-12
+        .col-md-6.col-sm-12
           .form-group
             = label_tag 'work_experiences[][since]', 'Since'
             = text_field_tag 'work_experiences[][since]', work_experience.since, class: 'form-control', placeholder: 'April 01, 2016',
                 data: { behaviour: 'flatpickr' }, onchange: 'submitForm(this)'
 
-        .col-lg-6.col-sm-12
+        .col-md-6.col-sm-12
           .form-group
             = label_tag 'work_experiences[][upuntil]', 'Until'
             = text_field_tag 'work_experiences[][upuntil]', work_experience.upuntil, class: 'form-control', placeholder: 'May 15, 2018',
                 data: { behaviour: 'flatpickr' }, onchange: 'submitForm(this)'
 
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .custom-control.custom-switch.mb-3
             = check_box_tag 'work_experiences[][current]', true, work_experience.current, class: 'custom-control-input', onchange: 'submitForm(this)'
             = label_tag 'work_experiences[][current]', 'Currently working here', class: 'custom-control-label'
 
       .row
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           .form-group
             = label_tag 'work_experiences[][description]', 'Job Description', class: 'd-block'
             - work_experience.description.each do |d|
@@ -57,47 +57,47 @@
 
       - collapsible = "work_experience_collapsible_#{index}"
       .row.mb-3
-        .col-lg-12.col-sm-12
+        .col-md-12.col-sm-12
           = link_to "##{collapsible}", class: 'collapsed', data: {toggle: 'collapse'},
                   'aria-expanded' => 'false', 'aria-controls' => collapsible do
             .fa.mr-2
             | Show advanced fields
       .row.collapse id="#{collapsible}"
-        .col-lg-3.col-sm-12
+        .col-md-3.col-sm-12
           = image_field(work_experience, 'work_experiences[][logo]', :logo)
-        .col-lg-9.col-sm-12
+        .col-md-9.col-sm-12
           .row
-            .col-lg-7.col-sm-12
+            .col-md-7.col-sm-12
               .form-group
                 = label_tag 'work_experiences[][address]', 'Address'
                 = text_field_tag 'work_experiences[][address]', work_experience.address, class: 'form-control',
                     placeholder: '63 Outram Park #07-01', onchange: 'submitForm(this)'
 
-            .col-lg-5.col-sm-12
+            .col-md-5.col-sm-12
               .form-group
                 = label_tag 'work_experiences[][city]', 'City'
                 = text_field_tag 'work_experiences[][city]', work_experience.city, class: 'form-control',
                     placeholder: 'Singapore', onchange: 'submitForm(this)'
           .row
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'work_experiences[][country]', 'Country'
                 = text_field_tag 'work_experiences[][country]', work_experience.country, class: 'form-control',
                     placeholder: 'Singapore', onchange: 'submitForm(this)'
 
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'work_experiences[][postal_code]', 'Postal Code'
                 = text_field_tag 'work_experiences[][postal_code]', work_experience.postal_code, class: 'form-control',
                     placeholder: '232323', onchange: 'submitForm(this)'
           .row
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'work_experiences[][phone]', 'Phone'
                 = text_field_tag 'work_experiences[][phone]', work_experience.phone, class: 'form-control',
                     placeholder: '+65 9989 8989', onchange: 'submitForm(this)'
 
-            .col-lg-6.col-sm-12
+            .col-md-6.col-sm-12
               .form-group
                 = label_tag 'work_experiences[][email]', 'Email'
                 = text_field_tag 'work_experiences[][email]', work_experience.email, class: 'form-control',
