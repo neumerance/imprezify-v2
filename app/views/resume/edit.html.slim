@@ -49,6 +49,13 @@
             div#contacts
               = render partial: 'contacts/contacts', locals: { resume: @resume }
 
+        div.mt-5.mb-5
+          = form_tag(resume_skills_path(resume_id: @resume.id), multipart: true, remote: true) do
+            = hidden_field_tag :authenticity_token, form_authenticity_token
+            a name="skills"
+            div#skills
+              = render partial: 'skills/skills', locals: { resume: @resume }
+
         / = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
           = hidden_field_tag :authenticity_token, form_authenticity_token
           div.mt-5.mb-5

@@ -1,0 +1,21 @@
+.card.mt-5.mb-5
+  .card-body
+    .section id="skill_#{index}"
+      = hidden_field_tag 'skills[][id]', skill.id
+      a name="skill_#{index}"
+      .row
+        .col-lg-12.col-sm-12
+          .form-group.m-0
+            .input-group.mb-2
+              = text_field_tag 'skills[][name]', skill.name,\
+                    class: 'form-control', placeholder: 'Skill details here',\
+                    onchange: 'submitForm(this)'
+              = select_tag 'skills[][value]',\
+                  options_for_select(skill_levels, skill.value),\
+                  include_blank: '--- Select skill level ---',\
+                  class: 'form-control', onchange: 'submitForm(this)'
+              .input-group-append
+                = link_to resume_skill_path(resume_id: resume.id, id: skill.id),\
+                    remote: true, data: { confirm: 'Are you sure?' }, method: :delete,\
+                    class: 'btn btn-outline-danger'
+                    | Remove

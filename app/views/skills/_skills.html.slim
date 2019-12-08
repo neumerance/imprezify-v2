@@ -1,0 +1,11 @@
+h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
+  | Skills
+  = link_to new_resume_skill_path(resume_id: resume.id), remote: true, class: 'ml-2' do
+    span.fa.fa-plus-circle
+- unless resume.skills.any?
+  .card.nothing-on-it
+    .card-body
+      | Click plus button above to add skill.
+- resume.skills.each_with_index do |skill, index|
+  = render partial: 'skills/skill_item',\
+    locals: { resume: resume, skill: skill, index: index+1 }
