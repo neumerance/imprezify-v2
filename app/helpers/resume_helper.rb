@@ -10,7 +10,7 @@ module ResumeHelper
 
   def image_field(model, name, attr)
     id = name.parameterize.underscore
-    content_tag(:div, class: 'position-absolute') do
+    content_tag(:div) do
       concat file_field_tag name, class: 'd-none', data: { behaviour: 'image-input', 'image-tag' => id }, onchange: 'submitForm(this)'
       concat image_tag model.try(attr).try(:url), id: id + '_preview', class: 'rounded d-block width-100'
       concat link_to(content_tag(:span, ' Change', class: 'fa fa-pen-square'),

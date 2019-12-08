@@ -1,6 +1,6 @@
 #edit-resume
   .row
-    .col-md-2.col-sm-12
+    .col-md-2.col-sm-12.d-none.d-md-block
       div.full-height-scrollable
         div.bg-white.p-4 data-behaviour="sticky"
           h1.h3.text-primary.mb-4 Imprezify
@@ -19,7 +19,7 @@
               div#basic-info.mb-3
                 = render partial: 'basic_info/fields', locals: { basic_info: f }
 
-        div.mt-5.mb-5
+        div.mt-5.mb-5.d-none.d-md-block
           = form_tag(resume_work_experiences_path(resume_id: @resume.id), multipart: true, remote: true) do
             = hidden_field_tag :authenticity_token, form_authenticity_token
             a name="work-experiences"
