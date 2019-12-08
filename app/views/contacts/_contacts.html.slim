@@ -1,0 +1,11 @@
+h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky"
+  | Contacts
+  = link_to new_resume_contact_path(resume_id: resume.id), remote: true, class: 'ml-2' do
+    span.fa.fa-plus-circle
+- unless resume.contacts.any?
+  .card.nothing-on-it
+    .card-body
+      | Click plus button above to add contact.
+- resume.contacts.each_with_index do |contact, index|
+  = render partial: 'contacts/contact_item',\
+    locals: { resume: resume, contact: contact, index: index+1 }

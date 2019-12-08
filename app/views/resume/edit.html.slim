@@ -42,6 +42,13 @@
             div#character-references
               = render partial: 'character_references/character_references', locals: { resume: @resume }
 
+        div.mt-5.mb-5
+          = form_tag(resume_contacts_path(resume_id: @resume.id), multipart: true, remote: true) do
+            = hidden_field_tag :authenticity_token, form_authenticity_token
+            a name="contacts"
+            div#contacts
+              = render partial: 'contacts/contacts', locals: { resume: @resume }
+
         / = form_for(@resume, multipart: true, remote: true, html: { id: 'ressume-form' }) do |f|
           = hidden_field_tag :authenticity_token, form_authenticity_token
           div.mt-5.mb-5

@@ -1,0 +1,21 @@
+.card.mt-5.mb-5
+  .card-body
+    .section id="contact_#{index}"
+      = hidden_field_tag 'contacts[][id]', contact.id
+      a name="contact_#{index}"
+      .row
+        .col-lg-12.col-sm-12
+          .form-group.m-0
+            .input-group.mb-2
+              = select_tag 'contacts[][name]',\
+                  options_for_select(contact_labels, contact.name),\
+                  include_blank: '--- Select contact ---',\
+                  class: 'form-control', onchange: 'submitForm(this)'
+              = text_field_tag 'contacts[][value]', contact.value,\
+                    class: 'form-control', placeholder: 'Contact details here',\
+                    onchange: 'submitForm(this)'
+              .input-group-append
+                = link_to resume_contact_path(resume_id: resume.id, id: contact.id),\
+                    remote: true, data: { confirm: 'Are you sure?' }, method: :delete,\
+                    class: 'btn btn-outline-danger'
+                    | Remove
