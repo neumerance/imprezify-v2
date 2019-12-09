@@ -16,11 +16,13 @@ module ResumeCompletionConcern
   end
 
   def contact_completion
-    return 100 if contacts.all? { |x| x.value.present? || x.name.present? }
+    return 0 unless contacts.any?
+    contacts.map(&:completion_percentage).sum / contacts.count
   end
 
   def skill_completion
-    return 100 if skills.all? { |x| x.value.present? || x.name.present? }
+    return 0 unless skills.any?
+    skills.map(&:completion_percentage).sum / skills.count
   end
 
   def completion_percentage
