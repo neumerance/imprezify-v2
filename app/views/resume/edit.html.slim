@@ -62,6 +62,11 @@
             a name="skills"
             div#skills
               = render partial: 'skills/skills', locals: { resume: @resume }
+
+        div.mt-5.mb-5
+          p.text-center.font-weight-lighter
+            | Imprezify &copy; 2019
+
         div.d-lg-none.d-md-block.fixed-bottom style="z-index: 1090"
           div.profile-strength.bg-white.p-2
             = render partial: 'resume/profile_strength', locals: { resume: @resume }
