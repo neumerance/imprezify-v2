@@ -2,7 +2,7 @@ module ResumeHelper
   def add_more_field_button(model, name, attr)
     link_to('javascript:void(0)',
             'data-object-name' => name,
-            'onclick' => "addMoreField(this)") do
+            'onclick' => "formUtils.addMoreField(this)") do
       concat content_tag(:span, '', class: 'fa fa-plus-circle mr-2')
       concat content_tag(:span, model.try(attr).any? ? 'Add more description' : 'Add Descriptions')
     end
@@ -11,7 +11,7 @@ module ResumeHelper
   def image_field(model, name, attr)
     id = name.parameterize.underscore
     content_tag(:div) do
-      concat file_field_tag name, class: 'd-none', data: { behaviour: 'image-input', 'image-tag' => id }, onchange: 'submitForm(this)'
+      concat file_field_tag name, class: 'd-none', data: { behaviour: 'image-input', 'image-tag' => id }, onchange: 'formUtils.submitForm(this)'
       concat image_tag model.try(attr).try(:url), id: id + '_preview', class: 'rounded d-block width-100'
       concat link_to(content_tag(:span, ' Change', class: 'fa fa-pen-square'),
                      'javascript:void(0)',
@@ -34,7 +34,7 @@ module ResumeHelper
       class: "#{args[:class]} #{args[:completed] ? 'text-success' : 'text-muted'}"
     ) do
       concat content_tag(:span, '', class: 'fa fa-check mr-2') if args[:completed]
-      concat link_to args[:label], 'javascript:void(0)', onclick: "moveToAnchor('#resume-form', '#{args[:anchor]}')"
+      concat link_to args[:label], 'javascript:void(0)', onclick: "common.moveToAnchor('#resume-form', '#{args[:anchor]}')"
       block.call if block_given?
     end
   end

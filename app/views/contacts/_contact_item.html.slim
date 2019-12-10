@@ -16,10 +16,10 @@
             = select_tag 'contacts[][name]',\
                 options_for_select(contact_labels, contact.name),\
                 include_blank: '--- Select contact ---',\
-                class: 'form-control', onchange: 'submitForm(this)'
+                class: 'form-control', onchange: 'formUtils.submitForm(this)'
       .row
         .col-md-12.col-sm-12
           .form-group
             = text_field_tag 'contacts[][value]', contact.value,\
                 class: 'form-control', placeholder: 'Contact details here',\
-                onchange: 'submitForm(this)'
+                onchange: 'formUtils.submitForm(this)'

@@ -1,9 +1,23 @@
-export const inputAsImageUrl = (input) => {
-  if (input.target.files && input.target.files[0]) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      $('#'+input.target.attributes['data-image-tag'].value+'_preview').attr('src', e.target.result);
-    }
-    reader.readAsDataURL(input.target.files[0]);
-  }
+const getOffset = (element, horizontal = false) => {
+  if(!element) return 0;
+  return getOffset(element.offsetParent, horizontal) + (horizontal ? element.offsetLeft : element.offsetTop);
+}
+
+const hasActiveAjax = () => {
+  return $.active;
+}
+
+const updateContent = (sel, content) => {
+  $(sel).html(content);
+}
+
+const appendTo = (sel, content) => {
+  $(sel).append(content);
+}
+
+window.utilities = {
+  getOffset,
+  hasActiveAjax,
+  updateContent,
+  appendTo
 }

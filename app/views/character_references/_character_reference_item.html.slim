@@ -15,14 +15,14 @@
           .form-group
             = label_tag 'character_references[][name]', 'Name'
             = text_field_tag 'character_references[][name]', character_reference.name, class: 'form-control',
-              placeholder: 'John Doe', onchange: 'submitForm(this)'
+              placeholder: 'John Doe', onchange: 'formUtils.submitForm(this)'
 
       .row
         .col-md-12.col-sm-12
           .form-group
             = label_tag 'character_references[][title]', 'Title'
             = text_field_tag 'character_references[][title]', character_reference.title, class: 'form-control',
-                placeholder: 'Senior Product Manager', onchange: 'submitForm(this)'
+                placeholder: 'Senior Product Manager', onchange: 'formUtils.submitForm(this)'
 
         .col-md-12.col-sm-12
           .row
@@ -30,10 +30,10 @@
               .form-group
                 = label_tag 'character_references[][phone]', 'Phone'
                 = text_field_tag 'character_references[][phone]', character_reference.phone, class: 'form-control',
-                    placeholder: '+65 9989 8989', onchange: 'submitForm(this)'
+                    placeholder: '+65 9989 8989', onchange: 'formUtils.submitForm(this)'
 
             .col-md-6.col-sm-12
               .form-group
                 = label_tag 'character_references[][email]', 'Email'
                 = text_field_tag 'character_references[][email]', character_reference.email, class: 'form-control',
-                    placeholder: 'hr@workplace.net', onchange: 'submitForm(this)'
+                    placeholder: 'hr@workplace.net', onchange: 'formUtils.submitForm(this)'

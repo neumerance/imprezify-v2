@@ -6,7 +6,7 @@ module WaitForAjax
   end
 
   def finished_all_ajax_requests?
-    evaluate_script('window.hasActiveAjax()').zero?
+    evaluate_script('utilities.hasActiveAjax()').zero?
   end
 end
 

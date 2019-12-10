@@ -15,32 +15,32 @@
           .form-group
             = label_tag 'work_experiences[][name]', 'Company Name'
             = text_field_tag 'work_experiences[][name]', work_experience.name, class: 'form-control',
-              placeholder: 'Moneysmart PTE. LTD.', onchange: 'submitForm(this)'
+              placeholder: 'Moneysmart PTE. LTD.', onchange: 'formUtils.submitForm(this)'
 
       .row
         .col-md-12.col-sm-12
           .form-group
             = label_tag 'work_experiences[][title]', 'Job Title'
             = text_field_tag 'work_experiences[][title]', work_experience.title, class: 'form-control',
-                placeholder: 'Senior Software Engineer', onchange: 'submitForm(this)'
+                placeholder: 'Senior Software Engineer', onchange: 'formUtils.submitForm(this)'
 
       .row
         .col-md-6.col-sm-12
           .form-group
             = label_tag 'work_experiences[][since]', 'Since'
             = text_field_tag 'work_experiences[][since]', work_experience.since, class: 'form-control', placeholder: 'April 01, 2016',
-                data: { behaviour: 'flatpickr' }, onchange: 'submitForm(this)'
+                data: { behaviour: 'flatpickr' }, onchange: 'formUtils.submitForm(this)'
 
         .col-md-6.col-sm-12
           .form-group
             = label_tag 'work_experiences[][upuntil]', 'Until'
             = text_field_tag 'work_experiences[][upuntil]', work_experience.upuntil, class: 'form-control', placeholder: 'May 15, 2018',
-                data: { behaviour: 'flatpickr' }, onchange: 'submitForm(this)'
+                data: { behaviour: 'flatpickr' }, onchange: 'formUtils.submitForm(this)'
 
       .row
         .col-md-12.col-sm-12
           .custom-control.custom-switch.mb-3
-            = check_box_tag 'work_experiences[][current]', true, work_experience.current, class: 'custom-control-input', onchange: 'submitForm(this)'
+            = check_box_tag 'work_experiences[][current]', true, work_experience.current, class: 'custom-control-input', onchange: 'formUtils.submitForm(this)'
             = label_tag 'work_experiences[][current]', 'Currently working here', class: 'custom-control-label'
 
       .row
@@ -49,9 +49,9 @@
             = label_tag 'work_experiences[][description]', 'Job Description', class: 'd-block'
             - work_experience.description.each do |d|
               .input-group.mb-2
-                = text_field_tag 'work_experiences[][description][]', d, class: 'form-control', onchange: 'submitForm(this)'
+                = text_field_tag 'work_experiences[][description][]', d, class: 'form-control', onchange: 'formUtils.submitForm(this)'
                 .input-group-append
-                  = button_tag 'Remove', class: 'btn btn-outline-danger'
+                  = button_tag 'Remove', type: 'button', class: 'btn btn-sm btn-outline-danger', onclick: 'formUtils.removeField(this)'
             = add_more_field_button(work_experience, 'work_experiences[][description][]', :description)
           small.form-text.text-muted Add new line for each descriptions
 
@@ -72,34 +72,34 @@
               .form-group
                 = label_tag 'work_experiences[][address]', 'Address'
                 = text_field_tag 'work_experiences[][address]', work_experience.address, class: 'form-control',
-                    placeholder: '63 Outram Park #07-01', onchange: 'submitForm(this)'
+                    placeholder: '63 Outram Park #07-01', onchange: 'formUtils.submitForm(this)'
 
             .col-md-5.col-sm-12
               .form-group
                 = label_tag 'work_experiences[][city]', 'City'
                 = text_field_tag 'work_experiences[][city]', work_experience.city, class: 'form-control',
-                    placeholder: 'Singapore', onchange: 'submitForm(this)'
+                    placeholder: 'Singapore', onchange: 'formUtils.submitForm(this)'
           .row
             .col-md-6.col-sm-12
               .form-group
                 = label_tag 'work_experiences[][country]', 'Country'
                 = text_field_tag 'work_experiences[][country]', work_experience.country, class: 'form-control',
-                    placeholder: 'Singapore', onchange: 'submitForm(this)'
+                    placeholder: 'Singapore', onchange: 'formUtils.submitForm(this)'
 
             .col-md-6.col-sm-12
               .form-group
                 = label_tag 'work_experiences[][postal_code]', 'Postal Code'
                 = text_field_tag 'work_experiences[][postal_code]', work_experience.postal_code, class: 'form-control',
-                    placeholder: '232323', onchange: 'submitForm(this)'
+                    placeholder: '232323', onchange: 'formUtils.submitForm(this)'
           .row
             .col-md-6.col-sm-12
               .form-group
                 = label_tag 'work_experiences[][phone]', 'Phone'
                 = text_field_tag 'work_experiences[][phone]', work_experience.phone, class: 'form-control',
-                    placeholder: '+65 9989 8989', onchange: 'submitForm(this)'
+                    placeholder: '+65 9989 8989', onchange: 'formUtils.submitForm(this)'
 
             .col-md-6.col-sm-12
               .form-group
                 = label_tag 'work_experiences[][email]', 'Email'
                 = text_field_tag 'work_experiences[][email]', work_experience.email, class: 'form-control',
-                    placeholder: 'hr@workplace.net', onchange: 'submitForm(this)'
+                    placeholder: 'hr@workplace.net', onchange: 'formUtils.submitForm(this)'

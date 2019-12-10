@@ -12,21 +12,21 @@
               = basic_info.label :name, 'Full Name'
               = basic_info.text_field :name,
                   class: 'form-control', placeholder: 'Juan Dela Cruz',
-                  onchange: 'submitForm(this)'
+                  onchange: 'formUtils.submitForm(this)'
         .row
           .col-md-12.col-sm-12
             .form-group
               = basic_info.label :title, 'Current Title / Desired Position'
               = basic_info.text_field :title,
                   class: 'form-control', placeholder: 'Senior Software Engineer',
-                  onchange: 'submitForm(this)'
+                  onchange: 'formUtils.submitForm(this)'
     .row
       .col-md-12.col-sm-12
         .form-group
           = basic_info.label :profile_overview
           = basic_info.text_area :profile_overview,
               class: 'form-control', placeholder: 'Brief summary of your professional profile',
-              onchange: 'submitForm(this)'
+              onchange: 'formUtils.submitForm(this)'
 
     .row
       .col-md-6.col-sm-12
@@ -34,15 +34,15 @@
           = basic_info.label :birthdate
           = basic_info.text_field :birthdate,
               class: 'form-control', placeholder: 'April 15, 1987',
-              data: {behaviour: 'flatpickr'}, onchange: 'submitForm(this)'
+              data: {behaviour: 'flatpickr'}, onchange: 'formUtils.submitForm(this)'
       .col-md-6.col-sm-12
         label for="gender" Gender
         div#gender
           .form-check.form-check-inline
-            = basic_info.radio_button :gender, :male, class: 'mr-1', onclick: 'submitForm(this)'
+            = basic_info.radio_button :gender, :male, class: 'mr-1', onclick: 'formUtils.submitForm(this)'
             = basic_info.label :gender, 'Male', class: 'mb-0'
           .form-check.form-check-inline
-            = basic_info.radio_button :gender, :female, class: 'mr-1', onclick: 'submitForm(this)'
+            = basic_info.radio_button :gender, :female, class: 'mr-1', onclick: 'formUtils.submitForm(this)'
             = basic_info.label :gender, 'Female', class: 'mb-0'
     - collapsible = "basic_info_collapsible"
     .row.mb-3
@@ -58,36 +58,36 @@
             = basic_info.label :nationality
             = basic_info.text_field :nationality,
                 class: 'form-control', placeholder: 'Filipino',
-                onchange: 'submitForm(this)'
+                onchange: 'formUtils.submitForm(this)'
         .col-md-6.col-sm-12
           .form-group
             = basic_info.label :religion
             = basic_info.text_field :religion,
                 class: 'form-control', placeholder: 'Christian',
-                onchange: 'submitForm(this)'
+                onchange: 'formUtils.submitForm(this)'
       .row
         .col-md-12.col-sm-12
           .form-group
             = basic_info.label :address
             = basic_info.text_field :address,
                 class: 'form-control', placeholder: '63 Outram Park #07-01',
-                onchange: 'submitForm(this)'
+                onchange: 'formUtils.submitForm(this)'
       .row
         .col-md-4.col-sm-12
           .form-group
             = basic_info.label :city
             = basic_info.text_field :city,
                 class: 'form-control', placeholder: 'Singapore',
-                onchange: 'submitForm(this)'
+                onchange: 'formUtils.submitForm(this)'
         .col-md-4.col-sm-12
           .form-group
             = basic_info.label :country
             = basic_info.text_field :country,
                 class: 'form-control', placeholder: 'Singapore',
-                onchange: 'submitForm(this)'
+                onchange: 'formUtils.submitForm(this)'
         .col-md-4.col-sm-12
           .form-group
             = basic_info.label :postal_code
             = basic_info.text_field :postal_code,
                 class: 'form-control', placeholder: '232323',
-                onchange: 'submitForm(this)'
+                onchange: 'formUtils.submitForm(this)'

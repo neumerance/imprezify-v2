@@ -1,10 +1,10 @@
-updateContent(
+utilities.updateContent(
   '#<%= params[:controller].dasherize %>',
   '<%= escape_javascript(render partial: "#{params[:controller].underscore}/#{params[:controller].underscore}", locals: { resume: @resume }) %>'
 )
-updateContent('#<%= params[:controller].dasherize.singularize %>-nav', '<%= render partial: 'resume/form_navigation_menu', locals: { resume: @resume, entity_name: params[:controller] } %>')
-updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')
-updateContent('.profile-strength', '<%= escape_javascript(render partial: 'resume/profile_strength', locals: { resume: @resume }) %>')
-initStickyBits();
-initFlatpickr();
-hidePreloader();
+utilities.updateContent('#<%= params[:controller].dasherize.singularize %>-nav', '<%= render partial: 'resume/form_navigation_menu', locals: { resume: @resume, entity_name: params[:controller] } %>')
+utilities.updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')
+utilities.updateContent('.profile-strength', '<%= escape_javascript(render partial: 'resume/profile_strength', locals: { resume: @resume }) %>')
+common.initStickyBits();
+formUtils.initFlatpickr();
+common.hidePreloader();

@@ -15,11 +15,11 @@
           .form-group
             = text_field_tag 'skills[][name]', skill.name,\
                 class: 'form-control', placeholder: 'Skill details here',\
-                onchange: 'submitForm(this)'
+                onchange: 'formUtils.submitForm(this)'
       .row
         .col-md-12.col-sm-12
           .form-group
             = select_tag 'skills[][value]',\
                 options_for_select(skill_levels, skill.value),\
                 include_blank: '--- Select skill level ---',\
-                class: 'form-control', onchange: 'submitForm(this)'
+                class: 'form-control', onchange: 'formUtils.submitForm(this)'
