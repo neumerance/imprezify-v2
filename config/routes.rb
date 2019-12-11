@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :skills, only: [:new, :create, :destroy]
     member do
       get :preview
+      get :export_as_pdf
     end
   end
 end

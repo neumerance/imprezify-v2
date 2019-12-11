@@ -20,6 +20,9 @@ class ResumeController < ApplicationController
     render layout: false
   end
 
+  def export_as_pdf
+  end
+
   private
 
   def allowed_params

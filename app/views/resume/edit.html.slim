@@ -70,9 +70,14 @@
         div.d-lg-none.d-md-block.fixed-bottom style="z-index: 1090"
           div.profile-strength.bg-white.p-2
             = render partial: 'resume/profile_strength', locals: { resume: @resume }
-    .col-lg-6.d-none.d-md-none.d-lg-block#preview
-      = render partial: 'preview', locals: { resume: @resume }
-
+    div.col-lg-6.d-none.d-md-none.d-lg-block.position-relative.bg-dark
+      = link_to resume_index_path, class: 'position-absolute text-light', style: 'top: 20px; right: 30px;' do
+        span.far.fa-times-circle.fa-3x
+      div#preview = render partial: 'preview', locals: { resume: @resume }
+      div.position-absolute.w-100.d-flex.justify-content-center.mb-4 style="bottom: 0;"
+        = link_to export_as_pdf_resume_path, class: 'btn btn-primary' do
+          span.fas.fa-download.mr-2
+          | Export as PDF
 = content_for :head do
   style
     |  .change-photo { bottom: 30px; left: 10px; background: rgba(0, 0, 0, 0.6); }

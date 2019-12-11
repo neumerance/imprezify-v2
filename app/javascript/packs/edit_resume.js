@@ -7,15 +7,18 @@ const initPageScript = () => {
     });
 
     $(document)
-      .on('ajax:beforeSend', 'form', () => {
-        common.togglePreloader();
-      })
-      .on('ajax:success', 'form', (data, status, xhr) => {
-        common.togglePreloader();
-      })
-      .on('ajax:error', 'form', (data, status, xhr) => {
-        common.togglePreloader();
-      })
+    .on('ajax:beforeSend', () => {
+      console.log('beforeSend');
+      common.togglePreloader();
+    })
+    .on('ajax:success', (data, status, xhr) => {
+      console.log('success');
+      common.togglePreloader();
+    })
+    .on('ajax:error', (data, status, xhr) => {
+      console.log('error');
+      common.togglePreloader();
+    })
 
     common.initStickyBits();
   });
