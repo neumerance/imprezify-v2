@@ -75,7 +75,7 @@
         span.far.fa-times-circle.fa-3x
       div#preview = render partial: 'preview', locals: { resume: @resume }
       div.position-absolute.w-100.d-flex.justify-content-center.mb-4 style="bottom: 0;"
-        = link_to export_as_pdf_resume_path, class: 'btn btn-primary' do
+        = link_to export_as_pdf_resume_path(id: @resume.id), class: 'btn btn-primary' do
           span.fas.fa-download.mr-2
           | Export as PDF
 = content_for :head do
