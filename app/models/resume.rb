@@ -24,4 +24,8 @@ class Resume < ApplicationRecord
   before_save do
     self.template_name = self.template_name.parameterize.underscore
   end
+
+  before_create do
+    self.sharing_code = SecureRandom.hex
+  end
 end

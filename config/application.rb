@@ -16,6 +16,8 @@ module ImprezifyV2
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    config.active_job.queue_adapter = :async
+
     ActiveSupport::Dependencies.autoload_paths << "#{config.root}/presenters"
     ActiveSupport::Dependencies.autoload_paths << "#{config.root}/imprezify"
   end

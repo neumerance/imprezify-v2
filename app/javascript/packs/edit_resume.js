@@ -1,3 +1,5 @@
+import ClipboardJS from "clipboard";
+
 const initPageScript = () => {
   document.addEventListener('turbolinks:load', () => {
     formUtils.initFlatpickr();
@@ -24,6 +26,11 @@ const initPageScript = () => {
   });
 }
 
+const initClipboard = (sel) => {
+  new ClipboardJS(sel);
+}
+
 window.EditResume = {
-  initPageScript
+  initPageScript,
+  initClipboard
 }

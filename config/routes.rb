@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     member do
       get :preview
       get :export_as_pdf
+      get :generate_share_link
     end
   end
+
+  get 'resume/share/:share_code', to: 'resume#share', as: 'resume_share'
 end

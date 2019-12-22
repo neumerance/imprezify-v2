@@ -16,7 +16,7 @@
           = form_for(@resume.basic_info, url: resume_basic_info_path(id: @resume.basic_info.id, resume_id: @resume.id), remote: true, html: { multipart: true }) do |f|
             = hidden_field_tag :authenticity_token, form_authenticity_token
             div.mt-5.mb-5
-              h2.font-weight-lighter.display-5.text-primary.bg-white.z-index-1090 data-behaviour="sticky" Basic Info
+              h2.font-weight-lighter.display-5.text-primary.bg-white data-behaviour="sticky" Basic Info
               a name="basic-info"
               div#basic-info.mb-3
                 = render partial: 'basic_info/fields', locals: { basic_info: f }
@@ -75,9 +75,15 @@
         span.far.fa-times-circle.fa-3x
       div#preview = render partial: 'preview', locals: { resume: @resume }
       div.position-absolute.w-100.d-flex.justify-content-center.mb-4 style="bottom: 0;"
-        = link_to export_as_pdf_resume_path(id: @resume.id), class: 'btn btn-primary' do
+        = link_to export_as_pdf_resume_path(id: @resume.id), class: 'btn btn-light mr-2' do
           span.fas.fa-download.mr-2
           | Export as PDF
+        = link_to 'javascript:void(0)', class: 'btn btn-light mr-2', data: { toggle: 'modal', target: '#shareModal' } do
+          span.fas.fa-share.mr-2
+          | Share
+
+= render partial: 'resume/share_modal', locals: { resume: @resume }
+
 = content_for :head do
   style
     |  .change-photo { bottom: 30px; left: 10px; background: rgba(0, 0, 0, 0.6); }
