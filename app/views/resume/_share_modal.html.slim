@@ -6,18 +6,4 @@
         button.close aria-label="Close" data-dismiss="modal" type="button"
           span aria-hidden="true"  &times;
       .modal-body
-        .input-group.mb-3
-          = text_field_tag :shareable_link,\
-            "#{request.base_url}#{resume_share_path(share_code: resume.sharing_code)}",\
-            class: 'form-control', readonly: true
-          .input-group-append
-            button#copyShareUrl.btn.btn-outline-secondary type="button" data-clipboard-target="#shareable_link"
-              span.far.fa-copy
-        p
-          | If you need to revoke access to those people who have this link, just click
-          = link_to 'here',\
-            generate_share_link_resume_path(id: @resume.id),\
-            class: 'ml-1 mr-1', remote: true
-          | to generate a fresh link.
-javascript:
- EditResume.initClipboard('#copyShareUrl');
+        = render partial: 'resume/share_field', locals: { resume: resume }

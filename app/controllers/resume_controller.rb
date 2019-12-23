@@ -2,11 +2,7 @@ class ResumeController < ApplicationController
   rescue_from Imprezify::PDFGenerationFailed, with: :pdf_generation_failed
   rescue_from Net::ReadTimeout, with: :pdf_generation_failed
 
-  before_action :set_resume, only: [
-    :edit, :update, :destroy,
-    :add_more_entity, :preview,
-    :export_as_pdf
-  ]
+  before_action :set_resume, except: :index
 
   skip_before_action :authenticate_user!, only: :share
 
@@ -30,7 +26,6 @@ class ResumeController < ApplicationController
   end
 
   def export_as_pdf
-    # byebug
     response = Api2PdfService.generate_pdf_data(
       "#{request.base_url}#{resume_share_path(share_code: @resume.sharing_code)}"
     )
