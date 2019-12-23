@@ -1,0 +1,1 @@
+require('packs/homepage.js');

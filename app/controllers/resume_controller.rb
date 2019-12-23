@@ -3,11 +3,11 @@ class ResumeController < ApplicationController
   rescue_from Net::ReadTimeout, with: :pdf_generation_failed
 
   before_action :set_resume, except: :index
-
   skip_before_action :authenticate_user!, only: :share
 
   def index
     @resumes = current_user.resumes
+    render layout: 'landing'
   end
 
   def edit
