@@ -12,7 +12,7 @@ html lang="en"
   body
     #wrapper
       .row.full-height
-        .col-sm-4.left.bg-dark.text-light.p-4
+        .col-sm-3.left.bg-dark.text-light.p-4
           - if @resume.basic_info&.photo&.present?
             = image_tag @resume.basic_info.photo.url, class: 'd-block width-100 border border-light'
           div.dropdown-divider.mt-4.mb-4
@@ -32,7 +32,7 @@ html lang="en"
           - if @resume.basic_info.present?
             div.mb-4
               = render partial: "resume/templates/#{@resume.template_name}/personal_info", locals: { resume: @resume }
-        .col-sm-8.right.text-dark.p-4
+        .col-sm-9.right.text-dark.p-4
           - if @resume.basic_info.present?
             h1= @resume.basic_info.name.titleize
             h2.h4= @resume.basic_info.title.titleize
