@@ -12,6 +12,7 @@
     "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
+    "scriptjs": "^2.5.9",
     "stickybits": "^3.7.0",
     "turbolinks": "^5.2.0"
   },
