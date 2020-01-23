@@ -26,13 +26,7 @@ class ResumeController < ApplicationController
   end
 
   def export_as_pdf
-    response = Api2PdfService.generate_pdf_data(
-      "#{request.base_url}#{resume_share_path(share_code: @resume.sharing_code)}"
-    )
-    Imprezify::PDFGenerationFailed unless response.success?
-    file_path = ResponseToPdf.generate(content: response.body)
-    TempfileCleanupJob.new(file_path).enqueue(wait: 1.minute)
-    send_file(file_path, type: 'application/pdf')
+    PdfGenerationJob.new(@resume).enqueue(wait: 1.minute)
   end
 
   def generate_share_link

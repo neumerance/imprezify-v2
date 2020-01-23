@@ -1,7 +1,7 @@
 h2.font-weight-lighter.display-5.text-primary.bg-white data-behaviour="sticky"
   span.d-flex
-    | Certification
-    span.d-none.d-md-block.ml-2 And Achievements
+    span.d-block.d-sm-none Certification
+    span.d-none.d-md-block Certification And Achievements
     = link_to new_resume_certification_and_achievement_path(resume_id: resume.id), remote: true, class: 'ml-2' do
       span.fa.fa-plus-circle
 - unless resume.certification_and_achievements.any?

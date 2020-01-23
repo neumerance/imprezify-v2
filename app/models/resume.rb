@@ -28,4 +28,8 @@ class Resume < ApplicationRecord
   before_create do
     self.sharing_code = SecureRandom.hex
   end
+
+  def renew_sharing_code
+    update(sharing_code: SecureRandom.hex)
+  end
 end

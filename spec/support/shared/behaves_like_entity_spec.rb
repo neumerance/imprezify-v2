@@ -16,6 +16,7 @@ shared_examples 'an entity' do |entity, index|
   end
 
   scenario "When adding #{name}" do
+    byebug
     within("##{entity.to_s.pluralize.dasherize}") do
       find('h2', text: entity.to_s.pluralize.titleize).find('a').click
 
