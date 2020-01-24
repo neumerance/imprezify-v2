@@ -4,6 +4,8 @@ class EntitiesController < ApplicationController
   before_action :set_resume
   before_action :set_resource, only: [:destroy, :new]
 
+  layout false
+
   def new; end
 
   def create

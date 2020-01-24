@@ -1,5 +1,5 @@
 def set_field_value_by_js(id, attr, value)
-  execute_script("document.getElementById('#{id}').setAttribute('#{attr}', '#{value}')")
+  execute_script("document.getElementById('#{id}')['#{attr}']=#{value}")
   trigger_change_by_id(id)
 end
 
