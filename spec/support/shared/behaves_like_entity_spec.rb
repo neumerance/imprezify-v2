@@ -23,12 +23,16 @@ shared_examples 'an entity' do |entity, index, sample|
       find('h2', text: entity.to_s.titleize).find('a').click
       wait_for_ajax
       sleep 2
+
       within("##{entity.to_s.singularize}_#{index}") do
         expect(page).to have_css("a[name='#{entity.to_s.singularize}_#{index}']", visible: false)
         expect(page).to have_css("##{entity.to_s}__id", visible: false)
         expect(find("##{entity.to_s}__id", visible: false)['value']).not_to be_empty
-        click_on 'Show advanced fields'
-        expect(page).to have_css("##{entity.to_s.singularize}_collapsible_#{index}", visible: false)
+
+        if has_link?('Show advanced fields', wait: 1)
+          click_on 'Show advanced fields'
+          expect(page).to have_css("##{entity.to_s.singularize}_collapsible_#{index}", visible: false)
+        end
       end
 
       fill_form(entity, sample)
