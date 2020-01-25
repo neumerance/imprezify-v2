@@ -1,5 +1,6 @@
 def mock_api_2_pdf
-  stub_request(:get, "#{ENV['API_2_PDF_URL']}/chrome/url?apikey=#{ENV['API_2_PDF_KEY']}&url=#{url}").
+  endpoint = Regexp.new("#{ENV['API_2_PDF_URL']}/chrome/url", "i")
+  stub_request(:get, endpoint).
     with(
       headers: {
       'Accept'=>'*/*',
