@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe WorkExperience, type: :model do
-  it { should validate_presence_of :type }
   it { should belong_to :resume }
 
   describe 'default scope' do

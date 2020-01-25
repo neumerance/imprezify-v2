@@ -1,4 +1,4 @@
-class TempfileCleanupJob < ApplicationJob
+class TempFileCleanupJob < ApplicationJob
   queue_as :default
 
   def perform(file_path)

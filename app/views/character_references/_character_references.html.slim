@@ -1,7 +1,7 @@
 h2.font-weight-lighter.display-5.text-primary.bg-white data-behaviour="sticky"
   span.d-flex
-    span.d-none.d-md-block.d-sm-none Character References
-    span.d-sm-block.d-md-none References
+    span.d-block.d-sm-none References
+    span.d-none.d-md-block Character References
     = link_to new_resume_character_reference_path(resume_id: resume.id), remote: true, class: 'ml-2' do
       span.fa.fa-plus-circle
 - unless resume.character_references.any?

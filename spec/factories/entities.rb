@@ -10,10 +10,10 @@ FactoryBot.define do
         FFaker::Lorem.sentence
       end
     end
-    address { FFaker::Address.street_address }
+    address { FFaker::AddressUS.street_address }
     city { FFaker::Address.city }
     country { FFaker::Address.country }
-    postal_code { FFaker::Address.zip_code }
+    postal_code { FFaker::AddressUS.zip_code }
     contacts do
       ['3424324', '42343']
     end
