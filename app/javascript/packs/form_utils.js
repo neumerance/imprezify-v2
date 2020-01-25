@@ -31,6 +31,10 @@ const submitForm = (el) => {
   Rails.fire($(el).parents('form')[0], 'submit')
 }
 
+const submitFormById = (formSel) => {
+  Rails.fire(document.getElementById(formSel), 'submit')
+}
+
 const initFlatpickr = () => {
   flatpickr('[data-behaviour="flatpickr"]', {
     altInput: true,
@@ -44,5 +48,6 @@ window.formUtils = {
   addMoreField,
   removeField,
   submitForm,
+  submitFormById,
   initFlatpickr
 }

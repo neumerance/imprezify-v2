@@ -4,7 +4,7 @@ const getOffset = (element, horizontal = false) => {
 }
 
 const hasActiveAjax = () => {
-  return $.active;
+  return $.active || $('#preloader:visible').length;
 }
 
 const updateContent = (sel, content) => {

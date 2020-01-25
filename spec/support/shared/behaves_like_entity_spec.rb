@@ -29,7 +29,7 @@ shared_examples 'an entity' do |entity, index, sample|
         expect(page).to have_css("##{entity.to_s}__id", visible: false)
         expect(find("##{entity.to_s}__id", visible: false)['value']).not_to be_empty
 
-        if has_link?('Show advanced fields', wait: 1)
+        if has_link?('Show advanced fields')
           click_on 'Show advanced fields'
           expect(page).to have_css("##{entity.to_s.singularize}_collapsible_#{index}", visible: false)
         end
@@ -61,7 +61,7 @@ shared_examples 'an entity' do |entity, index, sample|
       elsif key == :logo
         attach_file("#{entity.to_s}[][#{key.to_s}]", value, make_visible: true)
       elsif [:since, :upuntil].include?(key)
-        execute_script  "document.getElementById(\'#{entity.to_s}__#{key}\').value = \'#{value}\'"
+        set_field_value_by_js("#{entity.to_s}__#{key}", value)
       else
         fill_in "#{entity.to_s}[][#{key.to_s}]", with: value
       end
