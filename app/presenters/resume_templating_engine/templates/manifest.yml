@@ -1,0 +1,5 @@
+available_templates:
+  shades_of_black:
+    name: 'Shades of Black'
+    description: 'Basic and simple professional looking resume template suitable on any job titles.'
+    author: 'Jonathan Canaveral'
