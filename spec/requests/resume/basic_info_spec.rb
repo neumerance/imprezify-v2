@@ -22,10 +22,10 @@ feature 'Resume Edit Form', :js do
 
       fill_in 'resume[basic_info_attributes][nationality]', with: 'Filipino'
       fill_in 'resume[basic_info_attributes][religion]', with: 'Christian'
-      fill_in 'resume[basic_info_attributes][address]', with: FFaker::Address.street_address
+      fill_in 'resume[basic_info_attributes][address]', with: FFaker::AddressUS.street_address
       fill_in 'resume[basic_info_attributes][city]', with: FFaker::Address.city
       fill_in 'resume[basic_info_attributes][country]', with: FFaker::Address.country
-      fill_in 'resume[basic_info_attributes][postal_code]', with: FFaker::Address.zip_code
+      fill_in 'resume[basic_info_attributes][postal_code]', with: FFaker::AddressUS.zip_code
       2.times { find('#resume_basic_info_attributes_gender_male').click }
     end
 

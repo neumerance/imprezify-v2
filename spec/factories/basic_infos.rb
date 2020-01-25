@@ -9,9 +9,9 @@ FactoryBot.define do
     height { `5' 4"` }
     gender { [0, 1].sample }
     religion { 'Christian' }
-    address { FFaker::Address.street_address }
+    address { FFaker::AddressUS.street_address }
     city { FFaker::Address.city }
     country { FFaker::Address.country }
-    postal_code { FFaker::Address.zip_code }
+    postal_code { FFaker::AddressUS.zip_code }
   end
 end
