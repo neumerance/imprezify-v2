@@ -4,7 +4,7 @@ shared_examples 'common name and value' do |entity, index, sample|
   let!(:basic_info) { create(:basic_info, resume: resume) }
   let(:user) { resume.user }
   let(:expectation) do
-    resume.contacts.where(
+    resume.try(entity).where(
       name: sample.dig(:name, :value).downcase,
       value: sample.dig(:value, :value).downcase
     )
