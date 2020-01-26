@@ -1,0 +1,84 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title><%= "Imprezify | #{data.dig(:attributes, :basic_info, :attributes, :name)}" %></title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fontawesome core CSS -->
+    <script src="https://kit.fontawesome.com/679861f53b.js" crossorigin="anonymous"></script>
+
+    <!-- Custom styles for this template -->
+    <%= ActionController::Base.render partial: "shades_of_black/styles" %>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <div class="row full-height">
+        <div class="col-sm-3 left bg-dark text-light p-4">
+          <%=
+            ActionController::Base.render partial: "shades_of_black/photo",
+            locals: { photo: data.dig(:attributes, :basic_info, :attributes, :photo) }
+          %>
+          <%=
+            ActionController::Base.render partial: "shades_of_black/skills",
+            locals: { skills: data.dig(:attributes, :skills) || [] }
+          %>
+          <%=
+            ActionController::Base.render partial: "shades_of_black/contacts",
+            locals: { contacts: data.dig(:attributes, :contacts) || [] }
+          %>
+          <%=
+            ActionController::Base.render partial: "shades_of_black/personal_info",
+            locals: { basic_info: data.dig(:attributes, :basic_info, :attributes) }
+          %>
+        </div>
+        <div class="col-sm-9 right text-dark p-4">
+          <%=
+            ActionController::Base.render partial: "shades_of_black/header",
+            locals: { basic_info: data.dig(:attributes, :basic_info, :attributes) }
+          %>
+          <% if data.dig(:attributes, :work_experiences).any? %>
+            <div class="mb-4">
+              <h3 class="h4 mb-3">
+                <span class="fa fa-briefcase mr-2 width-30px"></span>Experiences
+              </h3>
+              <%=
+                ActionController::Base.render partial: "shades_of_black/entity",
+                locals: { entities: data.dig(:attributes, :work_experiences) || [] }
+              %>
+            </div>
+          <% end %>
+          <% if data.dig(:attributes, :educations).any? %>
+            <div class="mb-4">
+              <h3 class="h4 mb-3">
+                <span class="fa fa-briefcase mr-2 width-30px"></span>Educations
+              </h3>
+              <%=
+                ActionController::Base.render partial: "shades_of_black/entity",
+                locals: { entities: data.dig(:attributes, :educations) || [] }
+              %>
+            </div>
+          <% end %>
+          <% if data.dig(:attributes, :certification_and_achievements).any? %>
+            <div class="mb-4">
+              <h3 class="h4 mb-3">
+                <span class="fas fa-certificate mr-2 width-30px"></span>Awards / Certifications
+              </h3>
+              <%=
+                ActionController::Base.render partial: "shades_of_black/entity",
+                locals: { entities: data.dig(:attributes, :certification_and_achievements) || [] }
+              %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

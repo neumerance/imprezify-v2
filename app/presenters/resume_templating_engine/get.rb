@@ -2,19 +2,20 @@ module ResumeTemplatingEngine
   class Get
     TEMPLATE_ROOT = "app/presenters/resume_templating_engine/templates".freeze
 
-    def initialize(slug)
-      @slug = slug
+    def initialize(resume)
+      @resume = resume
     end
 
-    def render_as_string(bindings)
+    def render_as_string
+      data = ResumeSerializer.new(@resume).serializable_hash[:data]
       ERB.new(template_string).result(binding)
     end
 
     def meta_data
       manifest = YAML.load_file(
-        "#{TEMPLATE_ROOT}/manifest.yml"
+        Rails.root.join("#{TEMPLATE_ROOT}/manifest.yml")
       ).symbolize_keys
-      manifest[@slug]
+      manifest[@resume.template_name]
     end
 
     private
@@ -24,7 +25,7 @@ module ResumeTemplatingEngine
     end
 
     def template_path
-      "#{TEMPLATE_ROOT}/#{@slug}/index.html.erb"
+      Rails.root.join("#{TEMPLATE_ROOT}/#{@resume.template_name}/index.html.erb")
     end
   end
 end

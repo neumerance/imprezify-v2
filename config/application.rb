@@ -16,6 +16,9 @@ module ImprezifyV2
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # adds template view to the path
+    config.paths['app/views'].unshift(Rails.root.join("app/presenters/resume_templating_engine/templates"))
+
     config.active_job.queue_adapter = :async
 
     ActiveSupport::Dependencies.autoload_paths << "#{config.root}/presenters"

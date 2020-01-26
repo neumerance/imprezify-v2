@@ -1,9 +1,0 @@
-- resume.contacts.any?
-  h3.h4.mb-3
-    span.far.fa-address-card.mr-2
-    | Contacts
-  ul.p-0.no-bullets
-    - resume.contacts.each do |contact|
-      li.d-flex.align-items-center.mb-2
-        span class="#{contact.name_to_icon} mr-2"
-        span=contact.value

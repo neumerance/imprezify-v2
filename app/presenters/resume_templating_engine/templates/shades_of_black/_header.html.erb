@@ -1,0 +1,6 @@
+<% if basic_info %>
+  <h1><%= basic_info.dig(:name) %></h1>
+  <h2 class="h3"><%= basic_info.dig(:title) %></h2>
+  <p><%= basic_info.dig(:profile_overview) %></p>
+  <div class="dropdown-divider mt-4 mb-4"></div>
+<% end %>
