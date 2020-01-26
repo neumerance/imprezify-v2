@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     resources :contacts, only: [:new, :create, :destroy]
     resources :skills, only: [:new, :create, :destroy]
     member do
-      get :preview
       get :export_as_pdf
       get :generate_share_link
     end

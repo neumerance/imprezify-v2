@@ -21,7 +21,7 @@ class ResumeSerializer
     SkillSerializer.new(object.skills).serializable_hash[:data]
   end
 
-  attribute :contacs do |object|
+  attribute :contacts do |object|
     ContactSerializer.new(object.contacts).serializable_hash[:data]
   end
 end

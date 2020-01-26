@@ -1,0 +1,17 @@
+<% if contacts.any? %>
+  <div class="mb-4">
+    <h3 class="h4 mb-3">
+      <span class="far fa-address-card width-30px mr-2"></span>
+      Contacts
+    </h3>
+    <ul class="p-0 no-bullets">
+      <% contacts.each do |contact| %>
+        <li class="d-flex align-items-center mb-2">
+          <span class="<%= contact.dig(:attributes, :icon) %> width-20px mr-2"></span>
+          <span><%= contact.dig(:attributes, :value) %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="dropdown-divider mt-4 mb-4"></div>
+<% end %>

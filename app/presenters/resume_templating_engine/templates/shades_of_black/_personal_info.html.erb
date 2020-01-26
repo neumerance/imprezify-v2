@@ -1,0 +1,35 @@
+<% if basic_info %>
+  <div class="mb-4">
+    <h3 class="h4 mb-3">
+      <span class="far fa-user width-30px mr-2"></span>Personal Info
+    </h3>
+    <ul class="p-0 no-bullets">
+      <% if basic_info.dig(:birthdate) %>
+        <li class="d-flex align-items-center mb-2">
+          <span class="fas fa-birthday-cake mr-2 width-20px"></span>
+          <span><%= basic_info.dig(:birthdate).strftime('%b %d, %Y') %></span>
+        </li>
+      <% end %>
+      <% if basic_info.dig(:full_address) %>
+        <li class="d-flex align-items-center mb-2">
+          <span class="fas fa-home mr-2 width-20px"></span>
+          <span><%= basic_info.dig(:full_address) %></span>
+        </li>
+      <% end %>
+      <% if basic_info.dig(:full_address) %>
+        <li class="d-flex align-items-center mb-2">
+          <span class="fas fa-praying-hands mr-2 width-20px"></span>
+          <span><%= basic_info.dig(:religion).try(:titleize) %></span>
+        </li>
+      <% end %>
+      <% if basic_info.dig(:gender) %>
+        <li class="d-flex align-items-center mb-2">
+          <span class="fas fa-venus-mars mr-2 width-20px"></span>
+          <span><%= basic_info.dig(:gender) %></span>
+        </li>
+      <% end %>
+      </ul>
+    </h3>
+  </div>
+  <div class="dropdown-divider mt-4 mb-4"></div>
+<% end %>

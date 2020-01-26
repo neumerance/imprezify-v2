@@ -1,0 +1,50 @@
+<% if entities.any? %>
+  <ul class="p-0 no-bullets">
+    <% entities.each do |entity| %>
+      <li class="pl-4 pt-4 pb-4 timeline-border">
+        <div data-since="<%= entity.dig(:attributes, :since) %>"
+             data-upuntil="<%= entity.dig(:attributes, :upuntil) %>">
+          <div class="d-flex">
+            <% if entity.dig(:attributes, :logo) %>
+              <img src="<%= entity.dig(:attributes, :logo) %>" class="d-block thumb rounded mr-2" />
+            <% end %>
+            <div>
+              <% if entity.dig(:attributes, :name) %>
+                <h4><%= entity.dig(:attributes, :name) %></h4>
+                <h5><%= entity.dig(:attributes, :title) %></h4>
+                <% if entity.dig(:attributes, :description).any? %>
+                  <ul class="m-0 p-0 no-bullets mb-3">
+                    <% entity.dig(:attributes, :description).each do |desc| %>
+                      <li class="mb-2 font-1"><%= desc %></li>
+                    <% end %>
+                  </ul>
+                <% end %>
+                <ul class="p-0 no-bullets">
+                  <% if entity.dig(:attributes, :full_address) %>
+                    <li class="text-muted d-flex align-items-center mb-2">
+                      <span class="fa fa-envelope mr-2 width-20px mr-2"></span>
+                      <span><%= entity.dig(:attributes, :full_address) %></span>
+                    </li>
+                  <% end %>
+                  <% if entity.dig(:attributes, :email) %>
+                    <li class="text-muted d-flex align-items-center mb-2">
+                      <span class="fas fa-at mr-2 width-20px mr-2"></span>
+                      <span><%= entity.dig(:attributes, :email) %></span>
+                    </li>
+                  <% end %>
+                  <% if entity.dig(:attributes, :phone) %>
+                    <li class="text-muted d-flex align-items-center mb-2">
+                      <span class="fas fa-phone-square mr-2 width-20px mr-2"></span>
+                      <span><%= entity.dig(:attributes, :phone) %></span>
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <div class="dropdown-divider mt-4 mb-4"></div>
+<% end %>
