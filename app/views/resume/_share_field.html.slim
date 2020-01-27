@@ -1,3 +1,4 @@
+= render partial: 'layouts/shared/flash'
 .input-group.mb-3
   = text_field_tag :shareable_link,\
     "#{request.base_url}#{resume_share_path(share_code: resume.sharing_code)}",\
