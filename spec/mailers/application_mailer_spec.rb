@@ -20,7 +20,7 @@ describe ApplicationMailer do
       it 'has right contents' do
         expect(mail.from).to include 'info@imprezify.com'
         expect(mail.to).to include resume.user.email
-        expect(mail.subject).to eq 'Imprezify - Thank you for downloading'
+        expect(mail.subject).to eq 'Thank you for using Imprezify'
       end
 
       it 'attaches pdf' do

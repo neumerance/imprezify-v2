@@ -75,13 +75,14 @@
         span.far.fa-times-circle.fa-3x
       div#preview = render partial: 'preview', locals: { resume: @resume }
       div.position-absolute.w-100.d-flex.justify-content-center.mb-4 style="bottom: 0;"
-        = link_to export_as_pdf_resume_path(id: @resume.id), class: 'btn btn-primary btn-sm mr-2' do
+        = link_to export_as_pdf_resume_path(id: @resume.id), remote: true, onclick: "common.toggleModal('#exportModal')", class: 'btn btn-primary btn-sm mr-2' do
           span.fas.fa-download.mr-2
           | Export as PDF
         = link_to 'javascript:void(0)', class: 'btn btn-primary btn-sm mr-2', data: { toggle: 'modal', target: '#shareModal' } do
           span.fas.fa-share.mr-2
           | Share
 = render partial: 'resume/share_modal', locals: { resume: @resume }
+= render partial: 'resume/export_modal'
 
 = content_for :head do
   style

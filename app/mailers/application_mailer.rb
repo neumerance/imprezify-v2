@@ -16,7 +16,7 @@ class ApplicationMailer < ActionMailer::Base
       content: File.read(file_path)
     }
     TempFileCleanupJob.new(file_path).enqueue(wait: 3.minute)
-    mail(to: @user.email, subject: 'Imprezify - Thank you for downloading')
+    mail(to: @user.email, subject: 'Thank you for using Imprezify')
   end
 
   private

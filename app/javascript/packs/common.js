@@ -25,9 +25,14 @@ const hidePreloader = () => {
   $('#preloader').hide();
 }
 
+const toggleModal = (modalID) => {
+  $(modalID).modal('show');
+}
+
 window.common = {
   moveToAnchor,
   initStickyBits,
   togglePreloader,
-  hidePreloader
+  hidePreloader,
+  toggleModal
 }
