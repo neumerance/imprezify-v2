@@ -24,6 +24,7 @@ class ResumeController < ApplicationController
 
   def export_as_pdf
     PdfGenerationJob.new(@resume).enqueue(wait: 1.minute)
+    render layout: false
   end
 
   def generate_share_link
