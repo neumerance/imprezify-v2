@@ -28,6 +28,8 @@ class ResumeController < ApplicationController
 
   def generate_share_link
     @resume.update(sharing_code: SecureRandom.hex)
+    flash[:info] = "Share code has been renewed, please use the URL below to share your resume."
+    render layout: false
   end
 
   def share
