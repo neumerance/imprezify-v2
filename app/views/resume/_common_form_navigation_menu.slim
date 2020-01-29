@@ -1,0 +1,14 @@
+div
+  div id="heading-#{name}-nav"
+    = link_to 'javascript:void(0)', class: 'btn btn-link text-left', \
+        aria: { controls: "#{name}-nav", expanded: "false" }, \
+        data: { target: "##{name}-nav", toggle: 'collapse' }, \
+        onclick: "common.moveToAnchor('#resume-form', '#{name.to_s.dasherize}')" do
+          span class="fas fa-check-circle mr-2 text-#{resume.section_completed(name) ? 'success' : 'secondary'}"
+          span= name.to_s.titleize
+  - if resume.try(name.to_sym).is_a? ActiveRecord::Associations::CollectionProxy
+    div.collapse.ml-4 id="#{name}-nav" aria-labelledby="#heading-#{name}-nav" data-parent="#form-navigation"
+      - resume.try(name.to_sym).each_with_index do |entity, index|
+        = link_to 'javascript:void(0)', class: 'btn btn-link text-left', onclick: "common.moveToAnchor('#resume-form', '#{name.to_s.singularize}_#{index+1}')" do
+            span class="fas fa-check mr-2 text-#{entity.completed? ? 'success' : 'secondary'}"
+            span= entity.try(:name) || "#{entity.class::SHORT_NAME} ##{index+1}"

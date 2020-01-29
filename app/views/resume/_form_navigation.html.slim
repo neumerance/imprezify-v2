@@ -1,14 +1,7 @@
-ul#basic-info-nav.no-bullets.mb-3
-  = section_label(el: :li, completed: resume.basic_info&.completed?, label: content_tag(:span, 'Basic Information', class: 'font-weight-bold'), class: 'mb-2')
-ul#work-experience-nav.no-bullets.mb-3
-  = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :work_experiences }
-ul#education-nav.no-bullets.mb-3
-  = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :educations }
-ul#skill-nav.no-bullets.mb-3
-  = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :skills }
-ul#certification-and-achievement-nav.no-bullets.mb-3
-  = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :certification_and_achievements }
-ul#contact-nav.no-bullets.mb-3
-  = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :contacts }
-ul#character-reference-nav.no-bullets.mb-3
-  = render partial: 'resume/form_navigation_menu', locals: { resume: resume, entity_name: :character_references }
+= render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :basic_info }
+= render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :work_experiences }
+= render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :educations }
+= render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :certification_and_achievements }
+= render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :skills }
+= render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :contacts }
+= render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :character_references }

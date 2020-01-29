@@ -2,7 +2,7 @@ utilities.updateContent(
   '#<%= params[:controller].dasherize %>',
   '<%= escape_javascript(render partial: "#{params[:controller]}/#{params[:controller]}", locals: { resume: @resume }) %>'
 )
-utilities.updateContent('#<%= params[:controller].dasherize.singularize %>-nav', '<%= render partial: 'resume/form_navigation_menu', locals: { resume: @resume, entity_name: params[:controller] } %>')
+utilities.updateContent('#form-navigation', '<%= render partial: 'resume/form_navigation', locals: { resume: @resume } %>')
 utilities.updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')
 utilities.updateContent('.profile-strength', '<%= escape_javascript(render partial: 'resume/profile_strength', locals: { resume: @resume }) %>')
 common.moveToAnchor('#resume-form', "<%= params[:controller].singularize %>_<%= @resume.try(params[:controller].to_sym).count %>")

@@ -32,4 +32,14 @@ class Resume < ApplicationRecord
   def renew_sharing_code
     update(sharing_code: SecureRandom.hex)
   end
+
+  def section_completed(section_name)
+    section = self.try(section_name)
+    return false unless section.present?
+    if section.is_a? ActiveRecord::Associations::CollectionProxy
+      section.all?(&:completed?)
+    else
+      section.completed?
+    end
+  end
 end
