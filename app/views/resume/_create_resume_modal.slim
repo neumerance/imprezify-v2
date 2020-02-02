@@ -1,0 +1,11 @@
+#create-resume-modal.modal role="dialog" tabindex="-1"
+  = form_for(@resume, url: url_for(controller: :resume, action: :create)) do |f|
+    .modal-dialog role="document"
+      .modal-content
+        .modal-body
+          = f.hidden_field :template_name
+          = f.label :name, 'Name your resume'
+          = f.text_field :name, class: 'form-control'
+        .modal-footer
+          button.btn.btn-secondary data-dismiss="modal" type="button"  Close
+          button.btn.btn-primary type="submit"  Create

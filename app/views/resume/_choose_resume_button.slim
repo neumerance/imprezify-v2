@@ -1,0 +1,5 @@
+= link_to 'Choose', 'javascript:void(0)', \
+    "data-target" => "#create-resume-modal", \
+    "data-toggle" => "modal", \
+    class: 'btn btn-primary btn-sm btn-block', \
+    onclick: "formUtils.setFieldValue('resume[template_name]', '#{slug}')"

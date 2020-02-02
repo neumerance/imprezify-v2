@@ -4,6 +4,7 @@ require("jquery-easing");
 require("waypoints/src/waypoint");
 require("bootstrap/dist/js/bootstrap");
 require("slick-carousel");
+require("packs/form_utils");
 
 const scrollWindow = function() {
   jQuery(window).scroll(function() {

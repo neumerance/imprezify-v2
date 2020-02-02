@@ -14,7 +14,15 @@ class ResumeController < ApplicationController
     @manifest = ResumeTemplatingEngine::Manifest.new.get
   end
 
-  def new; end
+  def new
+    @resume = Resume.new
+  end
+
+  def create
+    resume_params[:user] = current_user
+    Resume.create!(resume_params)
+    redirect_to resume_index_path
+  end
 
   def edit
     if params[:entity_name].present?
@@ -62,5 +70,9 @@ class ResumeController < ApplicationController
   def pdf_generation_failed
     flash[:error] = 'Unable to generate PDF'
     redirect_to edit_resume_path(id: @resume.id)
+  end
+
+  def resume_params
+    params.require(:resume).permit!
   end
 end

@@ -1,6 +1,10 @@
 import Rails from "@rails/ujs";
 import flatpickr from 'flatpickr';
 
+const setFieldValue = (name, value) => {
+  $(`input[name="${name}"]`).val(value);
+}
+
 const inputAsImageUrl = (input) => {
   if (input.target.files && input.target.files[0]) {
     const reader = new FileReader();
@@ -49,5 +53,6 @@ window.formUtils = {
   removeField,
   submitForm,
   submitFormById,
-  initFlatpickr
+  initFlatpickr,
+  setFieldValue
 }
