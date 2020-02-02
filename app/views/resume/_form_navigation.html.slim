@@ -1,7 +1,7 @@
-= render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :basic_info }
+= render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :basic_info, creatable: false }
 = render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :work_experiences }
 = render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :educations }
-= render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :certification_and_achievements }
+= render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :certification_and_achievements, verbose_name: 'Certification' }
 = render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :skills }
 = render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :contacts }
 = render partial: 'resume/common_form_navigation_menu', locals: { resume: resume, name: :character_references }

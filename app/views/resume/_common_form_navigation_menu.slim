@@ -1,3 +1,4 @@
+- verbose_name ||= nil;
 div
   div id="heading-#{name}-nav"
     = link_to 'javascript:void(0)', class: 'btn btn-link text-left', \
@@ -5,7 +6,10 @@ div
         data: { target: "##{name}-nav", toggle: 'collapse' }, \
         onclick: "common.moveToAnchor('#resume-form', '#{name.to_s.dasherize}')" do
           span class="fas fa-check-circle mr-2 text-#{resume.section_completed(name) ? 'success' : 'secondary'}"
-          span= name.to_s.titleize
+          span= verbose_name || name.to_s.titleize
+    - if name != :basic_info
+      = link_to url_for(controller: name, action: :new, resume_id: resume.id), remote: true do
+        span.fa.fa-plus-circle
   - if resume.try(name.to_sym).is_a? ActiveRecord::Associations::CollectionProxy
     div.collapse.ml-4 id="#{name}-nav" aria-labelledby="#heading-#{name}-nav" data-parent="#form-navigation"
       - resume.try(name.to_sym).each_with_index do |entity, index|
