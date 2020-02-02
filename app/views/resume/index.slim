@@ -7,7 +7,7 @@ section#section-features.pb_section.bg-light
     .row
       - if @resumes.any?
         - @resumes.each do |resume|
-          .col-lg-4.col-md-.col-sm-6
+          .col-lg-4.col-md-.col-sm-6.mb-2
             .border.p-2.bg-white
               .media.pb_feature-v2.text-left.mb-0
                 .pb_icon.d-flex.mr-3.align-self-start
@@ -23,8 +23,15 @@ section#section-features.pb_section.bg-light
                   span.text-sans-serif.pb_font-16
                     span.fa.fa-calendar.mr-2
                     = resume.created_at.strftime('%B %e, %Y')
+        .col-lg-2.col-md-.col-sm-12
+          .border.p-2.bg-white
+            .media.pb_feature-v2.text-left.mb-0
+              .media-body.pb-line-height-140
+                .text-sans-serif.pb_font-16.text-center
+                  = link_to new_resume_path, class: 'btn btn-sm btn-light pb_font-22 ml-2 mr-2' do
+                    span.fa.fa-plus
       - else
-        .col-lg-12.col-md-.col-sm-12
+        .col-lg-12.col-md-.col-sm-12.mb-2
           h2 You have no resume yet.
           p.pb_font-20
             | Click

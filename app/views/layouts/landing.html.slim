@@ -4,11 +4,11 @@ html[lang="en"]
   head
     meta[charset="utf-8"]
     meta[name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"]
-    title Landing — Free One Page Bootstrap 4 Template by uicookies.com
+    title Imprezify — Best free online resume builder
     = csrf_meta_tags
     = csrf_meta_tag
-    meta[name="description" content="Free Bootstrap 4 Template by uicookies.com"]
-    meta[name="keywords" content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template"]
+    meta[name="description" content="Best free online resume builder"]
+    meta[name="keywords" content="Free resume builder, Free resume, Free CV, Free resume template, Free professional resume template"]
     link[href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet"]
     link[rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"]
     link[rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"]
@@ -54,34 +54,24 @@ html[lang="en"]
           .col
             ul.list-inline
               li.list-inline-item
-                a.p-2[href="#"]
+                = link_to 'https://www.facebook.com/imprezify/', class: 'p-2', target: '_blank' do
                   i.fa.fa-facebook
               li.list-inline-item
-                a.p-2[href="#"]
+                = link_to 'https://www.twitter.com/imprezify/', class: 'p-2', target: '_blank' do
                   i.fa.fa-twitter
               li.list-inline-item
-                a.p-2[href="#"]
+                = link_to 'linkedin.com/company/imprezify/', class: 'p-2', target: '_blank' do
                   i.fa.fa-linkedin
         .row
           .col.text-center
             p.pb_font-14
-              | © 2019
-              a[href="https://uicookies.com/"]
-                | Landing
-              |  Free Bootstrap4. All Rights Reserved.
+              | © 2020
+              = link_to root_path, class: 'mr-2 ml-2'
+                | Imprezify
+              | All Rights Reserved.
               br
               |  Designed & Developed by
-              a[href="https://uicookies.com/"]
-                | uicookies.com
-              small
-                | (Don't remove credit link on this footer. See
-                a[href="https://uicookies.com/license/" target="_blank"]
-                  | license
-                | )
-            p.pb_font-14
-              | Demo Images:
-              a[href="https://unsplash.com/" target="_blank" rel="nofollow"]
-                | Unsplash
+              = link_to 'JonJon', 'https://github.com/neumerance', target: '_blank', class: 'ml-2'
 
     #pb_loader.show.fullscreen
       svg.circular[width="48px" height="48px"]
