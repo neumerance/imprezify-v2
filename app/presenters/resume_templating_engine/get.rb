@@ -11,13 +11,6 @@ module ResumeTemplatingEngine
       ERB.new(template_string).result(binding)
     end
 
-    def meta_data
-      manifest = YAML.load_file(
-        Rails.root.join("#{TEMPLATE_ROOT}/manifest.yml")
-      ).symbolize_keys
-      manifest[@resume.template_name]
-    end
-
     private
 
     def template_string
