@@ -5,6 +5,5 @@ utilities.updateContent(
 utilities.updateContent('#form-navigation', '<%= render partial: 'resume/form_navigation', locals: { resume: @resume } %>')
 utilities.updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')
 utilities.updateContent('.profile-strength', '<%= escape_javascript(render partial: 'resume/profile_strength', locals: { resume: @resume }) %>')
-common.initStickyBits();
 formUtils.initFlatpickr();
 common.hidePreloader();

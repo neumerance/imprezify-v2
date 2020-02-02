@@ -21,8 +21,6 @@ const initPageScript = () => {
       console.log('error');
       common.togglePreloader();
     })
-
-    common.initStickyBits();
   });
 }
 

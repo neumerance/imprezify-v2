@@ -7,10 +7,6 @@ const moveToAnchor = (container, anchor_name) => {
   }, 1000);
 }
 
-const initStickyBits = () => {
-  stickybits('[data-behaviour="sticky"]');
-}
-
 const togglePreloader = () => {
   const elem = $('#preloader');
   const visible = elem.is(':visible');
@@ -31,7 +27,6 @@ const toggleModal = (modalID) => {
 
 window.common = {
   moveToAnchor,
-  initStickyBits,
   togglePreloader,
   hidePreloader,
   toggleModal

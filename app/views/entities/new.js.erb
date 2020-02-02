@@ -6,6 +6,5 @@ utilities.updateContent('#form-navigation', '<%= render partial: 'resume/form_na
 utilities.updateContent('#preview', '<%= escape_javascript(render partial: 'resume/preview', locals: { resume: @resume }) %>')
 utilities.updateContent('.profile-strength', '<%= escape_javascript(render partial: 'resume/profile_strength', locals: { resume: @resume }) %>')
 common.moveToAnchor('#resume-form', "<%= params[:controller].singularize %>_<%= @resume.try(params[:controller].to_sym).count %>")
-common.initStickyBits();
 formUtils.initFlatpickr();
 common.hidePreloader();
