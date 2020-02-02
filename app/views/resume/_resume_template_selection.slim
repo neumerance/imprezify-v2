@@ -1,0 +1,11 @@
+.row
+  .col-lg-8.order-2
+    = image_tag template['preview'], alt: 'Image placeholder', class: 'img-fluid'
+    .carousel-caption.d-sm-block.d-md-none
+      h5= template['name']
+      p= template['description']
+  .col-lg-4.pr-md-5.pr-sm-0.order-1.mb-5.d-none.d-sm-none.d-md-block
+    .row
+      .col
+        h2= template['name']
+        p.pb_font-20= template['description']

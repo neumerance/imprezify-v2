@@ -37,9 +37,15 @@ module ResumeTemplatingEngine
     end
 
     def path_to_base64_url(path, x, y)
-      File.exists?(path) ?
+      encoded_image = File.exists?(path) ?
         Base64.encode64(File.read(path)) :
-        "https://picsum.photos/#{x}/#{y}"
+        url_to_base64("https://picsum.photos/#{x}/#{y}")
+      "data:image/png;base64,#{encoded_image}"
+    end
+
+    def url_to_base64(url)
+      url = URI.parse(url)
+      Base64.encode64(open(url).read)
     end
   end
 end

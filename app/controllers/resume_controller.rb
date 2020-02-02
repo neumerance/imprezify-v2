@@ -4,13 +4,17 @@ class ResumeController < ApplicationController
   rescue_from Net::ReadTimeout, with: :pdf_generation_failed
 
   before_action :set_resume, except: :index
+  before_action :set_manifest, only: [:index, :new]
   skip_before_action :authenticate_user!, only: :share
+
+  layout 'landing', only: [:index, :new]
 
   def index
     @resumes = current_user.resumes
     @manifest = ResumeTemplatingEngine::Manifest.new.get
-    render layout: 'landing'
   end
+
+  def new; end
 
   def edit
     if params[:entity_name].present?
@@ -23,8 +27,7 @@ class ResumeController < ApplicationController
     @resume.update(allowed_params)
   end
 
-  def destroy
-  end
+  def destroy; end
 
   def export_as_pdf
     PdfGenerationJob.new(@resume).enqueue(wait: 1.minute)
@@ -43,6 +46,10 @@ class ResumeController < ApplicationController
   end
 
   private
+
+  def set_manifest
+    @manifest ||= ResumeTemplatingEngine::Manifest.new.get
+  end
 
   def allowed_params
     params.require(:resume).permit!

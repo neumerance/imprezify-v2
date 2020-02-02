@@ -1,0 +1,31 @@
+section#section-reviews.pb_section.bg-light
+  .container
+    .row.justify-content-center.mb-1
+      .col-md-6.text-center.mb-5
+        h5.text-uppercase.pb_font-15.mb-2.pb_color-dark-opacity-3.pb_letter-spacing-2
+          strong Create Resume
+        h2 Select your desired template
+    #templateCarouselIndicators.carousel.slide data-ride="carousel"
+      ol.carousel-indicators
+        - index = 0
+        - @manifest.each do |_template_slug, _template|
+          li class="#{index == 0 ? 'active' : nil}" data-slide-to="#{index}" data-target="#templateCarouselIndicators"
+          - index += 1
+      .carousel-inner
+        - index = 0
+        - @manifest.each do |template_slug, template|
+          .carousel-item class="#{index == 0 ? 'active' : nil}" data-interval="3000" data-pause="hover"
+            = render partial: 'resume_template_selection', locals: { template_slug: template_slug, template: template }
+          - index += 1
+      a.carousel-control-prev data-slide="prev" href="#templateCarouselIndicators" role="button"
+        span.carousel-control-prev-icon aria-hidden="true"
+        span.sr-only Previous
+      a.carousel-control-next data-slide="next" href="#templateCarouselIndicators" role="button"
+        span.carousel-control-next-icon aria-hidden="true"
+        span.sr-only Next
+
+javascript:
+  window.landing.loader();
+  window.landing.scrollWindow();
+  window.landing.OnePageNav();
+  window.landing.offCanvasNav();
