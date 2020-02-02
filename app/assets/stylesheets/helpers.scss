@@ -95855,3 +95855,9 @@
 .pb_w-45{
   width:45%
 }
+.truncate-250 {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

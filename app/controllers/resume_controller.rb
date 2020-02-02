@@ -8,6 +8,7 @@ class ResumeController < ApplicationController
 
   def index
     @resumes = current_user.resumes
+    @manifest = ResumeTemplatingEngine::Manifest.new.get
     render layout: 'landing'
   end
 
@@ -20,6 +21,9 @@ class ResumeController < ApplicationController
 
   def update
     @resume.update(allowed_params)
+  end
+
+  def destroy
   end
 
   def export_as_pdf

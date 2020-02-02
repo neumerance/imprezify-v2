@@ -5,57 +5,28 @@ section#section-features.pb_section.bg-light
         h2
           | Dashboard
     .row
-      .col-lg-4.col-md-.col-sm-6
-        .media.pb_feature-v2.text-left.mb-1.mt-5
-          .pb_icon.d-flex.mr-3.align-self-start.pb_w-15
-            i.ion-ios-bookmarks-outline.pb_icon-gradient
-          .media-body
-            h3.mt-2.mb-2.heading
-              | Minimal Design
-            p.text-sans-serif.pb_font-16
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-      .col-lg-4.col-md-.col-sm-6
-        .media.pb_feature-v2.text-left.mb-1.mt-5
-          .pb_icon.d-flex.mr-3.align-self-start.pb_w-15
-            i.ion-ios-bookmarks-outline.pb_icon-gradient
-          .media-body
-            h3.mt-2.mb-2.heading
-              | Minimal Design
-            p.text-sans-serif.pb_font-16
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-      .col-lg-4.col-md-.col-sm-6
-        .media.pb_feature-v2.text-left.mb-1.mt-5
-          .pb_icon.d-flex.mr-3.align-self-start.pb_w-15
-            i.ion-ios-bookmarks-outline.pb_icon-gradient
-          .media-body
-            h3.mt-2.mb-2.heading
-              | Minimal Design
-            p.text-sans-serif.pb_font-16
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-      .col-lg-4.col-md-.col-sm-6
-        .media.pb_feature-v2.text-left.mb-1.mt-5
-          .pb_icon.d-flex.mr-3.align-self-start.pb_w-15
-            i.ion-ios-bookmarks-outline.pb_icon-gradient
-          .media-body
-            h3.mt-2.mb-2.heading
-              | Minimal Design
-            p.text-sans-serif.pb_font-16
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-      .col-lg-4.col-md-.col-sm-6
-        .media.pb_feature-v2.text-left.mb-1.mt-5
-          .pb_icon.d-flex.mr-3.align-self-start.pb_w-15
-            i.ion-ios-bookmarks-outline.pb_icon-gradient
-          .media-body
-            h3.mt-2.mb-2.heading
-              | Minimal Design
-            p.text-sans-serif.pb_font-16
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-      .col-lg-4.col-md-.col-sm-6
-        .media.pb_feature-v2.text-left.mb-1.mt-5
-          .pb_icon.d-flex.mr-3.align-self-start.pb_w-15
-            i.ion-ios-bookmarks-outline.pb_icon-gradient
-          .media-body
-            h3.mt-2.mb-2.heading
-              | Minimal Design
-            p.text-sans-serif.pb_font-16
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+      - if @resumes.any?
+        - @resumes.each do |resume|
+          .col-lg-4.col-md-.col-sm-6
+            .border.p-2.bg-white
+              .media.pb_feature-v2.text-left.mb-0
+                .pb_icon.d-flex.mr-3.align-self-start
+                  = image_tag @manifest[resume.template_name]['thumbnail'], width: 100, class: 'rounded'
+                .media-body
+                  h3.mt-2.mb-2.heading.truncate-250= resume.name
+                  .text-sans-serif.pb_font-16
+                    = link_to 'Edit', edit_resume_path(resume)
+                    span.mr-2.ml-2= "|"
+                    = link_to 'Delete', resume_path(resume), remote: true, method: :delete
+                    span.mr-2.ml-2= "|"
+                    = link_to 'Preview', resume_share_path(share_code: resume.sharing_code), target: '_blank'
+                  span.text-sans-serif.pb_font-16
+                    span.fa.fa-calendar.mr-2
+                    = resume.created_at.strftime('%B %e, %Y')
+      - else
+        .col-lg-12.col-md-.col-sm-12
+          h2 You have no resume yet.
+          p.pb_font-20
+            | Click
+            = link_to 'here', new_resume_path, class: 'btn btn-sm btn-primary ml-2 mr-2'
+            | to create one now.
