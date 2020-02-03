@@ -28,24 +28,21 @@ module ResumeTemplatingEngine
 
     def thumbnail(slug)
       path = Rails.root.join("#{TEMPLATE_ROOT}/#{slug}/thumbnail.png")
-      path_to_base64_url(path, 300, 421)
+      path_to_base64_url(path, 'thumbnail')
     end
 
     def preview(slug)
       path = Rails.root.join("#{TEMPLATE_ROOT}/#{slug}/preview.png")
-      path_to_base64_url(path, 595, 842)
+      path_to_base64_url(path, 'preview')
     end
 
-    def path_to_base64_url(path, x, y)
-      encoded_image = File.exists?(path) ?
-        Base64.encode64(File.read(path)) :
-        url_to_base64("https://picsum.photos/#{x}/#{y}")
+    def path_to_base64_url(path, type)
+      path = File.exists?(path) ?
+        path : Rails.root.join(
+          "app/presenters/resume_templating_engine/default-#{type}.jpg"
+        )
+      encoded_image = Base64.encode64(File.read(path))
       "data:image/png;base64,#{encoded_image}"
-    end
-
-    def url_to_base64(url)
-      url = URI.parse(url)
-      Base64.encode64(open(url).read)
     end
   end
 end

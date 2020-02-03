@@ -5,6 +5,9 @@ section#section-reviews.pb_section.bg-light
         h5.text-uppercase.pb_font-15.mb-2.pb_color-dark-opacity-3.pb_letter-spacing-2
           strong Create Resume
         h2 Select your desired template
+        = link_to resume_index_path do
+          span.fa.fa-angle-double-left.mr-2
+          | Back to dashboard
     #templateCarouselIndicators.carousel.slide data-ride="carousel"
       ol.carousel-indicators
         - index = 0

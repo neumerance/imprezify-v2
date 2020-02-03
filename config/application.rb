@@ -38,5 +38,8 @@ module ImprezifyV2
       enable_starttls_auto: true
     }
     config.hosts << ENV['DOMAIN']
+    config.hosts << '127.0.0.1'
+    config.hosts << 'localhost'
+    config.hosts << 'lvh.me'
   end
 end
