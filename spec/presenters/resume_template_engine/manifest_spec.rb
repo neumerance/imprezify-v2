@@ -34,6 +34,14 @@ describe ResumeTemplatingEngine::Manifest do
   end
 
   it 'returns list of templates' do
-    expect(subject).to eq expectation
+    subject.each do |slug, template_info|
+      expect(expectation.keys).to include slug
+      expect(expectation[slug]['name']).to eq template_info['name']
+      expect(expectation[slug]['description']).to eq template_info['description']
+      expect(expectation[slug]['author']).to eq template_info['author']
+      expect(expectation[slug]['category']).to eq template_info['category']
+      expect(template_info['thumbnail']).to be_present
+      expect(template_info['preview']).to be_present
+    end
   end
 end
