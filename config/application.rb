@@ -37,6 +37,6 @@ module ImprezifyV2
       authentication:       'plain',
       enable_starttls_auto: true
     }
-    config.hosts = ['127.0.0.1', 'localhost', 'lvh.me', ENV['DOMAIN']]
+    config.hosts << ENV['DOMAIN']
   end
 end
