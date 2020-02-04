@@ -1,0 +1,31 @@
+section.pb_xl_py_cover.overflow-hidden.pb_slant-light.pb_gradient_v1.cover-bg-opacity-8[style="background-image: url(#{asset_url('1900x1200_img_5.jpg')})"]
+  .container
+    .row.align-items-center.justify-content-center
+      .col-md-5.justify-content-center
+        h2.heading.mb-5.pb_font-40
+          | Over 1M+ people used Imprezify
+        .sub-heading
+          p.mb-4
+            | Create your professional looking template now, 100% FREE
+            br
+            | You can select a wide range of templates suitable to the position you applying with.
+      .col-md-1
+      .col-md-5
+        = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'bg-white rounded pb_form_v1' }) do |f|
+          h2.mb-4.mt-0.text-center
+            | Signing in
+          .form-group
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control py-3 reverse'
+          .form-group
+            = f.password_field :password, autocomplete: "current-password", class: 'form-control py-3 reverse'
+          .form-group
+            .custom-control.custom-checkbox
+              = f.check_box :remember_me, class: 'custom-control-input'
+              = f.label :remember_me, class: 'custom-control-label'
+          .form-group
+            = f.submit 'Log in', class: 'btn btn-primary btn-lg btn-block pb_btn-pill btn-shadow-blue'
+          .form-group.text-dark
+            = render "devise/shared/links"
+
+javascript:
+  window.landing.loader();
