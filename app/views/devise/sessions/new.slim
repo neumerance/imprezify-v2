@@ -14,6 +14,7 @@ section.pb_xl_py_cover.overflow-hidden.pb_slant-light.pb_gradient_v1.cover-bg-op
         = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'bg-white rounded pb_form_v1' }) do |f|
           h2.mb-4.mt-0.text-center
             | Signing in
+          = render partial: 'devise/shared/flash_messages', locals: { flash: flash }
           .form-group
             = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control py-3 reverse'
           .form-group
