@@ -3,5 +3,8 @@ class LandingPagesController < ApplicationController
 
   layout 'landing'
 
-  def home; end
+  def home
+    @resource = User.new
+    @resource_name = 'user'
+  end
 end

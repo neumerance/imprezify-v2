@@ -6,8 +6,13 @@ require("bootstrap/dist/js/bootstrap");
 require("slick-carousel");
 require("packs/form_utils");
 
-const scrollWindow = function() {
-  jQuery(window).scroll(function() {
+const activeNavbar = () => {
+  const navbar = jQuery('.pb_navbar');
+  navbar.addClass('scrolled awake');
+}
+
+const scrollWindow = () => {
+  jQuery(window).scroll(() => {
       const $w = jQuery(this),
           st = $w.scrollTop(),
           navbar = jQuery('.pb_navbar'),
@@ -42,15 +47,15 @@ const scrollWindow = function() {
   });
 };
 
-const loader = function() {
-  setTimeout(function() {
+const loader = () => {
+  setTimeout(() => {
       if (jQuery('#pb_loader').length > 0) {
           jQuery('#pb_loader').removeClass('show');
       }
   }, 700);
 };
 
-const slickSliders = function() {
+const slickSliders = () => {
   jQuery('.single-item').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -147,14 +152,14 @@ const slickSliders = function() {
   });
 };
 
-const OnePageNav = function() {
+const OnePageNav = () => {
   const navToggler = jQuery('.navbar-toggler');
   jQuery(".smoothscroll[href^='#'], #probootstrap-navbar ul li a[href^='#']").on('click', function(e) {
       e.preventDefault();
       const hash = this.hash;
       jQuery('html, body').animate({
           scrollTop: jQuery(hash).offset().top
-      }, 700, 'easeInOutExpo', function() {
+      }, 700, 'easeInOutExpo', () => {
           window.location.hash = hash;
       });
   });
@@ -163,12 +168,12 @@ const OnePageNav = function() {
           navToggler.click();
       }
   });
-  jQuery('body').on('activate.bs.scrollspy', function() {
+  jQuery('body').on('activate.bs.scrollspy', () => {
       console.log('nice');
   })
 };
 
-const offCanvasNav = function() {
+const offCanvasNav = () => {
   const toggleNav = jQuery('.js-pb_nav-toggle'),
       offcanvasNav = jQuery('.js-pb_offcanvas-nav_v1');
   if (toggleNav.length > 0) {
@@ -187,7 +192,7 @@ const offCanvasNav = function() {
   })
 };
 
-const ytpPlayer = function() {
+const ytpPlayer = () => {
   if (jQuery('.ytp_player').length > 0) {
       jQuery('.ytp_player').mb_YTPlayer();
   }
@@ -195,6 +200,7 @@ const ytpPlayer = function() {
 
 window.landing =  {
   loader,
+  activeNavbar,
   scrollWindow,
   OnePageNav,
   offCanvasNav,

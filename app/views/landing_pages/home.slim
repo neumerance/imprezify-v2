@@ -3,45 +3,22 @@ section#section-home.pb_cover_v3.overflow-hidden.cover-bg-indigo.cover-bg-opacit
     .row.align-items-center.justify-content-center
       .col-md-6
         h2.heading.mb-3
-          | Fly makes you faster
+          | Over 100K people used Imprezify
         .sub-heading
           p.mb-4
-            | New free template by
-            a[href="https://uicookies.com/" target="_blank"]
-              | uicookies.com
-            | . For more templates visit the
-            a[href="https://uicookies.com/" target="_blank"]
-              | site
-            | . Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            | Get your professional looking resume now, absolutely FREE. Sign up now.
+            br
+            | You can select a wide range of templates suitable to the position you're applying with.
+            br
+            | If you have existing account. Click the button below to get started.
           p.mb-5
             a.btn.btn-success.btn-lg.pb_btn-pill.smoothscroll[href="#section-pricing"]
               span.pb_font-14.text-uppercase.pb_letter-spacing-1
-                | See Pricing
+                | Learn More
       .col-md-1
 
       .col-md-5.relative.align-self-center
-        form.bg-white.rounded.pb_form_v1[action="#"]
-          h2.mb-4.mt-0.text-center
-            | Sign Up for Free
-          .form-group
-            input.form-control.pb_height-50.reverse[type="text" placeholder="Full name"]
-          .form-group
-            input.form-control.pb_height-50.reverse[type="text" placeholder="Email"]
-          .form-group
-            input.form-control.pb_height-50.reverse[type="text" placeholder="Email"]
-          .form-group
-            .pb_select-wrap
-              select.form-control.pb_height-50.reverse
-                option[value="" selected]
-                  | Type
-                option[value=""]
-                  | Basic
-                option[value=""]
-                  | Business
-                option[value=""]
-                  | Free
-          .form-group
-            input.btn.btn-primary.btn-lg.btn-block.pb_btn-pill.btn-shadow-blue[type="submit" value="Register"]
+        = render partial: 'devise/registrations/form', locals: { resource: @resource, resource_name: @resource_name }
 section#section-features.pb_section.bg-light.pb_slant-white.pb_pb-250
   .container
     .row.justify-content-center.mb-5
