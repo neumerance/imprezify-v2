@@ -13,10 +13,11 @@ const activeNavbar = () => {
 
 const scrollWindow = () => {
   jQuery(window).scroll(() => {
-      const $w = jQuery(this),
+      const $w = jQuery(window),
           st = $w.scrollTop(),
           navbar = jQuery('.pb_navbar'),
           sd = jQuery('.js-scroll-wrap');
+      console.log('st', st);
       if (st > 150) {
           if (!navbar.hasClass('scrolled')) {
               navbar.addClass('scrolled');
