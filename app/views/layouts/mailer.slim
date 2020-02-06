@@ -1,8 +1,57 @@
 doctype html
 html
-  head
-    meta content=("text/html; charset=utf-8") http-equiv="Content-Type" /
-    = render partial: 'layouts/shared/mailer_styles'
-  body
-    div#wrapper
-      = yield
+body style="background: #F6F6F6"
+  table style="border: 1px; margin: 40px auto 0px auto; width: 40%; background: #FFFFFF;"
+    tbody
+      tr
+        td
+          table style="margin: 40px;" width="87%"
+            tbody
+              tr
+                td
+                  a href="https://www.imprezify.com" style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:24px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:36px;color:#36B8E0;text-decoration: none;" Imprezify
+                td
+                  table.es-menu cellpadding="0" cellspacing="0" role="presentation" style="" width="100%"
+                    tbody
+                      tr.links style="border-collapse:collapse;"
+                        td align="center" style="Margin:0;padding-left:5px;padding-right:5px;padding-top:10px;padding-bottom:10px;border:0;" valign="top" width="33.33%"
+                          a href="https://www.imprezify.com" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:none;display:block;color:#36B8E0;" target="_blank"  Home
+                        td align="center" style="Margin:0;padding-left:5px;padding-right:5px;padding-top:10px;padding-bottom:10px;border:0;" valign="top" width="33.33%"
+                          a href="https://www.imprezify.com/resume" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:none;display:block;color:#36B8E0;" target="_blank"  My Resumes
+                        td align="center" style="Margin:0;padding-left:5px;padding-right:5px;padding-top:10px;padding-bottom:10px;border:0;" valign="top" width="33.33%"
+                          a href="https://www.imprezify.com/contacts" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:none;display:block;color:#36B8E0;" target="_blank"  Contact Us
+              tr
+                td colspan="2"
+                  p style="font-family:arial, 'helvetica neue', helvetica, sans-serif; font-size: 35px; line-height:45px; color:#333333; text-align: center;"  Thank you for joining Imprezify
+              tr
+                td colspan="2"= yield
+      tr
+        td
+          table style="margin: 40px;" width="87%"
+            tbody
+              tr colspan="3"
+                p style="font-family:arial, 'helvetica neue', helvetica, sans-serif; font-size: 35px; line-height:45px; color:#333333; text-align: center;"  We need your support
+              tr
+                td align="center" style="vertical-align:top;"
+                  a href="https://liberapay.com/Imprezify/donate"
+                    img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg" width="120"
+                  p style="font-family:arial, 'helvetica neue', helvetica, sans-serif;" We need your financial support to keep our servers running to host Imprezify.
+                  p style="font-family:arial, 'helvetica neue', helvetica, sans-serif;" Any amount will be much appreciated.
+                td align="center" style="vertical-align:top;"
+                  a.es-button href="https://www.imprezify.com/contribute" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:18px;color:#FFFFFF;border-style:solid;border-color:#39B6E0;border-width:10px 20px 10px 20px;display:inline-block;background:#39B6E0;border-radius:30px;font-weight:normal;font-style:normal;line-height:22px;width:auto;text-align:center;" target="_blank"  Contribute
+                  p style="font-family:arial, 'helvetica neue', helvetica, sans-serif;" If you are a Designer, Frontend Developer or UI/UX Developer.
+                  p style="font-family:arial, 'helvetica neue', helvetica, sans-serif;" You can submit your own resume template designs.
+                  p style="font-family:arial, 'helvetica neue', helvetica, sans-serif;" Your name and your template design will be posted in our homepage.
+                td align="center" style="vertical-align:top;"
+                  a.es-button href="https://www.imprezify.com/write" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:18px;color:#FFFFFF;border-style:solid;border-color:#39B6E0;border-width:10px 20px 10px 20px;display:inline-block;background:#39B6E0;border-radius:30px;font-weight:normal;font-style:normal;line-height:22px;width:auto;text-align:center;" target="_blank"  Write
+                  p style="font-family:arial, 'helvetica neue', helvetica, sans-serif;" If you are a blogger, content writter or just telented to write articles.
+                  p style="font-family:arial, 'helvetica neue', helvetica, sans-serif;" Send us your intention and we will give you access to our blog.
+    table style="width: 100%; background: #3D3D3D;"
+      tbody
+        tr
+          td colspan="3" style="vertical-align:top;" align="center"
+            p style="font-family:arial, 'helvetica neue', helvetica, sans-serif; color: #FFFFFF"
+              | © 2020 Imprezify All Rights Reserved
+            p style="font-family:arial, 'helvetica neue', helvetica, sans-serif; color: #FFFFFF"
+              | Designed & Developed by
+              a href="https://github.com/neumerance" style="margin: 0px 5px; color:#F5F5F5" JonJon
