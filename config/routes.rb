@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
 
   root to: 'landing_pages#home'
+  get '/contacts', to: 'landing_pages#contacts'
+  get '/contribute', to: 'landing_pages#contribute'
+  get '/write', to: 'landing_pages#write'
 
   resources :resume do
     resources :basic_info, only: :update

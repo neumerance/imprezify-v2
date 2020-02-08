@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include LandingNavigationMenuHandler
+  include PageMetaTagHandler
 
   before_action :authenticate_user!
   after_action :clear_xhr_flash

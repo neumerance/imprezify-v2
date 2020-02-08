@@ -1,5 +1,6 @@
 class LandingPagesController < ApplicationController
   before_action :set_home_navigation
+  before_action :set_homepage_tags, only: :home
   skip_before_action :authenticate_user!
 
   layout 'landing'
@@ -10,4 +11,10 @@ class LandingPagesController < ApplicationController
     @manifest ||= ResumeTemplatingEngine::Manifest.new.get
     @resume = Resume.new
   end
+
+  def contacts; end
+
+  def contribute; end
+
+  def write; end
 end

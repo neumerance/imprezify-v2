@@ -64,3 +64,4 @@ gem "paperclip", "~> 6.0.0"
 gem 'slim'
 gem 'fast_jsonapi'
 gem 'httparty'
+gem 'meta-tags'
