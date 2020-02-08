@@ -10,7 +10,7 @@ module PageMetaTagHandler
   def set_default_tags
     @page_meta_tags = {
       site: 'Imprezify',
-      separator:   "&mdash;".html_safe
+      separator:   " | ".html_safe
     }
   end
 
@@ -19,7 +19,7 @@ module PageMetaTagHandler
     @page_meta_tags[:description] = 'Build your own professional looking resume absolutely FREE.'
     @page_meta_tags[:keywords] = 'resume, free resume, professional resume, resume template, cv, free cv'
     @page_meta_tags[:canonical] = request.base_url
-    @page_meta_tags[:image_src] = image_url('og_image.png')
+    @page_meta_tags[:image_src] = asset_url('og_image.png')
   end
 
   def set_dashboard_tags
