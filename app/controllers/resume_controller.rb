@@ -6,6 +6,7 @@ class ResumeController < ApplicationController
   before_action :set_resume, except: :index
   before_action :set_manifest, only: [:index, :new]
   skip_before_action :authenticate_user!, only: :share
+  before_action :set_resume_edit_tags, only: :edit
 
   layout 'landing', only: [:index, :new]
 

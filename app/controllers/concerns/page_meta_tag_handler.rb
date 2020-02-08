@@ -23,4 +23,9 @@ module PageMetaTagHandler
     @page_meta_tags[:title] = 'Resume Dashboard'
     @page_meta_tags[:noindex] = true
   end
+
+  def set_resume_edit_tags
+    @page_meta_tags[:title] = 'Edit resume'
+    @page_meta_tags[:noindex] = true
+  end
 end
