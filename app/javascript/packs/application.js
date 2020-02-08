@@ -21,20 +21,3 @@ require("packs/edit_resume");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-
-function fib(n) {
-  var i = 1;
-  var sequence = [0];
-
-  while(i <= n) {
-    i = i + sequence[sequence.length - 1];
-    sequence.push(i);
-  }
-  debugger;
-  if (sequence.includes(n)) {
-    return sequence[sequence.length - 1];
-  } else {
-    return 'not in sequence';
-  }
-}
