@@ -8,7 +8,7 @@ div
           span class="fas fa-check-circle mr-2 text-#{resume.section_completed(name) ? 'success' : 'secondary'}"
           span= verbose_name || name.to_s.titleize
     - if name != :basic_info
-      = link_to ActionController::UrlFor.url_for(controller: name, action: :new, resume_id: resume.id, only_path: true), remote: true do
+      = link_to controller.url_for(controller: name, action: :new, resume_id: resume.id, only_path: true), remote: true do
         span.fa.fa-plus-circle
   - if resume.try(name.to_sym).is_a? ActiveRecord::Associations::CollectionProxy
     div.collapse.ml-4 id="#{name}-nav" aria-labelledby="#heading-#{name}-nav" data-parent="#form-navigation"
