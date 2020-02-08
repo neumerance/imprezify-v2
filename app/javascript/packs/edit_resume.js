@@ -1,5 +1,15 @@
 import ClipboardJS from "clipboard";
 
+const loader = () => {
+  jQuery(window).on('load', () => {
+    setTimeout(() => {
+      if (jQuery('#pb_loader').length > 0) {
+        jQuery('#pb_loader').removeClass('show');
+      }
+    }, 1000);
+  });
+};
+
 const initPageScript = () => {
   document.addEventListener('turbolinks:load', () => {
     formUtils.initFlatpickr();
@@ -21,6 +31,7 @@ const initPageScript = () => {
       console.log('error');
       common.togglePreloader();
     })
+    loader();
   });
 }
 

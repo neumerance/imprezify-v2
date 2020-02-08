@@ -48,11 +48,13 @@ const scrollWindow = () => {
 };
 
 const loader = () => {
-  setTimeout(() => {
+  jQuery(window).on('load', () => {
+    setTimeout(() => {
       if (jQuery('#pb_loader').length > 0) {
-          jQuery('#pb_loader').removeClass('show');
+        jQuery('#pb_loader').removeClass('show');
       }
-  }, 700);
+    }, 1000);
+  });
 };
 
 const slickSliders = () => {
