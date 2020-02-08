@@ -1,4 +1,5 @@
 class LandingPagesController < ApplicationController
+  before_action :set_home_navigation
   skip_before_action :authenticate_user!
 
   layout 'landing'

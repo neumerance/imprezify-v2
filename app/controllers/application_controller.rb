@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include LandingNavigationMenuHandler
+
   before_action :authenticate_user!
   after_action :clear_xhr_flash
 

@@ -19,36 +19,7 @@ html[lang="en"]
     script[src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="28c3b3398ae4255d6964f889-|49" defer=""]
     = javascript_pack_tag 'landing'
   body[data-spy="scroll" data-target="#pb-navbar" data-offset="200"]
-    nav#pb-navbar.navbar.navbar-expand-lg.navbar-dark.pb_navbar.pb_scrolled-light
-      .container
-        a.navbar-brand[href="index-2.html"]
-          | Imprezify
-        button.navbar-toggler.ml-auto[type="button" data-toggle="collapse" data-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation"]
-          span
-            i.ion-navicon
-        #probootstrap-navbar.collapse.navbar-collapse
-          ul.navbar-nav.ml-auto
-            li.nav-item
-              a.nav-link[href="#section-home"]
-                | Home
-            li.nav-item
-              a.nav-link[href="#section-features"]
-                | Templates
-            li.nav-item
-              a.nav-link[href="#section-reviews"]
-                | Reviews
-            li.nav-item
-              a.nav-link[href="#section-faq"]
-                | FAQ
-            - if user_signed_in?
-              li.nav-item
-                = link_to 'Log out', destroy_user_session_path, class: 'nav-link', method: :delete
-            - else
-              li.nav-item
-                = link_to 'Login', new_user_session_path, class: 'nav-link'
-            li.nav-item.cta-btn.ml-xl-2.ml-lg-2.ml-md-0.ml-sm-0.ml-0
-              a.pb_rounded-4.px-4 href="https://liberapay.com/Imprezify/donate" target="_blank"
-                img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg" width="120"
+    = render partial: 'layouts/shared/landing_navigation_menu'
     = yield
     footer.pb_footer.bg-light[role="contentinfo"]
       .container
