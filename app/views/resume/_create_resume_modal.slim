@@ -1,5 +1,5 @@
 #create-resume-modal.modal role="dialog" tabindex="-1"
-  = form_for(resume, url: url_for(controller: :resume, action: :create)) do |f|
+  = form_for(resume, url: ActionController::UrlFor.url_for(controller: :resume, action: :create)) do |f|
     .modal-dialog role="document"
       .modal-content
         .modal-body
