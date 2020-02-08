@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/contacts', to: 'landing_pages#contacts'
   get '/contribute', to: 'landing_pages#contribute'
   get '/write', to: 'landing_pages#write'
+  get '/privacy', to: 'landing_pages#privacy'
 
   resources :resume do
     resources :basic_info, only: :update

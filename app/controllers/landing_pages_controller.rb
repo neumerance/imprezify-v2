@@ -17,4 +17,6 @@ class LandingPagesController < ApplicationController
   def contribute; end
 
   def write; end
+
+  def privacy; end
 end
