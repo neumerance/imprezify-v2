@@ -4,10 +4,10 @@
     .carousel-caption.d-sm-block.d-md-none
       h5= template['name']
       p= template['description']
-      = render partial: 'choose_resume_button', locals: { slug: template_slug }
+      = render partial: 'resume/choose_resume_button', locals: { slug: template_slug }
   .col-lg-4.pr-md-5.pr-sm-0.order-1.mb-5.d-none.d-sm-none.d-md-block
     .row
       .col
         h2= template['name']
         p.pb_font-20= template['description']
-        = render partial: 'choose_resume_button', locals: { slug: template_slug }
+        = render partial: 'resume/choose_resume_button', locals: { slug: template_slug }

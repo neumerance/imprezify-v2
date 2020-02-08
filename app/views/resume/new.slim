@@ -1,31 +1,5 @@
-section#section-reviews.pb_section.bg-light
-  .container
-    .row.justify-content-center.mb-1
-      .col-md-6.text-center.mb-5
-        h5.text-uppercase.pb_font-15.mb-2.pb_color-dark-opacity-3.pb_letter-spacing-2
-          strong Create Resume
-        h2 Select your desired template
-        = link_to resume_index_path do
-          span.fa.fa-angle-double-left.mr-2
-          | Back to dashboard
-    #templateCarouselIndicators.carousel.slide data-ride="carousel"
-      ol.carousel-indicators
-        - index = 0
-        - @manifest.each do |_template_slug, _template|
-          li class="#{index == 0 ? 'active' : nil}" data-slide-to="#{index}" data-target="#templateCarouselIndicators"
-          - index += 1
-      .carousel-inner
-        - index = 0
-        - @manifest.each do |template_slug, template|
-          .carousel-item class="#{index == 0 ? 'active' : nil}" data-interval="false"
-            = render partial: 'resume_template_selection', locals: { template_slug: template_slug, template: template }
-          - index += 1
-      a.carousel-control-prev.pb-width-auto data-slide="prev" href="#templateCarouselIndicators" role="button"
-        span.fa.fa-chevron-left.fa-2x.text-primary
-      a.carousel-control-next.pb-width-auto data-slide="next" href="#templateCarouselIndicators" role="button"
-        span.fa.fa-chevron-right.fa-2x.text-primary
-
-= render partial: 'create_resume_modal'
+section#section-template-carousel.pb_section.bg-light
+  = render partial: 'template_carousel', locals: { manifest: @manifest, resume: @resume }
 
 javascript:
   window.landing.loader();

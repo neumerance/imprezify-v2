@@ -6,5 +6,7 @@ class LandingPagesController < ApplicationController
   def home
     @resource = User.new
     @resource_name = 'user'
+    @manifest ||= ResumeTemplatingEngine::Manifest.new.get
+    @resume = Resume.new
   end
 end
