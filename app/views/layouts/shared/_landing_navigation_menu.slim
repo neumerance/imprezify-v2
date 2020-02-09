@@ -9,6 +9,8 @@ nav#pb-navbar.navbar.navbar-expand-lg.navbar-dark.pb_navbar.pb_scrolled-light
         - @menus.each do |menu|
           li.nav-item
             = link_to menu[:name], menu[:url], class: 'nav-link'
+        li.nav-item
+          = link_to 'Support Us', '#support-us', class: 'nav-link'
         - if user_signed_in?
           li.nav-item
             = link_to 'Log out', destroy_user_session_path, class: 'nav-link', method: :delete

@@ -7,9 +7,9 @@ module LandingNavigationMenuHandler
 
   def set_home_navigation
     @menus << { name: 'My Resume', url: resume_index_path } if user_signed_in?
-    @menus << { name: 'Templates', url: '#section-templates' }
-    @menus << { name: 'Reviews', url: '#section-reviews' }
-    @menus << { name: 'FAQ', url: '#section-faq' }
+    @menus << { name: 'Templates', url: '#templates' }
+    @menus << { name: 'Reviews', url: '#reviews' }
+    @menus << { name: 'FAQ', url: '#faq' }
   end
 
   def set_default_menus

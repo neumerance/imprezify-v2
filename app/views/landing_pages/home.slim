@@ -1,4 +1,4 @@
-section#section-home.pb_cover_v3.overflow-hidden.cover-bg-indigo.cover-bg-opacity.text-left.pb_gradient_v1.pb_slant-light
+section#home.pb_cover_v3.overflow-hidden.cover-bg-indigo.cover-bg-opacity.text-left.pb_gradient_v1.pb_slant-light
   .container
     .row.align-items-center.justify-content-center
       .col-md-6
@@ -19,9 +19,9 @@ section#section-home.pb_cover_v3.overflow-hidden.cover-bg-indigo.cover-bg-opacit
 
       .col-md-5.relative.align-self-center
         = render partial: 'devise/registrations/form', locals: { resource: @resource, resource_name: @resource_name }
-section#section-templates.pb_section.bg-light.pb_slant-white.pb_pb-250
+section#templates.pb_section.bg-light.pb_slant-white.pb_pb-250
   = render partial: 'resume/template_carousel', locals: { manifest: @manifest, resume: @resume }
-section#section-reviews.pb_section.pb_slant-light.pb_pb-220
+section#reviews.pb_section.pb_slant-light.pb_pb-220
   .container
     .row.justify-content-center.mb-1
       .col-md-6.text-center.mb-5
@@ -34,7 +34,7 @@ section#section-reviews.pb_section.pb_slant-light.pb_pb-220
           .carousel-inner
             div.carousel-item.active
               .media.d-block.text-center.testimonial_v1.pb_quote_v2
-                .media-body
+                .media-body.pb_height-500
                   .quote “
                   blockquote.mb-5.pb_font-40
                     | Far far away, behind the word mountains, far from the countries Vokalia and
@@ -50,7 +50,7 @@ section#section-reviews.pb_section.pb_slant-light.pb_pb-220
                   span.subheading @garry
             div.carousel-item
               .media.d-block.text-center.testimonial_v1.pb_quote_v2
-                .media-body
+                .media-body.pb_height-500
                   .quote “
                   blockquote.mb-5.pb_font-40
                     | A small river named Duden flows by their place and supplies it with the
@@ -66,7 +66,7 @@ section#section-reviews.pb_section.pb_slant-light.pb_pb-220
                   span.subheading @deborah
             div.carousel-item
               .media.d-block.text-center.testimonial_v1.pb_quote_v2
-                .media-body
+                .media-body.pb_height-500
                   .quote “
                   blockquote.mb-5.pb_font-40
                     | Even the all-powerful Pointing has no control about the blind texts it is
@@ -96,7 +96,8 @@ section#section-reviews.pb_section.pb_slant-light.pb_pb-220
                     i.ion-ios-star-outline.text-warning
                   h3.heading Marie Gibson
                   span.subheading @marie
-section#section-faq.pb_section.bg-light.pb_slant-light.pb_pb-250
+
+section#faq.pb_section.bg-light.pb_slant-white.pb_pb-250
   .container
     .row.justify-content-center.mb-5
       .col-md-6.text-center.mb-5
@@ -107,41 +108,49 @@ section#section-faq.pb_section.bg-light.pb_slant-light.pb_pb-250
           | Frequently Ask Questions
     .row
       .col-md
-        #pb_faq.pb_accordion[data-children=".item"]
-          .item
-            a.pb_font-22.py-4[data-toggle="collapse" data-parent="#pb_faq" href="#pb_faq1" aria-expanded="true" aria-controls="pb_faq1"]
-              | What is Imprezify
-            #pb_faq1.collapse.show[role="tabpanel"]
-              .py-3
-                p
-                  | Imprezify is a non-profit resume generator app.
-                  br
-                  | It provides professional resume template absolutely FREE.
-                  br
-                  | Using Imprezify, you can easily generate a resume in minutes by importing existing data from LinkedIn or manualy type data in our easy to use resume editing forms.
-          .item
-            a.pb_font-22.py-4[data-toggle="collapse" data-parent="#pb_faq" href="#pb_faq2" aria-expanded="false" aria-controls="pb_faq2"]
-              | How much it costs to generate a resume?
-            #pb_faq2.collapse[role="tabpanel"]
-              .py-3
-                p
-                  | You don't need to worry about paying anything. This service is 100% FREE of charge.
-          .item
-            a.pb_font-22.py-4[data-toggle="collapse" data-parent="#pb_faq" href="#pb_faq3" aria-expanded="false" aria-controls="pb_faq3"]
-              | How many resume I can create?
-            #pb_faq3.collapse[role="tabpanel"]
-              .py-3
-                p
-                  | You can create 1 resume by default but if you are supporter of this project, You can create unlimited number of resumes.
-          .item
-            a.pb_font-22.py-4[data-toggle="collapse" data-parent="#pb_faq" href="#pb_faq4" aria-expanded="false" aria-controls="pb_faq4"]
-              | Does my personal information is secured?
-            #pb_faq4.collapse[role="tabpanel"]
-              .py-3
-                p
-                  | Please see our
-                  = link_to 'Privacy Policy', '#privacy', class: 'mr-2 ml-2'
-                  | for your information.
+        = render partial: 'landing_pages/faq'
+section#support-us.pb_section.pb_slant-white
+  .container
+    .row.justify-content-center.mb-5
+      .col-md-6.text-center.mb-5
+        h5.text-uppercase.pb_font-15.mb-2.pb_color-dark-opacity-3.pb_letter-spacing-2
+          strong We need your support
+        h2 How can you help?
+    .row
+      .col-md
+        .pb_pricing_v1.p-5.border.text-center.bg-white
+          h3 Contribute
+          p.pb_font-15.pb_height-230
+            | If you are a Designer, Frontend Developer or UI/UX Developer.
+            br
+            | You can submit your own resume template designs to us.
+            br
+            | You and your designs will be well recognize for it will be posted in our homepage together with your name.
+          p.mb-0
+            a.btn.btn-primary.btn-shadow-blue href="#" role="button"  Get started
+      .col-md
+        .pb_pricing_v1.p-5.border.border-primary.text-center.bg-white
+          h3 Donate
+          p.pb_font-15.pb_height-230
+            | We need financial support to keep our servers running to host Imprezify.
+            br
+            | This service is hosted using AWS and GoDaddy
+            br
+            | We pay monthly server resource where this website hosted.
+            br
+            | A single dollar you donate will be a big help for us to maintain and keep this service running.
+          p.mb-0
+            a.pb_rounded-4.px-4 href="https://liberapay.com/Imprezify/donate" target="_blank"
+              img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg" width="100"
+      .col-md
+        .pb_pricing_v1.p-5.border.text-center.bg-white
+          h3 Write
+          p.pb_font-15.pb_height-230
+            | If you are a blogger, content writter or just telented to write articles.
+            br
+            | Let us know your intention and we will give you access to our blog.
+          p.mb-0
+            a.btn.btn-secondary href="#" role="button"  Get started
 section.pb_xl_py_cover.overflow-hidden.pb_slant-light.pb_gradient_v1.cover-bg-opacity-8[style="background-image: url(#{asset_url('1900x1200_img_5.jpg')})"]
   .container
     .row.align-items-center.justify-content-center
