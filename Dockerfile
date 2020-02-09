@@ -23,6 +23,8 @@ RUN apk add --update \
 ADD Gemfile Gemfile.lock ./
 RUN bundle install --jobs 4 --without development test doc guard
 
+RUN npm install -g yarn
+
 ADD . .
 
 ## Compile assets
