@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: imprezify_v2_production
-  username: imprezify_v2
-  password: app
+  url: <%= ENV['DATABASE_URL'] %>

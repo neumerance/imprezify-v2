@@ -43,6 +43,6 @@ module ImprezifyV2
     config.hosts << 'lvh.me'
     config.hosts << 'www.example.com'
 
-    config.action_mailer.default_url_options = { host: ENV['HOST'] }
+    config.action_mailer.default_url_options = { host: ENV['HOST'], port: ENV['PORT'] }
   end
 end
