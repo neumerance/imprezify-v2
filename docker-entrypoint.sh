@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rails_env=${RAILS_ENV:-staging}
+rails_env=${RAILS_ENV:-production}
 
 RAILS_ENV=${rails_env} rake db:create
 RAILS_ENV=${rails_env} rake db:migrate
