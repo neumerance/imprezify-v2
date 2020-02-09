@@ -2,10 +2,10 @@ FROM ruby:2.6.0-alpine
 
 ARG RAILS_ENV=production
 
-ENV BUNDLE_REPO__FURY__IO ${GEMFURY_KEY}
 ENV RAILS_ENV ${RAILS_ENV}
 
 ENV RAILS_SERVE_STATIC_FILES true
+
 ENV RAILS_LOG_TO_STDOUT true
 
 WORKDIR ~/app
@@ -16,7 +16,7 @@ RUN apk add --update \
         libxml2-dev \
         libxslt-dev \
         postgresql-dev \
-        nodejs>8 \
+        nodejs \
 		git \
     && rm -rf /var/cache/apk/*
 
@@ -26,7 +26,6 @@ RUN bundle install --jobs 4 --without development test doc guard
 ADD . .
 
 ## Compile assets
-## .deploy.env only exists inside DroneCI
 RUN  bundle exec rake assets:precompile
 
 CMD ./docker-entrypoint.sh

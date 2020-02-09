@@ -82,4 +82,4 @@ production:
   <<: *default
   database: imprezify_v2_production
   username: imprezify_v2
-  password: <%= ENV['IMPREZIFY_V2_DATABASE_PASSWORD'] %>
+  password: app
