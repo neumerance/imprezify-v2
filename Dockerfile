@@ -1,4 +1,4 @@
-FROM ruby:2.6.1-slim
+FROM ruby:2.6.0-slim
 
 ARG RAILS_ENV=production
 
@@ -27,7 +27,7 @@ RUN bundle install --jobs 4 --without development test doc guard
 ADD . .
 
 ## Compile assets
-RUN	bundle exec rake assets:precompile && \
+RUN	bundle exec rake assets:precompile
 
 ## Remove cache
 RUN apt clean && \
