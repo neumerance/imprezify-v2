@@ -17,7 +17,7 @@ services:
     ports:
       - 80:3000
     environment:
-      - RAILS_ENV=staging
+      - RAILS_ENV=production
       - SECRET_KEY_BASE=xxx
       - PG_DATABASE=imprezify_v2_production
       - PG_HOST=postgres
