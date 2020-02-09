@@ -37,10 +37,12 @@ module ImprezifyV2
       authentication:       'plain',
       enable_starttls_auto: true
     }
-    config.hosts << ENV['DOMAIN']
+    config.hosts << ENV['HOST']
     config.hosts << '127.0.0.1'
     config.hosts << 'localhost'
     config.hosts << 'lvh.me'
     config.hosts << 'www.example.com'
+
+    config.action_mailer.default_url_options = { host: ENV['HOST'], port: ENV['PORT'] }
   end
 end

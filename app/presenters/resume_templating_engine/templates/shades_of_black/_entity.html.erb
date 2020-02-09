@@ -6,7 +6,7 @@
              data-upuntil="<%= entity.dig(:attributes, :upuntil) %>">
           <div class="d-flex">
             <% if entity.dig(:attributes, :logo) %>
-              <img src="<%= "#{ENV['DOMAIN_SCHEME']}://#{ENV['DOMAIN']}#{entity.dig(:attributes, :logo)}" %>"
+              <img src="<%= "#{request.base_url}/#{entity.dig(:attributes, :logo)}" %>"
                 class="d-block thumb rounded mr-2" />
             <% end %>
             <div>
