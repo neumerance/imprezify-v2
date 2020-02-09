@@ -33,3 +33,4 @@ public/system/*
 .idea
 
 .env
+.production.env

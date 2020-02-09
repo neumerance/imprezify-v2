@@ -1,4 +1,4 @@
 <% if photo %>
-  <img src="<%= "#{ENV['DOMAIN_SCHEME']}://#{ENV['DOMAIN']}" %><%= photo %>" class="d-block width-100 border border-light" />
+  <img src="<%= "#{ENV['SCHEME']}://#{ENV['HOST']}" %><%= photo %>" class="d-block width-100 border border-light" />
   <div class="dropdown-divider mt-4 mb-4"></div>
 <% end %>
