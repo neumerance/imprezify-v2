@@ -20,6 +20,10 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: <%= ENV['PG_DATABASE'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASS'] %>
 
 development:
   <<: *default
@@ -78,6 +82,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
