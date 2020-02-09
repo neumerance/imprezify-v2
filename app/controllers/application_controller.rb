@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   after_action :clear_xhr_flash
 
   layout :layout_by_resource
-  layout Proc.new { |controller| controller.request.xhr? ? false : 'application' }
 
   def clear_xhr_flash
     flash.discard if request.xhr?
@@ -15,6 +14,7 @@ class ApplicationController < ActionController::Base
   private
 
   def layout_by_resource
+    return false if request.xhr?
     if devise_controller?
       "landing"
     else
