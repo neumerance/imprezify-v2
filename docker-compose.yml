@@ -1,34 +1,36 @@
-version: '3.2'
+version: '3.4'
 services:
-  imprezify_v2_postgres:
-    container_name: imprezify_v2_postgres
-    image: postgres:9.6-alpine
-    environment:
-      POSTGRES_DB: imprezify_v2_production
-      POSTGRES_USER: imprezify_v2
-      POSTGRES_PASSWORD: app
-      PGDATA: /var/lib/postgresql/data
-    volumes:
-      - data-postgres:/var/lib/postgresql/data
-
-  imprezify_v2_web:
+  app:
     build:
       context: .
     ports:
-      - 80:3000
-    environment:
-      - RAILS_ENV=production
-      - SECRET_KEY_BASE=xxx
-      - PG_DATABASE=imprezify_v2_production
-      - DATABASE_HOST=imprezify_v2_postgres
-      - DATABASE_USER=imprezify_v2
-      - DATABASE_PASS=app
-      - RAILS_SERVE_STATIC_FILES=true
-      - RAILS_LOG_TO_STDOUT=true
-      - AIRBRAKE_PROJECT_ID=1
-      - AIRBRAKE_PROJECT_KEY=xxx
+      - "3000:3000"
+    restart: always
+    depends_on:
+      - postgres
+    links:
+      - postgres:postgres
     env_file:
       - .env
+    environment:
+      - RAILS_ENV=staging
+      - PG_DATABASE=app
+      - PG_HOST=postgres
+      - PG_USER=app
+      - PG_PASSWORD=app
+      - RAILS_SERVE_STATIC_FILES=true
+      - RAILS_LOG_TO_STDOUT=true
+
+  postgres:
+    image: postgres:9.6-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_DB: app
+      POSTGRES_PASSWORD: app
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - pg_data:/var/lib/postgresql/data
 
 volumes:
-  data-postgres:
+  pg_data:

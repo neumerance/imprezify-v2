@@ -1,6 +1,6 @@
 FROM ruby:2.6.0-slim
 
-ARG RAILS_ENV=production
+ARG RAILS_ENV=staging
 
 ENV RAILS_ENV ${RAILS_ENV}
 
