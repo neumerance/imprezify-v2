@@ -31,18 +31,16 @@ module ImprezifyV2
     config.action_mailer.smtp_settings = {
       address:              ENV['SMTP_HOST'],
       port:                 ENV['SMTP_PORT'],
-      domain:               ENV['DOMAIN'],
+      domain:               ENV['SMTP_DOMAIN'],
       user_name:            ENV['SMTP_USER'],
       password:             ENV['SMTP_PASSWORD'],
-      authentication:       'plain',
-      enable_starttls_auto: true
+      authentication:       'plain'
     }
-    config.hosts << ENV['HOST']
+    config.hosts << 'imprezify.com'
+    config.hosts << 'imprezify-staging.herokuapp.com'
     config.hosts << '127.0.0.1'
     config.hosts << 'localhost'
     config.hosts << 'lvh.me'
     config.hosts << 'www.example.com'
-
-    config.action_mailer.default_url_options = { host: ENV['HOST'], port: ENV['PORT'] }
   end
 end

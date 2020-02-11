@@ -1,11 +1,10 @@
 include Rails.application.routes.url_helpers
 
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
   layout 'mailer'
 
   default from:     -> { 'info@imprezify.com' },
-          reply_to: -> { 'no-replay@imprezify.com' }
+          reply_to: -> { 'no-reply@imprezify.com' }
 
   def send_generated_pdf(resume)
     @user = resume.user
@@ -23,7 +22,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def set_resume_as_attachment(resume)
     response = Api2PdfService.generate_pdf_data(
-      "#{ENV['SCHEME']}://#{ENV['HOST']}/#{resume_share_path(share_code: @resume.sharing_code)}"
+      "https://www.imprezify.com/#{resume_share_path(share_code: @resume.sharing_code)}"
     )
     Imprezify::PDFGenerationFailed unless response.success?
     ResponseToPdf.generate(content: response.body)
