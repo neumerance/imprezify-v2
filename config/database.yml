@@ -14,7 +14,7 @@ test:
   <<: *default
   database: imprezify_test
 
-staging:
+production:
   <<: *default
   database: <%= ENV['PG_DATABASE'] %>
   host: <%= ENV['PG_HOST'] %>
