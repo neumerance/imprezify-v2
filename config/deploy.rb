@@ -37,6 +37,8 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 set :linked_files, %w{.env}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
+append :linked_dirs, '.bundle'
+
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
