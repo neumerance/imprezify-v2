@@ -4,6 +4,7 @@ require 'capistrano/deploy'
 
 require 'capistrano/rails'
 require 'capistrano/bundler'
+require 'capistrano/npm'
 require 'capistrano/rvm'
 require 'capistrano/puma'
 require "capistrano/scm/git"
