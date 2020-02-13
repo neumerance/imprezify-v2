@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  default_url_options :host => "www.imprezify.com"
+
   devise_for :users, controllers: { registrations: 'registrations' }
 
   root to: 'landing_pages#home'
