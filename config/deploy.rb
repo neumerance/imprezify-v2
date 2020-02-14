@@ -74,7 +74,6 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       invoke! 'puma:restart'
-      run "sudo service nginx restart"
     end
   end
 
