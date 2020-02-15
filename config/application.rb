@@ -36,8 +36,7 @@ module ImprezifyV2
       user_name:  ENV['SMTP_USER'],
       password:   ENV['SMTP_PASSWORD']
     }
-    config.hosts << 'imprezify.com'
-    config.hosts << 'imprezify-staging.herokuapp.com'
+    config.hosts << ENV['DOMAIN']
     config.hosts << '127.0.0.1'
     config.hosts << 'localhost'
     config.hosts << 'lvh.me'

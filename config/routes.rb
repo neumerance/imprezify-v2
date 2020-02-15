@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  default_url_options :host => "www.imprezify.com"
+  default_url_options host: ENV['DOMAIN']
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
