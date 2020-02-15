@@ -74,3 +74,4 @@ gem 'httparty'
 gem 'meta-tags'
 gem 'airbrake'
 gem "mini_magick"
+gem "aws-sdk-s3", require: false
