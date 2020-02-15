@@ -24,6 +24,8 @@ module ImprezifyV2
     ActiveSupport::Dependencies.autoload_paths << "#{config.root}/presenters"
     ActiveSupport::Dependencies.autoload_paths << "#{config.root}/imprezify"
 
+    config.active_storage.variant_processor = :mini_magick
+
     config.action_mailer.perform_deliveries = true
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.default_options = { from: 'info@imprezify.com' }

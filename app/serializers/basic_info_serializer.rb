@@ -5,6 +5,6 @@ class BasicInfoSerializer
              :address, :city, :country, :postal_code, :full_address
 
   attribute :photo do |object|
-    object.photo(:passport)
+    object.try(:thumbnail)
   end
 end
