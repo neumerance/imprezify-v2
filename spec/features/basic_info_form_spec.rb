@@ -33,7 +33,7 @@ feature 'Basic Info form', :js do
       expect(page).to have_css('#basic_info_collapsible')
       fill_in_form(sample)
     end
-
+    sleep 1
     sample.each do |key, value|
       if key == :photo
         expect(expectation[:photo_file_name]).not_to be_empty

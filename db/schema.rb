@@ -15,57 +15,6 @@ ActiveRecord::Schema.define(version: 2020_02_04_125148) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "BasicInfos", id: :serial, force: :cascade do |t|
-    t.text "photo", null: false
-    t.string "name", limit: 255, null: false
-    t.string "title", limit: 255, null: false
-    t.text "overview", null: false
-    t.datetime "dateOfBirth", null: false
-    t.string "nationality", limit: 255
-    t.string "status", limit: 255
-    t.string "address", limit: 255
-    t.string "city", limit: 255
-    t.string "postalCode", limit: 255
-    t.string "country", limit: 255
-    t.integer "ResumeId"
-    t.datetime "createdAt", null: false
-    t.datetime "updatedAt", null: false
-    t.index ["ResumeId"], name: "basic_infos__resume_id", unique: true
-  end
-
-# Could not dump table "Entities" because of following StandardError
-#   Unknown type '"enum_Entities_type"' for column 'type'
-
-  create_table "Resumes", id: :serial, force: :cascade do |t|
-    t.string "templateName", limit: 255
-    t.string "name", limit: 255
-    t.datetime "createdAt", null: false
-    t.datetime "updatedAt", null: false
-    t.integer "UserId"
-    t.index ["UserId"], name: "resumes__user_id", unique: true
-  end
-
-  create_table "SequelizeMeta", primary_key: "name", id: :string, limit: 255, force: :cascade do |t|
-  end
-
-  create_table "Skills", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.integer "rating"
-    t.datetime "createdAt", null: false
-    t.integer "ResumeId"
-    t.datetime "updatedAt", null: false
-    t.index ["ResumeId"], name: "skills__resume_id", unique: true
-  end
-
-  create_table "Users", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255, null: false
-    t.string "email", limit: 255, null: false
-    t.string "hashed_password", limit: 255, null: false
-    t.datetime "createdAt", null: false
-    t.datetime "updatedAt", null: false
-    t.index ["email"], name: "users_email", unique: true
-  end
-
   create_table "basic_infos", force: :cascade do |t|
     t.string "name"
     t.string "title"
@@ -162,8 +111,4 @@ ActiveRecord::Schema.define(version: 2020_02_04_125148) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "BasicInfos", "\"Resumes\"", column: "ResumeId", name: "BasicInfos_ResumeId_fkey"
-  add_foreign_key "Entities", "\"Resumes\"", column: "ResumeId", name: "Entities_ResumeId_fkey"
-  add_foreign_key "Resumes", "\"Users\"", column: "UserId", name: "Resumes_UserId_fkey", on_update: :cascade, on_delete: :nullify
-  add_foreign_key "Skills", "\"Resumes\"", column: "ResumeId", name: "Skills_ResumeId_fkey"
 end

@@ -1,6 +1,8 @@
 class BasicInfoController < ApplicationController
   before_action :set_product
 
+  layout false
+
   def update
     @resume.basic_info.update(allowed_params)
   end
