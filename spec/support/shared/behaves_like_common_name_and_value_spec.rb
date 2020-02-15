@@ -33,6 +33,8 @@ shared_examples 'common name and value' do |entity, index, sample|
       fill_in_contact_form(entity, sample)
     end
 
+    resume.reload
+
     expect(expectation).not_to be_empty
   end
 
