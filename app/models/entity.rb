@@ -3,10 +3,24 @@ class Entity < ApplicationRecord
 
   belongs_to :resume
 
-  has_attached_file :logo, styles: { thumb: '200x200>' }, default_url: '100x100.png'
-  validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
+  has_one_attached :logo
 
   validates :type, presence: true
+
+  def thumbnail
+    return ActionView::Helpers::AssetTagHelper.image_url('100x100.png') unless logo.present?
+    variant = logo.variant(
+      combine_options: {
+        auto_orient: true,
+        gravity: "center",
+        resize: "200x200^",
+        crop: "200x200+0+0"
+      }
+    )
+    Rails.application.routes.url_helpers.rails_representation_url(
+      variant.processed
+    )
+  end
 
   def full_address
     "#{address} #{city} #{country} #{postal_code}"

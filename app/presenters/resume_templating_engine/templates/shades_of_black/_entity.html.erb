@@ -5,8 +5,8 @@
         <div data-since="<%= entity.dig(:attributes, :since) %>"
              data-upuntil="<%= entity.dig(:attributes, :upuntil) %>">
           <div class="d-flex">
-            <% if entity.dig(:attributes, :logo) %>
-              <img src="<%= "#{request.base_url}/#{entity.dig(:attributes, :logo)}" %>"
+            <% if entity.dig(:attributes, :logo).present? %>
+              <img src="<%= entity.dig(:attributes, :logo) %>"
                 class="d-block thumb rounded mr-2" />
             <% end %>
             <div>

@@ -6,7 +6,7 @@ class EntitySerializer
              :postal_code
 
   attribute :logo do |object|
-    object.logo(:thumb)
+    object.try(:thumbnail)
   end
 
   attribute :since do |object|
