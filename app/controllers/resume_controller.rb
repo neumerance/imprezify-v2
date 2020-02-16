@@ -39,7 +39,7 @@ class ResumeController < ApplicationController
   def destroy; end
 
   def export_as_pdf
-    PdfGenerationJob.new(@resume).enqueue(wait: 1.minute)
+    PdfGenerationJob.perform_later(@resume)
     render layout: false
   end
 
