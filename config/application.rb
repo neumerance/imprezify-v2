@@ -43,5 +43,7 @@ module ImprezifyV2
     config.hosts << 'localhost'
     config.hosts << 'lvh.me'
     config.hosts << 'www.example.com'
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end

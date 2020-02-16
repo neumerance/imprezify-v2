@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   default_url_options host: ENV['DOMAIN']
+  require 'sidekiq/web'
 
   devise_for :users, controllers: { registrations: 'registrations' }
+  authenticate :user, lambda { |u| u.email == ENV['WEBMASTER'] } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   root to: 'landing_pages#home'
   get '/contacts', to: 'landing_pages#contacts'

@@ -73,5 +73,6 @@ gem 'fast_jsonapi'
 gem 'httparty'
 gem 'meta-tags'
 gem 'airbrake'
-gem "mini_magick"
+gem 'mini_magick'
+gem 'sidekiq'
 gem "aws-sdk-s3", require: false
