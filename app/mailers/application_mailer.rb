@@ -21,8 +21,9 @@ class ApplicationMailer < ActionMailer::Base
   private
 
   def set_resume_as_attachment(resume)
+    byebug
     response = Api2PdfService.generate_pdf_data(
-      "https://www.imprezify.com/#{resume_share_path(share_code: @resume.sharing_code)}"
+      "#{ENV['DOMAIN']}#{resume_share_path(share_code: @resume.sharing_code)}"
     )
     Imprezify::PDFGenerationFailed unless response.success?
     ResponseToPdf.generate(content: response.body)
