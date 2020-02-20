@@ -45,5 +45,8 @@ module ImprezifyV2
     config.hosts << 'www.example.com'
 
     config.active_job.queue_adapter = :sidekiq
+
+    config.assets.compile = true
+    config.assets.digest = true
   end
 end
