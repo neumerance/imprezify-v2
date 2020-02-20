@@ -45,5 +45,7 @@ module ImprezifyV2
     config.hosts << 'www.example.com'
 
     config.active_job.queue_adapter = :sidekiq
+
+    config.assets.paths << "#{Rails.root}/app/presenters/resume_templating_engine"
   end
 end

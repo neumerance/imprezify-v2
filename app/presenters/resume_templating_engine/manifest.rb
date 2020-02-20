@@ -28,21 +28,18 @@ module ResumeTemplatingEngine
 
     def thumbnail(slug)
       path = Rails.root.join("#{TEMPLATE_ROOT}/#{slug}/thumbnail.png")
-      path_to_base64_url(path, 'thumbnail')
+      path_to_asset_url(path, slug, 'thumbnail')
     end
 
     def preview(slug)
       path = Rails.root.join("#{TEMPLATE_ROOT}/#{slug}/preview.png")
-      path_to_base64_url(path, 'preview')
+      path_to_asset_url(path, slug, 'preview')
     end
 
-    def path_to_base64_url(path, type)
-      path = File.exists?(path) ?
-        path : Rails.root.join(
-          "app/presenters/resume_templating_engine/default-#{type}.jpg"
-        )
-      encoded_image = Base64.encode64(File.read(path))
-      "data:image/png;base64,#{encoded_image}"
+    def path_to_asset_url(path, slug, type)
+      File.exists?(path) ?
+        ActionController::Base.helpers.asset_url("templates/#{slug}/#{type}.jpg") :
+        ActionController::Base.helpers.asset_url("default-#{type}.jpg")
     end
   end
 end
