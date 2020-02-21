@@ -4,7 +4,7 @@
       <li class="pl-4 pt-4 pb-4 timeline-border">
         <div data-since="<%= entity.dig(:attributes, :since) %>"
              data-upuntil="<%= entity.dig(:attributes, :upuntil) %>">
-          <div class="d-flex">
+          <div class="d-flex align-items-start">
             <% if entity.dig(:attributes, :logo).present? %>
               <img src="<%= entity.dig(:attributes, :logo) %>"
                 class="d-block thumb rounded mr-2" />
@@ -21,19 +21,19 @@
                   </ul>
                 <% end %>
                 <ul class="p-0 no-bullets">
-                  <% if entity.dig(:attributes, :full_address) %>
+                  <% if entity.dig(:attributes, :full_address).present? %>
                     <li class="text-muted d-flex align-items-center mb-2">
                       <span class="fa fa-envelope mr-2 width-20px mr-2"></span>
                       <span><%= entity.dig(:attributes, :full_address) %></span>
                     </li>
                   <% end %>
-                  <% if entity.dig(:attributes, :email) %>
+                  <% if entity.dig(:attributes, :email).present? %>
                     <li class="text-muted d-flex align-items-center mb-2">
                       <span class="fas fa-at mr-2 width-20px mr-2"></span>
                       <span><%= entity.dig(:attributes, :email) %></span>
                     </li>
                   <% end %>
-                  <% if entity.dig(:attributes, :phone) %>
+                  <% if entity.dig(:attributes, :phone).present? %>
                     <li class="text-muted d-flex align-items-center mb-2">
                       <span class="fas fa-phone-square mr-2 width-20px mr-2"></span>
                       <span><%= entity.dig(:attributes, :phone) %></span>

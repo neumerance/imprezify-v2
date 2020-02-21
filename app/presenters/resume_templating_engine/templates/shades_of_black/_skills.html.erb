@@ -4,20 +4,24 @@
       <span class="fas fa-swatchbook width-30px mr-2"></span> Expertise
     </h3>
     <% skills.each do |skill| %>
-      <h5 class="h6 d-flex justify-content-between">
-        <span><%= skill.dig(:attributes, :name) %></span>
-        <span><%= skill.dig(:attributes, :value) %></span>
-      </h5>
-      <div class="progress mb-3">
-        <div
-          class="progress-bar bg-secondary"
-          aria-valuemax="100"
-          aria-valuemin="0"
-          aria-valuenow="<%= skill.dig(:attributes, :rating_percentage) %>"
-          role="progressbar" style="width: <%= skill.dig(:attributes, :rating_percentage) %>%"
-        >
+      <% if skill.dig(:attributes, :name).present? %>
+        <div class="mb-4">
+          <h5 class="h6 d-flex justify-content-between">
+            <span><%= skill.dig(:attributes, :name) %></span>
+            <span><%= skill.dig(:attributes, :value) %></span>
+          </h5>
+          <div class="progress">
+            <div
+              class="progress-bar bg-secondary"
+              aria-valuemax="100"
+              aria-valuemin="0"
+              aria-valuenow="<%= skill.dig(:attributes, :rating_percentage) %>"
+              role="progressbar" style="width: <%= skill.dig(:attributes, :rating_percentage) %>%"
+            >
+            </div>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <div class="dropdown-divider mt-4 mb-4"></div>

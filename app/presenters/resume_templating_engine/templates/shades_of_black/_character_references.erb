@@ -1,0 +1,28 @@
+<% if references %>
+  <div class="mb-4">
+    <h3 class="h4 mb-3">
+      <span class="fas fa-user-friends width-30px mr-2"></span>Character References
+    </h3>
+    <% references.each do |reference| %>
+      <div class="mb-4">
+        <h5><%= reference.dig(:attributes, :name) || 'Name' %><h5>
+        <h6><%= reference.dig(:attributes, :title) || 'Title' %></h6>
+        <ul class="p-0 no-bullets">
+          <% if reference.dig(:attributes, :email).present? %>
+            <li class="d-flex align-items-center mb-2">
+              <span class="fas fa-at mr-2 width-20px mr-2"></span>
+              <span><%= reference.dig(:attributes, :email) %></span>
+            </li>
+          <% end %>
+          <% if reference.dig(:attributes, :phone).present? %>
+            <li class="d-flex align-items-center mb-2">
+              <span class="fas fa-phone-square mr-2 width-20px mr-2"></span>
+              <span><%= reference.dig(:attributes, :phone) %></span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <div class="dropdown-divider mt-4 mb-4"></div>
+<% end %>

@@ -35,6 +35,10 @@
             ActionController::Base.render partial: "shades_of_black/personal_info",
             locals: { basic_info: data.dig(:attributes, :basic_info, :attributes) }
           %>
+          <%=
+            ActionController::Base.render partial: "shades_of_black/character_references",
+            locals: { references: data.dig(:attributes, :character_references) || [] }
+          %>
         </div>
         <div class="col-sm-9 right text-dark p-4">
           <%=

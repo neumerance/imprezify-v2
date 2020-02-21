@@ -17,6 +17,10 @@ class ResumeSerializer
     CertificationAndAchievementSerializer.new(object.certification_and_achievements).serializable_hash[:data]
   end
 
+  attributes :character_references do |object|
+    CharacterReferenceSerializer.new(object.character_references).serializable_hash[:data]
+  end
+
   attribute :skills do |object|
     SkillSerializer.new(object.skills).serializable_hash[:data]
   end

@@ -8,7 +8,7 @@ class Entity < ApplicationRecord
   validates :type, presence: true
 
   def thumbnail
-    return ActionView::Helpers::AssetTagHelper.image_url('100x100.png') unless logo.present?
+    return '' unless logo.present?
     variant = logo.variant(
       combine_options: {
         auto_orient: true,

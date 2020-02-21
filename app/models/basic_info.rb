@@ -5,7 +5,7 @@ class BasicInfo < ApplicationRecord
   enum gender: [:male, :female]
 
   def thumbnail
-    return ActionView::Helpers::AssetTagHelper.image_url('100x100.png') unless photo.present?
+    return '' unless photo.present?
     variant = photo.variant(
       combine_options: {
         auto_orient: true,
