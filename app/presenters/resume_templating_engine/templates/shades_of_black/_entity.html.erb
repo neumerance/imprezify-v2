@@ -6,8 +6,10 @@
              data-upuntil="<%= entity.dig(:attributes, :upuntil) %>">
           <div class="d-flex align-items-start">
             <% if entity.dig(:attributes, :logo).present? %>
-              <img src="<%= entity.dig(:attributes, :logo) %>"
-                class="d-block thumb rounded mr-2" />
+              <div>
+                <img src="<%= entity.dig(:attributes, :logo) %>"
+                  class="d-block thumb rounded mr-2" />
+              </div>
             <% end %>
             <div>
               <% if entity.dig(:attributes, :name) %>
