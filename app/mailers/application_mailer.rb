@@ -14,7 +14,7 @@ class ApplicationMailer < ActionMailer::Base
       mime_type: 'application/pdf',
       content: File.read(file_path)
     }
-    TempFileCleanupJob.perform_later(file_path)
+    TempFileCleanupJob.set(wait: 15.minutes).perform_later(file_path)
     mail(to: @user.email, subject: 'Thank you for using Imprezify')
   end
 
