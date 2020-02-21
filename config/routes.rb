@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  default_url_options host: ENV['DOMAIN']
+  default_url_options host: ENV['DOMAIN'], protocol: :https
   require 'sidekiq/web'
 
   devise_for :users, controllers: { registrations: 'registrations' }
