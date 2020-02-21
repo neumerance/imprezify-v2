@@ -48,5 +48,7 @@ module ImprezifyV2
 
     config.assets.compile = true
     config.assets.digest = true
+
+    config.active_storage.queue = :low
   end
 end
