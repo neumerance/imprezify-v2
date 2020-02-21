@@ -33,7 +33,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'ffaker'
   gem 'launchy'
 end
 
@@ -76,3 +75,4 @@ gem 'airbrake'
 gem 'mini_magick'
 gem 'sidekiq'
 gem "aws-sdk-s3", require: false
+gem 'ffaker'
