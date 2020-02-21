@@ -27,12 +27,12 @@ module ResumeTemplatingEngine
     end
 
     def thumbnail(slug)
-      path = Rails.root.join("#{TEMPLATE_ROOT}/#{slug}/thumbnail.png")
+      path = Rails.root.join("#{TEMPLATE_ROOT}/#{slug}/thumbnail.jpg")
       path_to_asset_url(path, slug, 'thumbnail')
     end
 
     def preview(slug)
-      path = Rails.root.join("#{TEMPLATE_ROOT}/#{slug}/preview.png")
+      path = Rails.root.join("#{TEMPLATE_ROOT}/#{slug}/preview.jpg")
       path_to_asset_url(path, slug, 'preview')
     end
 
