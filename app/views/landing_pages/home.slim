@@ -19,12 +19,12 @@ section#home.pb_cover_v3.overflow-hidden.cover-bg-indigo.cover-bg-opacity.text-l
 
       .col-md-5.relative.align-self-center
         = render partial: 'devise/registrations/form', locals: { resource: @resource, resource_name: @resource_name }
-section#templates.pb_section.bg-light.pb_slant-white.pb_pb-250
+section#templates.pb_section.bg-light.pb_slant-white.pb_pb-220
   = render partial: 'resume/template_carousel', locals: { manifest: @manifest, resume: @resume }
 section#reviews.pb_section.pb_slant-light.pb_pb-220
   .container
     .row.justify-content-center.mb-1
-      .col-md-6.text-center.mb-5
+      .col-md-6.text-center.mb-5.mt-5
         h5.text-uppercase.pb_font-15.mb-2.pb_color-dark-opacity-3.pb_letter-spacing-2
           strong Reviews
         h2 Good Review From Good People
@@ -97,10 +97,10 @@ section#reviews.pb_section.pb_slant-light.pb_pb-220
                   h3.heading Marie Gibson
                   span.subheading @marie
 
-section#faq.pb_section.bg-light.pb_slant-white.pb_pb-250
+section#faq.pb_section.bg-light.pb_slant-white.pb_pb-220
   .container
     .row.justify-content-center.mb-5
-      .col-md-6.text-center.mb-5
+      .col-md-6.text-center.mb-5.mt-5
         h5.text-uppercase.pb_font-15.mb-2.pb_color-dark-opacity-3.pb_letter-spacing-2
           strong
             | FAQ
@@ -112,7 +112,7 @@ section#faq.pb_section.bg-light.pb_slant-white.pb_pb-250
 section#support-us.pb_section.pb_slant-white
   .container
     .row.justify-content-center.mb-5
-      .col-md-6.text-center.mb-5
+      .col-md-6.text-center.mb-5.mt-5
         h5.text-uppercase.pb_font-15.mb-2.pb_color-dark-opacity-3.pb_letter-spacing-2
           strong We need your support
         h2 How can you help?
