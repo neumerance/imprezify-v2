@@ -12,6 +12,7 @@ namespace :deploy do
       on roles(fetch(:assets_roles)) do |server|
         %x{rsync -avr --exclude='.DS_Store' ./public/assets/ #{server.user}@#{server.hostname}:#{release_path}/public/assets/}
         %x{rsync -avr --exclude='.DS_Store' ./public/packs/ #{server.user}@#{server.hostname}:#{release_path}/public/packs/}
+        %x{rsync -avr --exclude='.DS_Store' ./tmp/cache/ #{server.user}@#{server.hostname}:#{release_path}/tmp/cache/}
       end
 
       %x{bundle exec rake assets:clobber}
