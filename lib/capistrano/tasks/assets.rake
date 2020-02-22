@@ -6,6 +6,7 @@ namespace :deploy do
     desc 'Precompile assets locally and then rsync to remote servers'
     task :precompile do
       %x{yarn install --check-files}
+      %x{bundle exec rake tmp:cache:clear}
       %x{bundle exec rake assets:precompile}
 
       on roles(fetch(:assets_roles)) do |server|
