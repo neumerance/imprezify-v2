@@ -19,7 +19,7 @@ module PageMetaTagHandler
     @page_meta_tags[:description] = 'Build your own professional looking resume in minutes absolutely FREE.'
     @page_meta_tags[:keywords] = 'resume, free resume, professional resume, resume template, cv, free cv'
     @page_meta_tags[:canonical] = request.base_url
-    @page_meta_tags[:image_src] = view_context.image_url('og_image.png')
+    @page_meta_tags[:image_src] = view_context.image_url('facebook-banner.jpg')
     @page_meta_tags[:og] = {
       url: request.base_url,
       title: 'Best free professional resume builder',
