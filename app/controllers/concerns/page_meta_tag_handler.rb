@@ -24,7 +24,7 @@ module PageMetaTagHandler
       url: request.base_url,
       title: 'Best free professional resume builder',
       description: 'Build your own professional looking resume in minutes absolutely FREE.',
-      image: view_context.image_url('og_image.png'),
+      image: view_context.image_url('facebook-banner.jpg'),
     }
     @page_meta_tags[:fb] = { app_id: ENV['FB_APP_ID'] }
   end
