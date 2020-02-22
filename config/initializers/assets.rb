@@ -10,7 +10,7 @@ Rails.application.config.assets.paths <<  Rails.root.join("app/presenters/resume
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( landing.scss )
 Rails.application.config.assets.precompile += %w( default-preview.jpg default-thumbnail.jpg )
-Rails.application.config.assets.precompile += %w( templates/shades_of_black/default-thumbnail.jpg templates/shades_of_black/default-preview.jpg )
+Rails.application.config.assets.precompile += %w( templates/shades_of_black/thumbnail.jpg templates/shades_of_black/preview.jpg )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
