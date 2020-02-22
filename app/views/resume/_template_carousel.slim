@@ -16,9 +16,10 @@
     .carousel-inner
       - index = 0
       - manifest.each do |template_slug, template|
-        .carousel-item class="#{index == 0 ? 'active' : nil}" data-interval="false"
-          = render partial: 'resume/template_selection', locals: { template_slug: template_slug, template: template }
-        - index += 1
+        - if template['active']
+          .carousel-item class="#{index == 0 ? 'active' : nil}" data-interval="false"
+            = render partial: 'resume/template_selection', locals: { template_slug: template_slug, template: template }
+          - index += 1
     a.carousel-control-prev.pb-width-auto data-slide="prev" href="#templateCarouselIndicators" role="button"
       span.fa.fa-chevron-left.fa-2x.text-primary
     a.carousel-control-next.pb-width-auto data-slide="next" href="#templateCarouselIndicators" role="button"

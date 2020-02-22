@@ -3,13 +3,16 @@ shades_of_black:
   description: 'Basic and simple professional looking resume template suitable on any job titles.'
   author: 'Jonathan Canaveral'
   category: simple
+  active: true
 clean_and_green:
   name: 'Clean and green'
   description: 'An executive resume sample with a contemporary approach and eye-catching design that will make sure your application will be spotted first.'
   author: 'Jonathan Canaveral'
   category: 'simple'
+  active: false
 simply_creative:
   name: 'Simply Creative'
   description: 'Land your dream job in the creative industries by using this creative resume template which will make your application stand out.'
   author: 'Jonathan Canaveral'
   category: 'simple'
+  active: false
