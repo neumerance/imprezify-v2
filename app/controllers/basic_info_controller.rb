@@ -5,7 +5,9 @@ class BasicInfoController < ApplicationController
 
   def update
     @resume.basic_info.update(allowed_params)
-    @resume.basic_info.photo.attach(allowed_params[:photo])
+    if allowed_params[:photo].present?
+      @resume.basic_info.photo.attach(allowed_params[:photo])
+    end
   end
 
   private

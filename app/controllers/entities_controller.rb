@@ -10,7 +10,9 @@ class EntitiesController < ApplicationController
 
   def create
     allowed_params.each do |entity_params|
-      self.class.model.find(entity_params[:id]).update(entity_params.except(:id))
+      entity = self.class.model.find(entity_params[:id])
+      entity.update(entity_params.except(:id, :logo))
+      entity.logo.attach(entity_params[:logo])
     end
   end
 

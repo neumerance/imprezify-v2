@@ -1,0 +1,23 @@
+.container
+  .row.align-items-center.justify-content-center
+    .col-md-6
+      h1.heading.mb-3
+        | Get Professional CV for Free.
+      .sub-heading
+        p.mb-4
+          | Since we first launch Imprezify, thousands of CVs generated so far and counting.
+        p.mb-4
+          | To land in your dream job.
+        p.mb-4
+          | Give impression that lasts. Get professional CV now.
+        p.mb-4
+          strong.mr-2 Imprezify
+          | hiring manager or clients with your professional looking CV.
+        p.mb-5
+          = link_to new_user_registration_path, class: 'btn btn-success btn-lg pb_btn-pill smoothscroll' do
+            span.pb_font-14.text-uppercase.pb_letter-spacing-1
+              | Sign Up Now
+    .col-md-1
+
+    .col-md-5.relative.align-self-center
+      = render partial: 'devise/registrations/form', locals: { resource: @resource, resource_name: @resource_name }
