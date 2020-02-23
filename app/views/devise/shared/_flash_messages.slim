@@ -1,4 +1,5 @@
 - if flash.any?
   #explanation
     - flash.each do |name, message|
-      p= message
+      p.alert class="alert-#{name}"
+        = message

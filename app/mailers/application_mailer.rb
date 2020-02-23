@@ -18,9 +18,9 @@ class ApplicationMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Thank you for using Imprezify')
   end
 
-  def send_feedback(params)
-    @params = params
-    mail(to: 'info.imprezify@gmail.com', subject: params[:subject])
+  def send_feedback(feedback)
+    @feedback = feedback
+    mail(to: 'info.imprezify@gmail.com', subject: feedback.subject)
   end
 
   private
