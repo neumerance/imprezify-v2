@@ -1,14 +1,14 @@
 p style=("margin-bottom: 20px;")
   span style=("margin-right: 10px") Hey,
-  = params[:subject]
-- if params[:email].present?
+  = @feedback.subject
+- if  @feedback.email.present?
   p style=("margin-bottom: 20px;")
     span style=("margin-right: 10px")
       | From:
-    = params[:email]
+    = @feedback.email
 p style=("margin-bottom: 20px;")
-  = params[:message]
-- if params[:rating].present?
+  = @feedback.message
+- if @feedback.rating.present?
   p style=("margin-bottom: 20px;")
     span style=("margin-right: 5px;") Rating:
-    = params[:rating]
+    = @feedback.rating

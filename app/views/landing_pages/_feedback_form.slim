@@ -1,6 +1,7 @@
 = form_tag(feedback_path, class: 'bg-white rounded pb_form_v1') do |f|
+  = hidden_field_tag 'referrer_url', request.original_fullpath
   = hidden_field_tag 'feedback[subject]', subject
-  = hidden_field_tag 'feedback[notice]', notice
+  = hidden_field_tag 'notice', notice
   = render partial: 'devise/shared/flash_messages', locals: { flash: flash }
   - if current_user.present?
     = hidden_field_tag 'feedback[email]', current_user.email

@@ -3,6 +3,8 @@ class LandingPagesController < ApplicationController
   before_action :set_homepage_tags, only: :home
   skip_before_action :authenticate_user!
 
+  before_action :set_feedback, only: [:review, :contact_us, :feedback]
+
   layout 'landing'
 
   def home
@@ -25,19 +27,26 @@ class LandingPagesController < ApplicationController
   def thankyou; end
 
   def feedback
-    feedback = Feedback.new
-    feedback.assign_attributes(feedback_params)
-    ApplicationMailer.send_feedback(feedback_params).deliver
-    flash[:notice] = feedback_params[:notice]
-    redirect_to thankyou_path
+    if @feedback.valid?
+      ApplicationMailer.send_feedback(@feedback).deliver
+      flash[:notice] = params[:notice]
+      redirect_to thankyou_path
+    else
+      flash[:danger] = 'Unable to submit your feedback. Please check all fields.'
+      redirect_to params[:referrer_url]
+    end
   end
 
-  def thank_you
-  end
+  def thank_you; end
 
   private
 
+  def set_feedback
+    @feedback = Feedback.new
+    @feedback.assign_attributes(feedback_params) if params[:feedback].present?
+  end
+
   def feedback_params
-    params.require(:feedback).permit(:subject, :email, :message, :rating, :notice)
+    params.require(:feedback).permit(:subject, :email, :message, :rating)
   end
 end
