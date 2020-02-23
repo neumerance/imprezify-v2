@@ -26,6 +26,7 @@ html[lang="en"]
     = stylesheet_link_tag 'landing', media: 'all', 'data-turbolinks-track': 'reload'
     script[src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="28c3b3398ae4255d6964f889-|49" defer=""]
     = javascript_pack_tag 'landing'
+    = yield :head
   body[data-spy="scroll" data-target="#pb-navbar" data-offset="200"]
     /! Google Tag Manager (noscript)
     noscript
