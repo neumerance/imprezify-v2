@@ -1,3 +1,5 @@
+import 'packs/src/landing.scss'
+
 require("jquery");
 require("popper.js");
 require("jquery-easing");
@@ -5,6 +7,7 @@ require("waypoints/src/waypoint");
 require("bootstrap/dist/js/bootstrap");
 require("slick-carousel");
 require("packs/form_utils");
+require('bootstrap-star-rating');
 
 const activeNavbar = () => {
   const navbar = jQuery('.pb_navbar');
@@ -200,6 +203,23 @@ const ytpPlayer = () => {
   }
 }
 
+const initRatingField = (selector) => {
+  const elem = jQuery(selector);
+  elem.rating({
+    min: 1,
+    max: 5,
+    step: 1,
+    size:'md',
+    filledStar: '<i class="fa fa-star"></i>',
+    emptyStar: '<i class="fa fa-star-o" aria-hidden="true"></i>'
+  });
+  elem.on('rating:change', (event, value, caption) => {
+    console.log('value', value);
+    elem.rating('update', value);
+    console.log('value', elem.val());
+  });
+}
+
 window.landing =  {
   loader,
   activeNavbar,
@@ -208,4 +228,5 @@ window.landing =  {
   offCanvasNav,
   ytpPlayer,
   slickSliders,
+  initRatingField,
 }

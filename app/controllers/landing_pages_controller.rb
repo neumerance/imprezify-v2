@@ -12,11 +12,32 @@ class LandingPagesController < ApplicationController
     @resume = Resume.new
   end
 
-  def contacts; end
+  def review; end
+
+  def contact_us; end
 
   def contribute; end
 
   def write; end
 
   def privacy; end
+
+  def thankyou; end
+
+  def feedback
+    feedback = Feedback.new
+    feedback.assign_attributes(feedback_params)
+    ApplicationMailer.send_feedback(feedback_params).deliver
+    flash[:notice] = feedback_params[:notice]
+    redirect_to thankyou_path
+  end
+
+  def thank_you
+  end
+
+  private
+
+  def feedback_params
+    params.require(:feedback).permit(:subject, :email, :message, :rating, :notice)
+  end
 end

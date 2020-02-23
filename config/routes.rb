@@ -8,10 +8,13 @@ Rails.application.routes.draw do
   end
 
   root to: 'landing_pages#home'
-  get '/contacts', to: 'landing_pages#contacts'
   get '/contribute', to: 'landing_pages#contribute'
   get '/write', to: 'landing_pages#write'
   get '/privacy', to: 'landing_pages#privacy'
+  get '/review', to: 'landing_pages#review'
+  get '/contact-us', to: 'landing_pages#contact_us'
+  post '/feedback', to: 'landing_pages#feedback', as: 'feedback'
+  get '/thankyou_path', to: 'landing_pages#thankyou', as: 'thankyou'
 
   resources :resume do
     resources :basic_info, only: :update

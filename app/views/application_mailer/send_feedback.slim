@@ -1,0 +1,14 @@
+p style=("margin-bottom: 20px;")
+  span style=("margin-right: 10px") Hey,
+  = params[:subject]
+- if params[:email].present?
+  p style=("margin-bottom: 20px;")
+    span style=("margin-right: 10px")
+      | From:
+    = params[:email]
+p style=("margin-bottom: 20px;")
+  = params[:message]
+- if params[:rating].present?
+  p style=("margin-bottom: 20px;")
+    span style=("margin-right: 5px;") Rating:
+    = params[:rating]

@@ -1,0 +1,19 @@
+section.pb_xl_py_cover.overflow-hidden.pb_slant-light.pb_gradient_v1.cover-bg-opacity-8[style="background-image: url(#{asset_url('925-950x600.jpg')})"]
+  .container
+    .row.align-items-center.justify-content-center
+      .col-md-6.justify-content-center
+        h1.heading.mb-5.pb_font-40
+          | How can we help you?
+        .sub-heading
+          p.mb-4
+            | Your thoughts are very important to us.
+          p.mb-4
+            | Let us know your concern, we will get back to you as soon as we can.
+      .col-md-1
+      .col-md-5
+        = render partial: 'feedback_form',\
+          locals: {\
+            subject: 'Someone send us their concern',\
+            type: 'contact_us',\
+            notice: 'We have successfully sent your concern, we will get back to you as soon as we can.'\
+          }

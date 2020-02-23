@@ -1,0 +1,24 @@
+= form_tag(feedback_path, class: 'bg-white rounded pb_form_v1') do |f|
+  = hidden_field_tag 'feedback[subject]', subject
+  = hidden_field_tag 'feedback[notice]', notice
+  = render partial: 'devise/shared/flash_messages', locals: { flash: flash }
+  - if current_user.present?
+    = hidden_field_tag 'feedback[email]', current_user.email
+  - else
+    .form-group
+      = email_field_tag 'feedback[email]', params.dig(:feedback, :email), placeholder: 'Tell us your email', class: 'form-control py-3 reverse'
+  .form-group
+    = text_area_tag 'feedback[message]',
+      params.dig(:feedback, :message),
+      pattern: ".{50,}",
+      title: "50 characters minimum",
+      placeholder: 'Tell us your experience',
+      class: 'form-control py-3 reverse',
+      rows: 5,
+      require: true
+  - if type == 'review'
+    .form-group
+      = label_tag 'feedback[rating]', 'Rate your experience'
+      = number_field_tag 'feedback[rating]', params.dig(:feedback, :rating)
+  .form-group
+    = submit_tag 'Submit', class: 'btn btn-primary btn-lg btn-block pb_btn-pill btn-shadow-blue'

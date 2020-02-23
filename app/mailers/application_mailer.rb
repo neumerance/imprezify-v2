@@ -18,6 +18,11 @@ class ApplicationMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Thank you for using Imprezify')
   end
 
+  def send_feedback(params)
+    @params = params
+    mail(to: 'info.imprezify@gmail.com', subject: params[:subject])
+  end
+
   private
 
   def set_resume_as_attachment(resume)
