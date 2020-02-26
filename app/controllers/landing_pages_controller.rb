@@ -30,6 +30,7 @@ class LandingPagesController < ApplicationController
     if @feedback.valid?
       ApplicationMailer.send_feedback(@feedback).deliver
       flash[:notice] = params[:notice]
+      current_user.update(sent_feedback: true)
       redirect_to thankyou_path
     else
       flash[:danger] = 'Unable to submit your feedback. Please check all fields.'
