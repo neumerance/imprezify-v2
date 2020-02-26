@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/review', to: 'landing_pages#review'
   get '/contact-us', to: 'landing_pages#contact_us'
   post '/feedback', to: 'landing_pages#feedback', as: 'feedback'
-  get '/thankyou_path', to: 'landing_pages#thankyou', as: 'thankyou'
+  get '/thankyou', to: 'landing_pages#thankyou', as: 'thankyou'
 
   resources :resume do
     resources :basic_info, only: :update

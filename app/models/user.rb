@@ -6,7 +6,13 @@ class User < ApplicationRecord
          :confirmable
   has_many :resumes
 
+  enum support_type: [:free, :maintainer, :launcher]
+
   def devise_mailer
     ImprezifyDeviseMailer
+  end
+
+  def webmaster?
+    ENV['WEBMASTER'] == email
   end
 end

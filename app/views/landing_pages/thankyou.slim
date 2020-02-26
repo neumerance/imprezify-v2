@@ -1,8 +1,12 @@
-section.pb_xl_py_cover.overflow-hidden.pb_slant-light.pb_gradient_v1.cover-bg-opacity-8[style="background-image: url(#{asset_url('925-950x600.jpg')})"]
+section.pb_section.bg-light.pb_slant-light.pb_py-100
   .container
     .row.align-items-center.justify-content-center
       .col-md-12.justify-content-center
         h1.heading.mb-5.pb_font-40
           | Thank you
         .sub-heading
-          p.mb-4= flash[:notice]
+          p.mb-4= simple_format flash[:notice]
+section.pb_xl_py_cover.overflow-hidden.pb_slant-light.pb_gradient_v1.cover-bg-opacity-8[style="background-image: url(#{asset_url('925-950x600.jpg')})"]
+  = render partial: 'landing_pages/support_us'
+javascript:
+  window.landing.activeNavbar();

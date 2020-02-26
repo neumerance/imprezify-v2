@@ -40,7 +40,7 @@ class ResumeController < ApplicationController
 
   def export_as_pdf
     PdfGenerationJob.perform_later(@resume)
-    render layout: false
+    display_thank_you_or_ask_feedback
   end
 
   def generate_share_link
@@ -75,5 +75,18 @@ class ResumeController < ApplicationController
 
   def resume_params
     params.require(:resume).permit!
+  end
+
+  def display_thank_you_or_ask_feedback
+    if current_user.sent_feedback?
+      flash[:notice] = "Thank you for using Imprezify.\n\n" \
+                       "We have sent your resume to your email."
+      redirect_to thankyou_path
+    else
+      flash[:info] = "We have sent your resume to your email.\n\n" \
+                     "While waiting for it, please give us a minute or two.\n\n"\
+                     "Tell us how your experience goes with Imprezify."
+      redirect_to review_path
+    end
   end
 end

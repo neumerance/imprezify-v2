@@ -1,5 +1,5 @@
 - if flash.any?
   #explanation
     - flash.each do |name, message|
-      p.alert class="alert-#{name}"
-        = message
+      div.alert class="alert-#{name}"
+        = simple_format message

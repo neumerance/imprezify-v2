@@ -24,7 +24,7 @@ section#section-features.pb_section.bg-light
                         i.fa.fa-eye.mr-2
                         | Preview
                     li.list-group-item.list-group-item-action.p-1.pr-2.pl-2
-                      = link_to resume_share_path(share_code: resume.sharing_code), class: 'text-dark', target: '_blank' do
+                      = link_to export_as_pdf_resume_path(resume), class: 'text-dark', target: '_blank' do
                         i.fa.fa-download.mr-2
                         | Export
         .col-lg-2.col-md-.col-sm-12
