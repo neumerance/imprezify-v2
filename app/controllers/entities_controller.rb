@@ -12,7 +12,7 @@ class EntitiesController < ApplicationController
     allowed_params.each do |entity_params|
       entity = self.class.model.find(entity_params[:id])
       entity.update(entity_params.except(:id, :logo))
-      entity.logo.attach(entity_params[:logo])
+      entity.logo.attach(entity_params[:logo]) if entity_params[:logo].present?
     end
   end
 

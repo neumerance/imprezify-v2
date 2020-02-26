@@ -8,21 +8,25 @@ section#section-features.pb_section.bg-light
       - if @resumes.any?
         - @resumes.each do |resume|
           .col-lg-4.col-md-.col-sm-6.mb-2
-            .border.p-2.bg-white
-              .media.pb_feature-v2.text-left.mb-0
-                .pb_icon.mr-3
+            .border.p-3.bg-white
+              .d-flex.justify-content-start.mb-0
+                div.mr-3
                   = image_tag @manifest[resume.template_name]['thumbnail'], width: 100, class: 'rounded'
-                .media-body
-                  h3.mt-2.mb-2.heading.truncate-250= resume.name
-                  .text-sans-serif.pb_font-16
-                    = link_to 'Edit', edit_resume_path(resume)
-                    span.mr-2.ml-2= "|"
-                    = link_to 'Delete', resume_path(resume), remote: true, method: :delete
-                    span.mr-2.ml-2= "|"
-                    = link_to 'Preview', resume_share_path(share_code: resume.sharing_code), target: '_blank'
-                  span.text-sans-serif.pb_font-16
-                    span.fa.fa-calendar.mr-2
-                    = resume.created_at.strftime('%B %e, %Y')
+                div.flex-1
+                  h2.h5.mt-2.mb-2= resume.name
+                  ul.list-group.list-group-flush.d-block
+                    li.list-group-item.list-group-item-action.p-1.pr-2.pl-2
+                      = link_to edit_resume_path(resume), class: 'text-dark' do
+                        i.fa.fa-pencil-square-o.mr-2
+                        | Edit
+                    li.list-group-item.list-group-item-action.p-1.pr-2.pl-2
+                      = link_to resume_share_path(share_code: resume.sharing_code), class: 'text-dark', target: '_blank' do
+                        i.fa.fa-eye.mr-2
+                        | Preview
+                    li.list-group-item.list-group-item-action.p-1.pr-2.pl-2
+                      = link_to resume_share_path(share_code: resume.sharing_code), class: 'text-dark', target: '_blank' do
+                        i.fa.fa-download.mr-2
+                        | Export
         .col-lg-2.col-md-.col-sm-12
           .border.p-2.bg-white
             .media.pb_feature-v2.text-left.mb-0
