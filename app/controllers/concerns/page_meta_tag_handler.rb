@@ -16,14 +16,14 @@ module PageMetaTagHandler
 
   def set_homepage_tags
     @page_meta_tags[:title] = 'Best free professional resume builder'
-    @page_meta_tags[:description] = 'Build your own professional looking resume in minutes absolutely FREE.'
-    @page_meta_tags[:keywords] = 'resume, free resume, professional resume, resume template, cv, free cv'
+    @page_meta_tags[:description] = 'Creative and professional looking resume template for free.'
+    @page_meta_tags[:keywords] = 'resume, resume builder, resume builder free, resume builder singapore, cv builder, cv builder free, free resume builder, free resume builder'
     @page_meta_tags[:canonical] = request.base_url
     @page_meta_tags[:image_src] = view_context.image_url('facebook-banner.jpg')
     @page_meta_tags[:og] = {
       url: request.base_url,
       title: 'Best free professional resume builder',
-      description: 'Build your own professional looking resume in minutes absolutely FREE.',
+      description: 'Creative and professional looking resume template for free.',
       image: view_context.image_url('facebook-banner.jpg'),
     }
     @page_meta_tags[:fb] = { app_id: ENV['FB_APP_ID'] }
@@ -36,6 +36,10 @@ module PageMetaTagHandler
 
   def set_resume_edit_tags
     @page_meta_tags[:title] = 'Edit resume'
+    @page_meta_tags[:noindex] = true
+  end
+
+  def no_index_tags
     @page_meta_tags[:noindex] = true
   end
 end

@@ -1,6 +1,7 @@
 class LandingPagesController < ApplicationController
   before_action :set_home_navigation
   before_action :set_homepage_tags, only: :home
+  before_action :no_index_tags, only: [:thankyou, :contact_us, :review]
   skip_before_action :authenticate_user!
 
   before_action :set_feedback, only: [:review, :contact_us, :feedback]
@@ -14,9 +15,13 @@ class LandingPagesController < ApplicationController
     @resume = Resume.new
   end
 
-  def review; end
+  def review
+    @page_meta_tags[:title] = 'Tell us your experience with us.'
+  end
 
-  def contact_us; end
+  def contact_us
+    @page_meta_tags[:title] = 'You concern is our priority'
+  end
 
   def contribute; end
 
@@ -24,7 +29,9 @@ class LandingPagesController < ApplicationController
 
   def privacy; end
 
-  def thankyou; end
+  def thankyou
+    @page_meta_tags[:title] = 'Thank you for using Imprezify'
+  end
 
   def feedback
     if @feedback.valid?
