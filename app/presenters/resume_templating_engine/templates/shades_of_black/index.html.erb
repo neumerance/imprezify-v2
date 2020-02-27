@@ -39,11 +39,13 @@
             ActionController::Base.render partial: "shades_of_black/character_references",
             locals: { references: data.dig(:attributes, :character_references) || [] }
           %>
-          <div class="text-center text-muted mt-5 mb-5">
-            Powered by <strong>Imprezify.com</strong><br />
-            © 2020 Imprezify<br/>
-            All Rights Reserved
-          </div>
+          <% if current_user.free? %>
+            <div class="text-center text-muted mt-5 mb-5">
+              Powered by <strong>Imprezify.com</strong><br />
+              © 2020 Imprezify<br/>
+              All Rights Reserved
+            </div>
+          <% end %>
         </div>
         <div class="col-sm-9 right text-dark p-4">
           <%=
