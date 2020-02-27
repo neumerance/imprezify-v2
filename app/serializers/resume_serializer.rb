@@ -1,6 +1,12 @@
 class ResumeSerializer
   include FastJsonapi::ObjectSerializer
 
+  attribute :user do |object|
+    {
+      is_free_user: object.user.free?
+    }
+  end
+
   attribute :basic_info do |object|
     BasicInfoSerializer.new(object.basic_info).serializable_hash[:data]
   end
