@@ -9,12 +9,7 @@ class ApplicationMailer < ActionMailer::Base
   def send_generated_pdf(resume)
     @user = resume.user
     @resume = resume
-    file_path = set_resume_as_attachment(resume)
-    attachments["#{resume.name.parameterize}-#{Time.now.to_i}.pdf"] = {
-      mime_type: 'application/pdf',
-      content: File.read(file_path)
-    }
-    TempFileCleanupJob.set(wait: 15.minutes).perform_later(file_path)
+    set_resume_as_attachment
     mail(to: @user.email, subject: 'Thank you for using Imprezify')
   end
 
@@ -25,11 +20,14 @@ class ApplicationMailer < ActionMailer::Base
 
   private
 
-  def set_resume_as_attachment(resume)
+  def set_resume_as_attachment
     response = Api2PdfService.generate_pdf_data(
       "http://#{ENV['DOMAIN']}#{resume_share_path(share_code: @resume.sharing_code)}"
     )
     Imprezify::PDFGenerationFailed unless response.success?
-    ResponseToPdf.generate(content: response.body)
+    attachments["#{@resume.name.parameterize}-#{Time.now.to_i}.pdf"] = {
+      mime_type: 'application/pdf',
+      content: response.body
+    }
   end
 end
