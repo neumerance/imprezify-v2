@@ -5,11 +5,12 @@ const setFieldValue = (name, value) => {
   $(`input[name="${name}"]`).val(value);
 }
 
-const inputAsImageUrl = (input) => {
-  if (input.target.files && input.target.files[0]) {
+const inputAsImageUrl = input => {
+  const el = jQuery(input.target);
+  if (input.target.files.length) {
     const reader = new FileReader();
     reader.onload = function(e) {
-      $('#'+input.target.attributes['data-image-tag'].value+'_preview').attr('src', e.target.result);
+      el.parent().find('img').attr('src', e.target.result);
     }
     reader.readAsDataURL(input.target.files[0]);
   }
@@ -47,6 +48,11 @@ const initFlatpickr = () => {
   });
 }
 
+const selectImage = el => {
+  const elem = jQuery(el);
+  elem.parent().find('input').trigger('click');
+}
+
 window.formUtils = {
   inputAsImageUrl,
   addMoreField,
@@ -54,5 +60,6 @@ window.formUtils = {
   submitForm,
   submitFormById,
   initFlatpickr,
-  setFieldValue
+  setFieldValue,
+  selectImage
 }

@@ -16,7 +16,7 @@ module ResumeHelper
       concat link_to(content_tag(:span, ' Change', class: 'fa fa-pen-square'),
                      'javascript:void(0)',
                      class: 'text-white rounded py-1 px-2 change-photo position-relative',
-                     onclick: "document.querySelectorAll('input[name=\"#{name}\"]')[0].click()")
+                     onclick: "formUtils.selectImage(this)")
     end
   end
 
