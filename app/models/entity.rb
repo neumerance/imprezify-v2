@@ -8,7 +8,7 @@ class Entity < ApplicationRecord
   validates :type, presence: true
 
   def thumbnail
-    return '' unless logo.present?
+    return 'https://via.placeholder.com/150' unless logo.present?
     variant = logo.variant(
       combine_options: {
         auto_orient: true,

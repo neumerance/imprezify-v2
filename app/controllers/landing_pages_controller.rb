@@ -13,6 +13,7 @@ class LandingPagesController < ApplicationController
     @resource_name = 'user'
     @manifest ||= ResumeTemplatingEngine::Manifest.new.get
     @resume = Resume.new
+    @reviews = Review::Get.all
   end
 
   def review

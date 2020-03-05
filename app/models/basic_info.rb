@@ -5,7 +5,7 @@ class BasicInfo < ApplicationRecord
   enum gender: [:male, :female]
 
   def thumbnail
-    return '' unless photo.present?
+    return 'https://via.placeholder.com/150' unless photo.present?
     variant = photo.variant(
       combine_options: {
         auto_orient: true,
